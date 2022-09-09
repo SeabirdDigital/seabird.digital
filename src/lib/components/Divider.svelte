@@ -1,1 +1,0 @@
-<div class="w-5/6 h-[1px] bg-gray-300 my-4 mx-auto" />
