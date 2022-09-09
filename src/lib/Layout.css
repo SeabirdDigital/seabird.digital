@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Specify ExExp';
+    src: url('/fonts/SpecifyExExp.ttf')
+}
+@font-face {
+    font-family: 'Specify Exp';
+    src: url('/fonts/SpecifyExp.ttf')
+}
+
+body {
+    @apply overflow-x-hidden
+}
+
+h1,
+h2,
+h3,
+h4 {
+	@apply font-paytone font-extrabold;
+}
+
+h1 {
+	@apply text-4xl;
+}
+
+h2 {
+    @apply text-2xl
+}
+
+input.field {
+    @apply w-full px-3 py-2 border-gray-300 border-[1px] rounded-md outline-none focus:border-blue-500 shadow-outline-blue mb-3 mt-1
+}
+
+.shadow-outline-blue:focus {
+    box-shadow: 0 0 0 3px rgb(59 130 246 / .45)
+}
+
+.hard-shadow {
+    box-shadow: 5px 5px black;
+
+    @apply duration-150
+}
