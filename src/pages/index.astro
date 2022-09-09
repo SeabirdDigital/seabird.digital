@@ -1,100 +1,14 @@
 ---
-import Blob1 from "../lib/components/Blob1.svelte";
-import Blob2 from "../lib/components/Blob2.svelte";
-import Box1 from "../lib/components/Box1.svelte";
-import Box2 from "../lib/components/Box2.svelte";
 import Layout from "../lib/Layout.astro";
-
-let open = false
-
-let y = 0
+import Header from "../lib/Sections/Header.astro";
+import Hero from "../lib/Sections/Home/Hero.astro";
+import UnderConstruction from "../lib/Sections/UnderConstruction.astro";
 ---
 
 <Layout>
-    <div class="absolute w-full top-6 2xl:top-20 z-50">
-        <div class="container flex justify-between items-center">
-            <div class="font-specify text-4xl font-thin relative">
-                <div class="absolute -top-[160px] 2xl:-top-[175px] -left-[125px] -z-10">
-                    <Blob1 client:load />
-                </div>
-                
-                seabird
-            </div>
-            
-            <div class="">
-                <ul class="flex justify-end items-center text-black text-xl font-mulish font-medium relative">
-                    <li class="cursor-pointer mx-2 border-b-4 border-transparent pt-1 hover:border-black hover:pt-[8px] hover:pb-1 duration-150">Tjänster</li>
-                    <li class="cursor-pointer mx-2 border-b-4 border-transparent pt-1 hover:border-black hover:pt-[8px] hover:pb-1 duration-150">Vilka vi är</li>
-                    <li class="cursor-pointer mx-2 border-b-4 border-transparent pt-1 hover:border-black hover:pt-[8px] hover:pb-1 duration-150">Kunskapsbank</li>
+    <Header />
     
-                    <li class="cursor-pointer ml-16 mr-2 border-b-2 border-transparent pt-1 hover:border-black hover:pt-[6px] hover:pb-1 duration-150">Logga in</li>
+    <Hero />
     
-                    <button class="px-6 py-3 ml-2 border-4 -rotate-2 hover:rotate-0 border-black hard-shadow hover:shadow-none bg-yellow-400">Kontakt</button>
-    
-                    <Box1 client:load />
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    <div class="flex flex-col justify-center items-center h-screen relative pt-16">
-        <h1 class="font-paytone text-center text-6xl mb-6">Vi skapar moderna sidor<br>utan att skada din plånbok</h1>
-        <p class="font-mulish font-bold text-xl text-center mb-6">Att se bra ut online ska inte kosta en förmögenhet.<br>Kontakta oss idag för att få eran nya makeover!</p>
-    
-        <Box2 client:load />
-
-        <div class="absolute top-[35%] right-[40%] -z-10">
-            <Blob2 client:load />
-        </div>
-    </div>
-    
-    
-    <div id="uc" class="flex flex-col items-center">
-        <svg class="h-96" viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g transform="translate(179.87784004211426, 13.305374145507812)">
-                <path class="blob" fill="#F87171">
-                    <animate
-                        attributeName="d"
-                        dur="10000ms"
-                        repeatCount="indefinite"
-    
-                        values="
-                        M408,319Q414,388,348,409Q282,430,209.5,437.5Q137,445,111.5,377.5Q86,310,89.5,251.5Q93,193,116,125Q139,57,210,65.5Q281,74,323,114Q365,154,383.5,202Q402,250,408,319Z;
-                        
-                        M445.5,327.5Q434,405,357.5,415Q281,425,212,430.5Q143,436,100.5,378Q58,320,89,261.5Q120,203,144.5,156Q169,109,228.5,72Q288,35,334,88Q380,141,418.5,195.5Q457,250,445.5,327.5Z;
-                        
-                        M460.5,322Q422,394,351,407Q280,420,233,390.5Q186,361,137.5,335Q89,309,74,245Q59,181,121,158Q183,135,236,82.5Q289,30,363.5,61Q438,92,468.5,171Q499,250,460.5,322Z;
-                        
-                        M414,326.5Q432,403,352.5,392.5Q273,382,208.5,407.5Q144,433,87,381.5Q30,330,23.5,247.5Q17,165,83.5,121.5Q150,78,218,63Q286,48,358,73.5Q430,99,413,174.5Q396,250,414,326.5Z;
-                        
-                        M408,319Q414,388,348,409Q282,430,209.5,437.5Q137,445,111.5,377.5Q86,310,89.5,251.5Q93,193,116,125Q139,57,210,65.5Q281,74,323,114Q365,154,383.5,202Q402,250,408,319Z;"
-                    />
-                </path>
-            </g>
-            <g transform="translate(179.87784004211426, 13.305374145507812)">
-                <path class="border-black stroke-2">
-                    <animate
-                        attributeName="d"
-                        dur="10000ms"
-                        repeatCount="indefinite"
-    
-                        values="
-                        
-                        M445.5,327.5Q434,405,357.5,415Q281,425,212,430.5Q143,436,100.5,378Q58,320,89,261.5Q120,203,144.5,156Q169,109,228.5,72Q288,35,334,88Q380,141,418.5,195.5Q457,250,445.5,327.5Z;
-                        
-                        M460.5,322Q422,394,351,407Q280,420,233,390.5Q186,361,137.5,335Q89,309,74,245Q59,181,121,158Q183,135,236,82.5Q289,30,363.5,61Q438,92,468.5,171Q499,250,460.5,322Z;
-                        
-                        M414,326.5Q432,403,352.5,392.5Q273,382,208.5,407.5Q144,433,87,381.5Q30,330,23.5,247.5Q17,165,83.5,121.5Q150,78,218,63Q286,48,358,73.5Q430,99,413,174.5Q396,250,414,326.5Z;
-                        
-                        M408,319Q414,388,348,409Q282,430,209.5,437.5Q137,445,111.5,377.5Q86,310,89.5,251.5Q93,193,116,125Q139,57,210,65.5Q281,74,323,114Q365,154,383.5,202Q402,250,408,319Z;
-                        
-                        M445.5,327.5Q434,405,357.5,415Q281,425,212,430.5Q143,436,100.5,378Q58,320,89,261.5Q120,203,144.5,156Q169,109,228.5,72Q288,35,334,88Q380,141,418.5,195.5Q457,250,445.5,327.5Z;"
-                    />
-                </path>
-            </g>
-        </svg>
-    
-        <h2 class="text-sb-black/75">Vår sida är under konstruktion</h2>
-        <p class="text-sb-black/50">Vi jobbar med det för att ge dig den bästa upplevelsen!</p>
-    </div> 
+    <UnderConstruction />
 </Layout>
