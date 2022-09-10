@@ -12,6 +12,29 @@ import { SEO } from "astro-seo";
 		<SEO
 		  	title="Seabird Digital | Modern webbdesign till ett bra pris nära Göteborg"
 		  	description="Att se bra ut online ska inte kosta en förmögenhet. Vi är en webbyrå som skapar moderna hemsidor till ett bra pris"
+			openGraph={{
+				basic: {
+					image: "https://seabird.digital/assets/og.png",
+					title: "En webbyrå som skapar moderna sidor utan att skada din plånbok",
+					type: "website"
+				},
+				optional: {
+					locale: "sv-SE",
+					siteName: "Seabird Digital",
+					description: "Att se bra ut online ska inte kosta en förmögenhet. Kontakta oss idag för att få eran nya makeover!"
+				},
+				image: {
+					alt: "Screenshot of Seabird Digitals website",
+					height: 630,
+					width: 1200,
+					type: "image/png",
+					url: "https://seabird.digital/assets/og.png",
+					secureUrl: "https://seabird.digital/assets/og.png",
+				}
+			}}
+			twitter={{
+				card: "summary_large_image"
+			}}
 		/>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
