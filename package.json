@@ -16,6 +16,7 @@
     "@astrojs/svelte": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
     "@astrojs/vercel": "^1.0.2",
+    "astro-seo": "^0.6.0",
     "svelte": "^3.50.1"
   }
 }
