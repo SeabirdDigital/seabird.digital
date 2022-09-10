@@ -1,0 +1,15 @@
+---
+import { Image } from '@astrojs/image/components';
+---
+
+<div class="container grid grid-cols-2 py-36 xl:py-28">
+    <div class="flex justify-center items-center">
+        <Image src="/assets/out-of-this-world.png" height={256} aspectRatio={1} format="webp" alt="En asutronaut i rymden" title="En asutronaut i rymden" />
+    </div>
+
+    <div class="flex flex-col justify-center">
+        <!-- TODO: Other font for "annan värld" -->
+        <h2 class="font-paytone text-4xl mb-6">Inget erövrande över Mars</h2>
+        <p class="font-mulish font-bold text-xl mb-6">Även om vi använder Astro har vi inga planer på att själva bli austronauter. Vi försöker hålla våra projekt grundade så att pengarna du spenderar på din moderna hemsida används för webbdesignen och inte annat skitsnack.</p>
+    </div>
+</div>
