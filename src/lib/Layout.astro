@@ -3,6 +3,7 @@ import "./Layout.css"
 import { SEO } from "astro-seo";
 
 import Header from "../lib/Sections/Header.astro";
+import Footer from "../lib/Sections/Footer.astro";
 ---
 
 <html lang="sv">
@@ -46,5 +47,6 @@ import Header from "../lib/Sections/Header.astro";
 	<body class="overflow-x-hidden">
 		<Header />
 		<slot/>
+		<Footer />
 	</body>
 </html>
