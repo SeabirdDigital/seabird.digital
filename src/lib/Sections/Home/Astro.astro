@@ -2,14 +2,14 @@
 import { Image } from '@astrojs/image/components';
 ---
 
-<div class="container grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-2 py-36 xl:py-28">
+<div class="container grid grid-rows-2 gap-6 md:grid-rows-none grid-cols-none md:grid-cols-2 py-28 md:pt-64 2xl:py-28">
     <div class="flex flex-col justify-center">
-        <!-- TODO: Other font for "annan värld" -->
-        <h2 class="font-paytone text-4xl mb-6">Snabbare och<br>synligare med Astro</h2>
-        <p class="font-mulish font-bold text-xl mb-6">Här på Seabird Digital skapar vi hemsidor med hjälp av Astro, en webframework som hjälper oss att göra din sida snabbare vilket gör att du kommer synas mer på Google!</p>
+        <h2 class="font-paytone text-4xl mb-6 text-center md:text-left">Snabbare och<br>synligare med Astro</h2>
+        <p class="font-mulish font-bold text-xl mb-6 text-center md:text-left">Här på Seabird Digital skapar vi hemsidor med hjälp av Astro, en webframework som hjälper oss att göra din sida snabbare vilket gör att du kommer synas mer på Google!</p>
     </div>
 
-    <div class="flex justify-center items-center">
-        <Image src="/assets/astro.svg" height={256} aspectRatio={1} format="webp" title="Astros logotyp" alt="Astros logotyp" />
+    <div class="flex justify-center items-center order-first md:order-last">
+        <Image class="hidden md:block" src="/assets/astro.svg" height={256}  aspectRatio={1} format="webp" title="Astros logotyp" alt="Astros logotyp" />
+        <Image class="block md:hidden h" src="/assets/astro.svg" height={224}  aspectRatio={1} format="webp" title="Astros logotyp" alt="Astros logotyp" />
     </div>
 </div>
