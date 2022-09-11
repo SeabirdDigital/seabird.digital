@@ -4,12 +4,10 @@ import Box2 from "../../components/Box2.svelte";
 ---
 
 <div class="flex flex-col justify-center items-center h-screen relative pt-16">
-    <h1 class="font-paytone text-center text-6xl mb-6">Vi skapar moderna sidor<br>utan att skada din plånbok</h1>
+    <h1 class="font-paytone text-center text-4xl md:text-5xl 2xl:text-6xl mb-6">Vi skapar moderna sidor<br>utan att skada din plånbok</h1>
     <p class="font-mulish font-bold text-xl text-center mb-6">Att se bra ut online ska inte kosta en förmögenhet.<br>Kontakta oss idag för att få eran nya makeover!</p>
 
     <Box2 client:load />
 
-    <div class="absolute top-[35%] right-[40%] -z-10">
-        <Blob2 client:load />
-    </div>
+    <Blob2 client:load />
 </div>

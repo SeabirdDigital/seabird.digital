@@ -4,7 +4,7 @@ module.exports = {
         extend: {
             container: {
                 center: true,
-                padding: "4.5rem"
+                padding: "2rem"
             },
             fontFamily: {
                 "paytone": ["Paytone One", "display"],
@@ -16,12 +16,11 @@ module.exports = {
                 "hero": `url("/src/lib/assets/hero.webp")`,
             },
             colors: {
-                "sb-dark-blue": "#132E40",
-                "sb-gray": "#CED4D3",
-                "sb-pink": "#CB807D",
-                "sb-orange": "#E18335",
-                "sb-black": "#261F1E",
-                "sb-light-blue": "#3F88C5"
+                "sb-yellow": "#F2C94C",
+                "sb-orange": "#fb923c",
+                "sb-green": "#10b981",
+                "sb-blue": "#38bef8",
+                "sb-dark-blue": "#152443",
             }
         },
     },

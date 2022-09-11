@@ -1,12 +1,16 @@
 ---
 import "./Layout.css"
 import { SEO } from "astro-seo";
+
+import Header from "../lib/Sections/Header.astro";
+import Footer from "../lib/Sections/Footer.astro";
+import UnderConstruction from "./Sections/UnderConstruction.astro";
 ---
 
 <html lang="sv">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/assets/blob.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<SEO
@@ -42,6 +46,11 @@ import { SEO } from "astro-seo";
 		<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&display=swap" rel="stylesheet">
 	</head>
 	<body class="overflow-x-hidden">
-		<slot/>
+		<UnderConstruction />
+		<div class="relative overflow-hidden">
+			<Header />
+			<slot/>
+			<Footer />
+		</div>
 	</body>
 </html>
