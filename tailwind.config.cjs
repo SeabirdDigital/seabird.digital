@@ -4,7 +4,7 @@ module.exports = {
         extend: {
             container: {
                 center: true,
-                padding: "4.5rem"
+                padding: "2rem"
             },
             fontFamily: {
                 "paytone": ["Paytone One", "display"],
