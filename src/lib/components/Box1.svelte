@@ -4,7 +4,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<div class="hidden md:block">
+<div class="hidden lg:block">
     <div class="-z-10 absolute -right-[150px] -top-[125px] w-[400px] h-[250px] bg-emerald-500"/>
-    <div class="-z-10 absolute -right-[150px] -top-[125px] w-[400px] h-[250px] border-8 border-black" style="transform: rotate({10 + y * .036}deg);"/>
+    <div class="-z-10 absolute -right-[150px] -top-[125px] w-[400px] h-[250px] border-[6px] 2xl:border-8 border-black" style="transform: rotate({10 + y * .036}deg);"/>
 </div>
