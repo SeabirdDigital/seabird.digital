@@ -1,0 +1,19 @@
+---
+import { Image } from '@astrojs/image/components';
+---
+
+<!-- TODO: Make responsive -->
+<div class="container flex items-center justify-center">
+    <div class="relative flex items-center -ml-[44rem] w-[32rem]">
+        <div class="z-50 p-24">
+            <h3 class="font-specify-ex uppercase text-lg text-white/70 font-bold -mb-2">Projekt</h3>
+            <h2 class="font-paytone text-4xl mb-6 text-white">Davidsons Gröna<br>Fingrar AB</h2>
+            <p class="font font-mulish font-bold text-xl mb-6 text-center md:text-left text-white">Vårat senaste projekt var en ny hemsida för det nystartade hydroponikföretaget Davidsons i Fritsla.<br>Som ett nystartat företag var budgeten tight men vi levererade ändå en simpel, men modern hemsida så att de kunde fokusera på annat i deras företag, medans de fortfarande fick in trafik från deras hemsida</p>
+        </div>
+        <div class="z-40 top-0 absolute border-4 border-black h-full w-full rotate-12" />
+        <div class="-z-10 top-0 absolute bg-sb-green h-full w-full -rotate-3" />
+        <div class="z-20 absolute -right-[44rem]">
+            <Image src="/assets/davidsons.png" height="448px" aspectRatio={1.66} alt="Screenshot av Davidsons hemsida" />
+        </div>
+    </div>
+</div>
