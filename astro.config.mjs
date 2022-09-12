@@ -11,7 +11,7 @@ import robotsTxt from 'astro-robots-txt';
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.seabird.digital",
-  integrations: [svelte(), tailwind(), image(), sitemap(), robotsTxt()],
+  integrations: [svelte(), tailwind(), image(), sitemap({ customPages: ["https://www.seabird.digital/"] }), robotsTxt()],
   output: "server",
   adapter: vercel(),
   experimental: {
