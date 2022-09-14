@@ -26,6 +26,10 @@ h2 {
     @apply text-2xl
 }
 
+p, label {
+    @apply font-mulish font-bold text-xl
+}
+
 input.field {
     @apply w-full px-3 py-2 border-gray-300 border-[1px] rounded-md outline-none focus:border-blue-500 shadow-outline-blue mb-3 mt-1
 }
