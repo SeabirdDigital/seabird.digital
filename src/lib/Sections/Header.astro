@@ -1,7 +1,7 @@
 ---
 import Blob1 from "../components/Blob1.svelte";
 import Box1 from "../components/Box1.svelte";
-import GetQuoteButton from "../components/reuseable/GetQuoteButton.astro";
+import Button from "../components/reuseable/Button.svelte";
 ---
 
 <div class="absolute w-full top-10 md:top-20 z-50">
@@ -22,7 +22,7 @@ import GetQuoteButton from "../components/reuseable/GetQuoteButton.astro";
 
                 <li class="cursor-pointer ml-16 mr-2 border-b-2 border-transparent pt-1 hover:border-black hover:pt-[6px] hover:pb-1 duration-150">Logga in</li> -->
 
-                <GetQuoteButton />
+                <Button class="bg-pink-500">Få en offert</Button>
 
                 <Box1 client:load />
             </ul>

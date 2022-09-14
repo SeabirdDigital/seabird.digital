@@ -1,9 +1,0 @@
----
-export interface Props {
-    flipRotation?: boolean;
-}
-
-const { flipRotation = false } = Astro.props;
----
-
-<button class={`px-6 py-3 ml-2 border-4 ${(flipRotation ? "rotate-2" : "-rotate-2")} font-paytone hover:rotate-0 border-black hard-shadow hover:shadow-none bg-pink-500`}>Få en offert</button>
