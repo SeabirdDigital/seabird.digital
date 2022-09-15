@@ -1,6 +1,45 @@
 ---
 import { Image } from '@astrojs/image/components';
+import Button from '../components/reuseable/Button.svelte';
 ---
+
+<div id="kontakt" class="grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-2">
+    <div class="py-16 px-[20%] bg-sb-orange/10 flex flex-col justify-center items-center">
+        <div>
+            <h2 class="text-5xl mb-4">Säg 👋</h2>
+            <p class="w-96">Sugen på hemsida eller vill du bara säga hej? Fyll formuläret här så hör vi av oss!</p>
+        </div>
+    </div>
+    <div class="md:p-16 bg-sb-orange flex justify-center items-center">
+        <div class="bg-white w-full md:-ml-36 md:mr-28">
+
+            <form action="/api/kontakt" method="post" class="bg-sb-orange/50 md:bg-sb-orange/20 p-8 md:border-4 border-black hard-shadow flex flex-col md:grid grid-cols-2 gap-4 2xl:gap-x-12">
+                <div class="flex flex-col justify-end">
+                    <label for="firstN">Förnamn</label>
+                    <input required id="firstN" name="firstN" type="text" placeholder="Tony" autocomplete="given-name" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                </div>
+                <div class="flex flex-col justify-end">
+                    <label for="lastN">Efternamn</label>
+                    <input required id="lastN" name="lastN" placeholder="Stark" autocomplete="family-name" type="text" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                </div>
+                <div class="flex flex-col justify-end">
+                    <label for="email">Email</label>
+                    <input required id="email" name="email" type="email" placeholder="tony@starkindustries.com" autocomplete="email" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                </div>
+                <div class="flex flex-col justify-end">
+                    <label for="website">Nuvarande sida</label>
+                    <input id="website" name="website" type="url" placeholder="www.starkindustries.com" autocomplete="url" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                </div>
+                <div class="flex flex-col justify-end md:col-span-2">
+                    <label for="message">Meddelande</label>
+                    <textarea required id="message" name="message" placeholder="Berätta lite om vad du vill göra" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl" />
+                </div>
+
+                <Button useButtonElement={true} type="submit" class="bg-sb-green flex justify-center w-full col-span-2" noRotate href="#kontakt">Skicka</Button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <footer class="bg-black text-white text-lg">
     <div class="container py-32 grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-2 gap-6">
