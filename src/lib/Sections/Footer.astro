@@ -13,29 +13,29 @@ import Button from '../components/reuseable/Button.svelte';
     <div class="p-16 bg-sb-orange flex justify-center">
         <div class="bg-white w-full -ml-36 mr-28">
 
-            <form class="bg-sb-orange/20 p-8 border-4 border-black hard-shadow grid grid-cols-2 gap-y-4 gap-x-12">
+            <form action="/api/kontakt" method="post" class="bg-sb-orange/20 p-8 border-4 border-black hard-shadow grid grid-cols-2 gap-y-4 gap-x-12">
                 <div class="flex flex-col">
-                    <label for="firstN">First Name</label>
-                    <input id="firstN" name="firstN" type="text" autocomplete="given-name" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
+                    <label for="firstN">Förnamn</label>
+                    <input id="firstN" name="firstN" type="text" placeholder="Tony" autocomplete="given-name" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
                 </div>
                 <div class="flex flex-col">
-                    <label for="lastN">Last Name</label>
-                    <input id="lastN" name="lastN" autocomplete="family-name" type="text" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
+                    <label for="lastN">Efternamn</label>
+                    <input id="lastN" name="lastN" placeholder="Stark" autocomplete="family-name" type="text" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
                 </div>
                 <div class="flex flex-col">
                     <label for="email">Email</label>
-                    <input id="email" name="email" type="email" autocomplete="email" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
+                    <input id="email" name="email" type="email" placeholder="tony@starkindustries.com" autocomplete="email" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
                 </div>
                 <div class="flex flex-col">
-                    <label for="website">Current website</label>
-                    <input id="website" name="website" type="url" autocomplete="url" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
+                    <label for="website">Nuvarande Hemsida?</label>
+                    <input id="website" name="website" type="url" placeholder="www.starkindustries.com" autocomplete="url" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl">
                 </div>
                 <div class="flex flex-col col-span-2">
-                    <label for="website">Current website</label>
-                    <textarea id="website" name="website" autocomplete="url" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl" />
+                    <label for="message">Meddelande</label>
+                    <textarea id="message" name="message" placeholder="Berätta lite om vad du vill göra" class="border-4 hard-shadow focus:shadow-none border-black p-2 text-xl" />
                 </div>
 
-                <Button class="bg-sb-green flex justify-center w-full col-span-2" noRotate href="#kontakt">Skicka</Button>
+                <Button useButtonElement={true} type="submit" class="bg-sb-green flex justify-center w-full col-span-2" noRotate href="#kontakt">Skicka</Button>
             </form>
         </div>
     </div>
