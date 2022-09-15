@@ -5,7 +5,6 @@ sendgrid.setApiKey(import.meta.env.SENDGRID_API_KEY || "");
 
 export async function post({ request }: APIContext) {
     const body = await request.formData()
-    console.log("hej")
 
     try {
         // console.log("REQ.BODY", req.body);
@@ -13,7 +12,7 @@ export async function post({ request }: APIContext) {
           to: "filip.martensson@seabird.digital", // Your email where you'll receive emails
           from: "noreply@seabird.digital", // your website email address here
           replyTo: body.get("email")?.toString() || undefined,
-          subject: `New mail from contact form`,
+          subject: `${body.get("firstN")} ${body.get("lastN")} to Seabird Digital - New entry from contact form`,
           html: `Förnamn: ${body.get("firstN")}<br>Efternamn: ${body.get("lastN")}<br>Email: ${body.get("email")}<br>Hemsida?: ${body.get("website")}<br>Meddelande:<br>${body.get("message")}`,
         });
     } catch (error: any) {
@@ -21,5 +20,5 @@ export async function post({ request }: APIContext) {
     return new Response(JSON.stringify({ error: error.message }), { status: error.statusCode || 500 });
     }
   
-    return new Response(undefined, { status: 200 });
+    return Response.redirect("localhost:3000", 307);;
   }
