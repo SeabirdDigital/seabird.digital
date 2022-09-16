@@ -12,7 +12,8 @@
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "astro": "^1.1.7",
-    "astro-icon": "^0.7.3"
+    "astro-icon": "^0.7.3",
+    "swup": "^2.0.19"
   },
   "devDependencies": {
     "@astrojs/image": "^0.7.0",

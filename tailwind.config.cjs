@@ -13,7 +13,7 @@ module.exports = {
                 "specify": ["Specify Exp", "sans-serif"],
             },
             backgroundImage: {
-                "hero": `url("/src/lib/assets/hero.webp")`,
+                "chevron": `url("/assets/chevron.svg")`,
             },
             colors: {
                 "sb-yellow": "#F2C94C",

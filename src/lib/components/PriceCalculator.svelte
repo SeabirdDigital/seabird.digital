@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Button from "./reuseable/Button.svelte";
+
     let pageCost: number;
     let pagePrices: { value: number, label: string }[] = [
         { value: 3000, label: "1 (3 000 kr)" },
@@ -25,22 +27,38 @@
 
     let blogCost: number = 0;
 
+    let page: number = 0
 </script>
 
-<form action="">
-    <select bind:value={pageCost}>
-		{#each pagePrices as page}
-			<option value={page.value}>
-				{page.label}
-			</option>
-		{/each}
-	</select>
+<form class="w-full flex flex-col text-left"  action="">
+    
+    {#if page == 0}
+        <label for="pages" >Hur många sidor behöver du?</label>
+        <select name="pages" bind:value={pageCost} class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 mb-2 2xl:text-xl bg-chevron bg-[right] bg-no-repeat bg-[length:24px]">
+            {#each pagePrices as page}
+                <option value={page.value}>
+                    {page.label}
+                </option>
+            {/each}
+        </select>
 
-    <br>
-    <input type="radio" bind:group={blogCost} id="yes" name="blog" value={2500}>
-    <label for="yes">Ja (2 500 kr)</label><br>
-    <input type="radio" bind:group={blogCost} id="no" name="blog" value={0}>
-    <label for="no">Nej (0 kr)</label><br>
+        <span>TIPS: Fundera över hur du kan presentera din information så kortfattat som möjligt. (Exempel: Behöver du verkligen en Om-sida? Eller kan du berätta för dina besökare vad du sysslar med på din startsida?)</span>
+    {/if}
 
-    {pageCost + blogCost}
+    {#if page == 1}
+        <input type="radio" bind:group={blogCost} id="yes" name="blog" value={2500}>
+        <label for="yes">Ja (2 500 kr)</label><br>
+        <input type="radio" bind:group={blogCost} id="no" name="blog" value={0}>
+        <label for="no">Nej (0 kr)</label><br>
+    {/if}
+
+
+    <div class="w-full flex justify-between mt-12">
+        {#if page > 0}
+            <Button onClick={() => page--} useButtonElement class="bg-gray-300">Tillbaka</Button>
+        {:else}
+            <div/>
+        {/if}
+        <Button onClick={() => page++} useButtonElement flipRotation class="bg-sb-yellow">Nästa</Button>
+    </div>
 </form>
