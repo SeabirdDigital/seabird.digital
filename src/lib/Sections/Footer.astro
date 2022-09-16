@@ -1,13 +1,16 @@
 ---
 import { Image } from '@astrojs/image/components';
 import Button from '../components/reuseable/Button.svelte';
+import FooterQuote from '../components/FooterQuote.svelte'
 ---
 
 <div id="kontakt" class="grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-2">
     <div class="py-16 px-[20%] bg-sb-orange/10 flex flex-col justify-center items-center">
         <div>
             <h2 class="text-5xl mb-4">Säg 👋</h2>
-            <p class="w-96">Sugen på hemsida eller vill du bara säga hej? Fyll formuläret här så hör vi av oss!</p>
+            <p class="w-[28rem]">Sugen på hemsida eller vill du bara säga hej? Fyll formuläret här så hör vi av oss!</p>
+
+            <FooterQuote client:only />
         </div>
     </div>
     <div class="md:p-16 bg-sb-orange flex justify-center items-center">

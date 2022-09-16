@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg8"
+   sodipodi:docname="chevron.svg"
+   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="40.344372"
+     inkscape:cx="3.3461916"
+     inkscape:cy="10.026182"
+     inkscape:window-width="1200"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title2">angle-line</title>
+  <path
+     class="clr-i-outline clr-i-outline-path-1"
+     d="M 0.55600149,13.48 12.076001,25.4 l 11.52,-11.92 a 1.7008895,1.7008895 0 0 0 -2.45,-2.36 l -9.07,9.39 -9.0799995,-9.39 a 1.7008895,1.7008895 0 0 0 -2.45000001,2.36 z"
+     id="path4" />
+  <rect
+     x="-36"
+     y="-36"
+     width="36"
+     height="36"
+     fill-opacity="0"
+     id="rect6"
+     transform="scale(-1)" />
+</svg>
