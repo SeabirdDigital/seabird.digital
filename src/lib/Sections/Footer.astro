@@ -4,53 +4,55 @@ import Button from '../components/reuseable/Button.svelte';
 import FooterQuote from '../components/FooterQuote.svelte'
 ---
 
-<div id="kontakt" class="grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-2">
-    <div class="py-16 px-[20%] bg-sb-orange/10 flex flex-col justify-center items-center">
-        <div>
+<div id="kontakt" class="grid grid-rows-2 xl:grid-rows-none grid-cols-none xl:grid-cols-2">
+    <div class="py-16 xl:px-[20%] bg-sb-orange/10 flex flex-col justify-center items-center">
+        <div class="container xl:w-[28rem]">
             <h2 class="text-5xl mb-4">Säg 👋</h2>
-            <p class="w-[28rem]">Sugen på hemsida eller vill du bara säga hej? Fyll formuläret här så hör vi av oss!</p>
+            <p class="">Sugen på hemsida eller vill du bara säga hej? Fyll formuläret här så hör vi av oss!</p>
 
             <FooterQuote client:only />
         </div>
     </div>
-    <div class="md:p-16 bg-sb-orange flex justify-center items-center">
-        <div class="bg-white w-full md:-ml-36 md:mr-28">
+    <div class="xl:p-16 bg-sb-orange flex xl:justify-center items-center">
+        <div class="bg-white w-full xl:-ml-36 xl:mr-28">
 
-            <form action="/api/kontakt" method="post" class="bg-sb-orange/50 md:bg-sb-orange/20 p-8 md:border-4 border-black hard-shadow flex flex-col md:grid grid-cols-2 gap-4 2xl:gap-x-12">
-                <div class="flex flex-col justify-end">
-                    <label for="firstN">Förnamn</label>
-                    <input required id="firstN" name="firstN" type="text" placeholder="Tony" autocomplete="given-name" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+            <form action="/api/kontakt" method="post" class="bg-sb-orange/50 xl:bg-sb-orange/20 p-8 xl:border-4 border-black hard-shadow">
+                <div class="container py-16 xl:py-0 flex flex-col xl:grid grid-cols-2 gap-4 2xl:gap-x-12">
+                    <div class="flex flex-col justify-end">
+                        <label for="firstN">Förnamn</label>
+                        <input required id="firstN" name="firstN" type="text" placeholder="Tony" autocomplete="given-name" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                    </div>
+                    <div class="flex flex-col justify-end">
+                        <label for="lastN">Efternamn</label>
+                        <input required id="lastN" name="lastN" placeholder="Stark" autocomplete="family-name" type="text" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                    </div>
+                    <div class="flex flex-col justify-end">
+                        <label for="email">Email</label>
+                        <input required id="email" name="email" type="email" placeholder="tony@starkindustries.com" autocomplete="email" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                    </div>
+                    <div class="flex flex-col justify-end">
+                        <label for="website">Nuvarande sida</label>
+                        <input id="website" name="website" type="url" placeholder="www.starkindustries.com" autocomplete="url" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
+                    </div>
+                    <div class="flex flex-col justify-end xl:col-span-2">
+                        <label for="message">Meddelande</label>
+                        <textarea required id="message" name="message" placeholder="Berätta lite om vad du vill göra" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl" />
+                    </div>
+    
+                    <Button useButtonElement={true} type="submit" class="bg-sb-green flex justify-center w-full col-span-2" noRotate href="#kontakt">Skicka</Button>
                 </div>
-                <div class="flex flex-col justify-end">
-                    <label for="lastN">Efternamn</label>
-                    <input required id="lastN" name="lastN" placeholder="Stark" autocomplete="family-name" type="text" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
-                </div>
-                <div class="flex flex-col justify-end">
-                    <label for="email">Email</label>
-                    <input required id="email" name="email" type="email" placeholder="tony@starkindustries.com" autocomplete="email" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
-                </div>
-                <div class="flex flex-col justify-end">
-                    <label for="website">Nuvarande sida</label>
-                    <input id="website" name="website" type="url" placeholder="www.starkindustries.com" autocomplete="url" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl">
-                </div>
-                <div class="flex flex-col justify-end md:col-span-2">
-                    <label for="message">Meddelande</label>
-                    <textarea required id="message" name="message" placeholder="Berätta lite om vad du vill göra" class="appearance-none outline-none border-4 hard-shadow focus:shadow-none border-black p-2 2xl:text-xl" />
-                </div>
-
-                <Button useButtonElement={true} type="submit" class="bg-sb-green flex justify-center w-full col-span-2" noRotate href="#kontakt">Skicka</Button>
             </form>
         </div>
     </div>
 </div>
 
 <footer class="bg-black text-white text-lg">
-    <div class="container py-32 grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-2 gap-6">
-        <div class="md:grid grid-cols-3">
+    <div class="container py-32 grid grid-rows-2 lg:grid-rows-none grid-cols-none lg:grid-cols-2 gap-6">
+        <div class="lg:grid grid-cols-3">
             <div class="col-span-2">
-                <h4 class="font-specify text-3xl font-thin mb-2 mt-3 md:mt-0">seabird</h4>
+                <h4 class="font-specify text-3xl font-thin mb-2 mt-3 lg:mt-0">seabird</h4>
                 <div class="">
-                    <div class="py-1 md:py-0">
+                    <div class="py-1 lg:py-0">
                         <p>Att se bra ut online ska inte kosta en förmögenhet. Vi är en webbyrå som skapar moderna hemsidor till ett bra pris. Vi jobbar med programvara med öppen källkod och följer alltid de senaste webb standarderna.</p>
                     </div>
                 </div>
@@ -59,12 +61,12 @@ import FooterQuote from '../components/FooterQuote.svelte'
         <div class="grid grid-cols-2">
             <div>
                 <h4 class="text-3xl mb-2">Kontakt</h4>
-                <div class="md:grid grid-rows-2 gap-4">
-                    <div class="py-1 md:py-0">
+                <div class="lg:grid grid-rows-2 gap-4">
+                    <div class="py-1 lg:py-0">
                         <h5 class="text-gray-300 font-black">Telefon</h5>
                         <a href="tel:+46703048064" class="text-gray-300 underline hover:no-underline">070-304 80 64</a>
                     </div>
-                    <div class="py-1 md:py-0">
+                    <div class="py-1 lg:py-0">
                         <h5 class="text-gray-300 font-black">Email</h5>
                         <a href="mailto:hej@seabird.digital" class="text-gray-300 underline hover:no-underline">hej@seabird.digital</a>
                     </div>
