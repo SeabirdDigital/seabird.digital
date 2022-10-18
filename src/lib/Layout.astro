@@ -1,6 +1,14 @@
 ---
 import "./Layout.css"
 import { SEO } from "astro-seo";
+import Load from "./components/Load.astro";
+import Header from "./Sections/General/Header.astro";
+
+type Props = {
+	overlayHeader?: boolean
+}
+
+const { overlayHeader } = Astro.props
 ---
 
 <html class="motion-safe:scroll-smooth" lang="sv">
@@ -42,6 +50,8 @@ import { SEO } from "astro-seo";
 		<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<Load />
+		<Header overlay={overlayHeader} />
 		<slot/>
 	</body>
 </html>
@@ -50,21 +60,48 @@ import { SEO } from "astro-seo";
 	:root {
 		--sb-blue: #00BBF9;
 		--sb-purple: #9B5DE5;
+		--sb-pink: #FF1CB2;
 		--sb-yellow: #FEE440;
+
+		--sb-paytone: 'Paytone One', sans-serif;
+		--sb-mulish: 'Mulish', sans-serif;
+		--sb-specify: 'Specify ExExp', sans-serif;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Paytone One', sans-serif;
-	}
-
-	h1 {
-		font-size: 4rem;
+		font-family: var(--sb-paytone);
 		line-height: 1;
 	}
-
-	p {
-		font-family: 'Mulish', sans-serif;
-		font-weight: 700;
-		font-size: 1.5rem;
+	
+	h1 {
+		font-size: 2rem;
 	}
+	
+	p {
+		font-size: 1rem;
+		font-family: var(--sb-mulish);
+		font-weight: 700;
+	}
+
+	/* md */
+	@media (min-width: 768px) {
+		h1 {
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1.25rem;
+		}
+	}
+	/* xl */
+	@media (min-width: 1280px) {
+		h1 {
+			font-size: 4rem;
+		}
+
+		p {
+			font-size: 1.5rem;
+		}
+	}
+
 </style>

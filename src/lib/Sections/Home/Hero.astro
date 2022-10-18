@@ -2,21 +2,29 @@
 
 ---
 
+<script>
+    import { goto } from "../../tools";
+
+    document.getElementById("hero-cta")?.addEventListener("click", () => goto("/kontakt"));
+</script>
+
 <div class="hero container">
     <div>
         <h1>Nittiotalet ringde<br>och ville ha sin sida tillbaka</h1>
         <p>För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din plånbok. </p>
-        <button>Kontakt</button>
+        <button id="hero-cta">Kontakt</button>
 
         <img class="background-graphic stripes" src="/assets/stripes.svg" alt="">
     </div>
     <div>
-        <img src="/assets/phone.svg" alt="">
+        <img id="phone" src="/assets/phone.svg" alt="">
     </div>
 
+    <img id="star1" class="background-graphic star" src="/assets/star.svg" alt="">
     <img id="bolt1" class="background-graphic bolt" src="/assets/bolt.svg" alt="">
     <img id="bolt2" class="background-graphic bolt" src="/assets/bolt.svg" alt="">
     <span id="rectangle1" class="background-graphic rectangle"/>
+    <span id="circle1" class="background-graphic circle"/>
 </div>
 
 
@@ -24,8 +32,13 @@
     .hero {
         position: relative;
         display: flex;
+        flex-direction: column-reverse;
         padding-top: 12rem;
         padding-bottom: 12rem;
+    }
+
+    #phone {
+        display: none;
     }
 
     .hero > div {
@@ -33,6 +46,8 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .hero p {
@@ -64,6 +79,23 @@
         rotate: 0deg;
     }
 
+    /* lg */
+	@media (min-width: 1024px) {
+		.hero {
+            flex-direction: row;
+		}
+
+        .hero > div {
+            align-items: baseline;
+            text-align: left;
+        }
+
+		#phone {
+            display: block;
+		}
+	}
+
+    /* #region Background Graphics */
     .background-graphic {
         position: absolute;
         z-index: -1;
@@ -72,6 +104,16 @@
     .stripes {
         bottom: 8rem;
         left: -10rem;
+    }
+
+    .star {
+        width: 3rem;
+    }
+
+    #star1 {
+        bottom: 7rem;
+        right: 60%;
+        rotate: -90deg;
     }
 
     .bolt {
@@ -85,7 +127,7 @@
     }
     #bolt2 {
         bottom: 3rem;
-        left: 45%;
+        right: 20%;
         rotate: 10deg;
     }
 
@@ -116,9 +158,36 @@
     #rectangle1 {
         rotate: 12deg;
         top: 3rem;
-        left: -1rem;
+        left: -4rem;
     }
     #rectangle1::before {
         background-color: var(--sb-blue);
     }
+
+
+    .circle {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 999px;
+    }
+    .circle::after {
+        content: " ";
+        height: 75%;
+        width: 75%;
+
+        top: 25px;
+        border-width: 6px;
+        border-color: black;
+        border-radius: 999px;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #circle1 {
+        rotate: 32deg;
+        top: 6rem;
+        right: 5rem;
+        background-color: var(--sb-pink);
+    }
+    /* #endregion */
 </style>

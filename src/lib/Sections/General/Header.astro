@@ -1,0 +1,39 @@
+---
+type Props = {
+    overlay?: boolean
+}
+const { overlay = false } = Astro.props
+
+let position = overlay ? "absolute" : "relative"
+---
+
+<header>
+    <div class="container">
+        <div>
+            <span id="logo">seabird</span>
+        </div>
+    </div>
+</header>
+
+<style define:vars={{ position }}>
+    header {
+        width: 100%;
+        padding-top: 4rem;
+
+        position: var(--position);
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    #logo {
+        font-family: var(--sb-specify);
+        font-size: 1.5rem;
+    }
+</style>

@@ -1,7 +1,6 @@
 ---
 import Hero from "../lib/Sections/Home/Hero.astro";
 import Layout from "../lib/Layout.astro";
-import Load from "../lib/components/Load.astro";
 ---
 
 <script>
@@ -14,8 +13,6 @@ import { goto } from "../lib/tools"
     document.getElementById("yo")?.addEventListener("click", redirect)
 </script>
 
-<Layout>
-    <Load />
+<Layout overlayHeader={true}>
     <Hero />
-    <button id="yo">Hi</button>
 </Layout>
