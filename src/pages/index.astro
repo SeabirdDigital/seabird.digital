@@ -4,7 +4,18 @@ import Layout from "../lib/Layout.astro";
 import Load from "../lib/components/Load.astro";
 ---
 
+<script>
+import { goto } from "../lib/tools"
+
+    const redirect = () => {
+        goto("")
+    }
+
+    document.getElementById("yo")?.addEventListener("click", redirect)
+</script>
+
 <Layout>
     <Load />
     <Hero />
+    <button id="yo">Hi</button>
 </Layout>

@@ -1,41 +1,4 @@
-<script>
-    let wrapper = document.getElementById("tiles") || new HTMLElement;
-    
-    let cols = Math.floor(wrapper.clientWidth / 50),
-        rows = Math.floor(wrapper.clientHeight / 50);
-    console.log(cols)
-          
-    const createTile = () => {
-        console.log(cols)
-        const tile = document.createElement("div");
-        tile.classList.add("tile");
-        return tile;
-    }
-
-    const createTiles = (quantity: number) => {
-        Array.from(Array(quantity)).map((tile, index) => {
-            wrapper.appendChild(createTile());
-        });
-    }
-
-    const createGrid = () => {
-        wrapper.innerHTML = "";
-        
-        const size = 50;
-        
-        cols = Math.floor(wrapper.clientWidth / size);
-        rows = Math.floor(wrapper.clientHeight / size);
-        
-        wrapper.style.setProperty("--cols", cols.toString());
-        wrapper.style.setProperty("--rows", rows.toString());
-        
-        createTiles(cols * rows);
-    }
-
-    createGrid();
-
-    window.onresize = () => createGrid();
-</script>
+<script src="./Load.ts" />
 
 <div id="tiles">
 </div>
@@ -45,12 +8,16 @@
         height: 100vh;
         width: 100vw;
 
+        position: fixed;
+        z-index: 99;
         display: grid;
         grid-template-columns: repeat(var(--cols), 1fr);
         grid-template-rows: repeat(var(--rows), 1fr);
+
+        pointer-events: none;
     }
 
     .tile {
-        outline: 1px solid black;
+        background: var(--sb-yellow);
     }
 </style>
