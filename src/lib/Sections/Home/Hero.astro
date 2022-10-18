@@ -1,20 +1,124 @@
 ---
-import Blob2 from "../../components/Blob2.svelte";
-import Box2 from "../../components/Box2.svelte";
-import Button from "../../components/reuseable/Button.svelte";
-import LinkButton from "../../components/reuseable/LinkButton.svelte";
+
 ---
 
-<div class="px-8 flex flex-col justify-center items-center h-screen relative pt-16 overflow-hidden">
-    <h1 class="font-paytone text-center text-3xl lg:text-5xl 2xl:text-6xl mb-6">Vi skapar moderna sidor<br class="hidden lg:block">utan att skada din plånbok</h1>
-    <p class="text-center mb-8">Att se bra ut online ska inte kosta en förmögenhet.<br class="hidden lg:block"> Kontakta oss idag för att få eran nya makeover!</p>
+<div class="hero container">
+    <div>
+        <h1>Nittiotalet ringde<br>och ville ha sin sida tillbaka</h1>
+        <p>För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din plånbok. </p>
+        <button>Kontakt</button>
 
-    <div class="flex items-center gap-8 text-xl">
-        <LinkButton href="#tjanster" class="-rotate-1">Se tjänster</LinkButton>
-        <Button href="/calculator" flipRotation class="bg-pink-500">Få en offert</Button>
+        <img class="background-graphic stripes" src="/assets/stripes.svg" alt="">
+    </div>
+    <div>
+        <img src="/assets/phone.svg" alt="">
     </div>
 
-    <Box2 client:load />
-
-    <Blob2 client:load />
+    <img id="bolt1" class="background-graphic bolt" src="/assets/bolt.svg" alt="">
+    <img id="bolt2" class="background-graphic bolt" src="/assets/bolt.svg" alt="">
+    <span id="rectangle1" class="background-graphic rectangle"/>
 </div>
+
+
+<style>
+    .hero {
+        position: relative;
+        display: flex;
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+
+    .hero > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero p {
+        padding-top: 1rem;
+    }
+
+    .hero button {
+        margin-top: 1.5rem;
+        width: fit-content;
+        color: white;
+        background-color: var(--sb-purple);
+        font-family: 'Mulish', sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        box-shadow: 8px 8px black;
+        rotate: -3deg;
+
+        transition-duration: 150ms;
+    }
+
+    .hero button:hover {
+        box-shadow: 0px 0px black;
+        rotate: 0deg;
+    }
+
+    .background-graphic {
+        position: absolute;
+        z-index: -1;
+    }
+
+    .stripes {
+        bottom: 8rem;
+        left: -10rem;
+    }
+
+    .bolt {
+        width: 1.5rem;
+    }
+
+    #bolt1 {
+        top: 7rem;
+        left: 35%;
+        rotate: 97deg;
+    }
+    #bolt2 {
+        bottom: 3rem;
+        left: 45%;
+        rotate: 10deg;
+    }
+
+    .rectangle {
+        height: 3rem;
+        width: 3rem;
+    }
+    .rectangle::before {
+        content: " ";
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        z-index: 1;
+    }
+    .rectangle::after {
+        content: " ";
+        height: 100%;
+        width: 100%;
+
+        top: 10px;
+        left: 10px;
+        background-color: black;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #rectangle1 {
+        rotate: 12deg;
+        top: 3rem;
+        left: -1rem;
+    }
+    #rectangle1::before {
+        background-color: var(--sb-blue);
+    }
+</style>
