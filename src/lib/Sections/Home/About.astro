@@ -1,0 +1,79 @@
+<script>
+    import { goto } from "../../tools"
+
+    document.getElementById("about-cta")?.addEventListener("click", () => goto("/kontakt"))
+</script>
+
+<div id="about">
+    <div>
+        <span>Varför oss?</span>
+        <h2>Moderna hemsidor utan<br>att skada din plånbok</h2>
+        <p>Vi på Seabird vet hur krävande det kan vara att driva ett företag, men vi vet också hur viktigt din hemsidas design är. Därför erbjuder vi modern webbdesign till ett rimligt pris.<br>Många andra webbyråer använder stor och klumpig programvara för att hålla uppe en enkel sida. Detta är både dyrt och dåligt för miljön, och gör din sida långsammare. Vi skräddarsyr varje projekt till vad du behöver och har inte med massa annat drar ner din sida. <br><br> Intresserad?</p>
+        <button id="about-cta">Ta kontakt</button>
+    </div>
+    <div>
+        <img src="" alt="">
+    </div>
+</div>
+
+<style>
+    #about {
+        @apply
+            container
+
+            relative
+            flex
+            flex-col-reverse lg:flex-row
+
+            py-20;
+    }
+
+    #about > div > span {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-75;
+    }
+
+    #phone {
+        @apply
+            hidden lg:block
+    }
+
+    #about > div {
+        @apply
+            flex
+            flex-1
+            flex-col
+
+            justify-center
+            items-center lg:items-baseline
+            text-center lg:text-left
+    }
+
+    #about p {
+        @apply
+            pt-4
+    }
+
+    #about button {
+        @apply
+            mt-6
+            w-fit
+            bg-sb-purple
+
+            text-white
+            font-mulish
+            font-bold
+
+            py-3
+            px-5
+
+            shadow-hard
+            -rotate-3 hover:rotate-0
+
+            duration-150 hover:shadow-none;
+    }
+</style>
