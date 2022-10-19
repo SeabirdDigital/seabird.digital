@@ -1,8 +1,10 @@
 @font-face {
     font-family: 'Specify ExExp';
-    src: url('/fonts/SpecifyExExp.ttf')
+    src: url('/fonts/SpecifyExExp.ttf');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Specify Exp';
-    src: url('/fonts/SpecifyExp.ttf')
+    src: url('/fonts/SpecifyExp.ttf');
+    font-display: swap;
 }
