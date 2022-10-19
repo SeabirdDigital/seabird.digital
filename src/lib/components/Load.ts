@@ -10,13 +10,6 @@ export let
 export const ToggleOverlay = () => {
     toggled = !toggled;
 
-    if (toggled)
-        setTimeout(() => {
-            document.body.style.backgroundColor = "#FEE440"
-        }, cols * 75);
-    else
-        document.body.style.backgroundColor = "#FFFFFF"
-
     anime({
         targets: ".tile",
         opacity: toggled ? 1 : 0,
@@ -41,6 +34,8 @@ const createTiles = (quantity: number) => {
     Array.from(Array(quantity)).map((tile, index) => {
         wrapper.appendChild(createTile());
     });
+    
+    wrapper.style.backgroundColor = "#FEE44000"
 }
 
 const createGrid = () => {
