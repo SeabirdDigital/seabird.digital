@@ -20,6 +20,7 @@ module.exports = {
                 "sb-purple": "#9B5DE5",
                 "sb-pink": "#FF1CB2",
                 "sb-yellow": "#FEE440",
+                "sb-green": "#018E42"
             },
             boxShadow: {
                 hard: "8px 8px black"

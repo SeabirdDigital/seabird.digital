@@ -1,0 +1,79 @@
+<div id="senaste">
+    <div>
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <span>Projekt</span>
+            <h2>Davidsons Gröna Fingrar AB</h2>
+            <p>Vårat senaste projekt var en ny hemsida för det nystartade hydroponikföretaget Davidsons i Fritsla.<br>Som ett nystartat företag var budgeten tight men vi levererade ändå en simpel, men modern hemsida så att de kunde fokusera på annat i deras företag, medans de fortfarande fick in trafik från deras hemsida</p>
+            <button id="hero-cta">Besök</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    #senaste {
+        @apply
+            bg-sb-yellow/10
+    }
+    #senaste > div {
+        @apply
+            container
+
+            relative
+            flex
+            flex-col-reverse lg:flex-row
+
+            py-20;
+    }
+
+    #senaste > div > div > span {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-75;
+    }
+
+    #phone {
+        @apply
+            hidden lg:block
+    }
+
+    #senaste > div > div {
+        @apply
+            flex
+            flex-1
+            flex-col
+
+            justify-center
+            items-center lg:items-baseline
+            text-center lg:text-left
+    }
+
+    #senaste > div p {
+        @apply
+            pt-4
+    }
+
+    #senaste > div button {
+        @apply
+            mt-6
+            w-fit
+            bg-sb-green
+
+            text-white
+            font-mulish
+            font-bold
+
+            py-3
+            px-5
+
+            shadow-hard
+            -rotate-3 hover:rotate-0
+
+            duration-150 hover:shadow-none;
+    }
+</style>
