@@ -7,10 +7,16 @@ const { overlay = false } = Astro.props
 let position = overlay ? "absolute" : "relative"
 ---
 
+<script>
+    import { goto } from "../../tools";
+
+    document.getElementById("logo")?.addEventListener("click", () => goto("/"));
+</script>
+
 <header>
     <div class="container">
         <div>
-            <span id="logo">seabird</span>
+            <button id="logo">seabird</button>
         </div>
     </div>
 </header>
@@ -36,6 +42,7 @@ let position = overlay ? "absolute" : "relative"
     #logo {
         @apply
             font-specify-ex
-            text-2xl;
+            text-2xl
+            hover:cursor-pointer;
     }
 </style>
