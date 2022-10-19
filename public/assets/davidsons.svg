@@ -1,21 +1,21 @@
-<svg width="2458" height="1941" viewBox="0 0 2458 1941" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<path d="M200.134 846.698L501.614 1781.35L1073.66 1751.01L1533.92 1711.8C1723.78 1642.01 2101.07 1500.91 2091.31 1494.93C2081.55 1488.94 2198.14 1102.1 2257.66 909.432L1929.92 492.838L1238.19 394.197L200.134 846.698Z" fill="black"/>
+<svg width="2418" height="1941" viewBox="0 0 2418 1941" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M124.673 892.739L426.194 1827.37L998.243 1797.01L1458.49 1757.79C1648.35 1687.98 2025.64 1546.87 2015.88 1540.89C2006.12 1534.9 2122.69 1148.06 2182.2 955.384L1854.45 538.804L1162.71 440.193L124.673 892.739Z" fill="black"/>
 <g filter="url(#filter0_d_53_87)">
-<path d="M152.13 798.698L453.61 1733.35L1025.66 1703.01L1485.91 1663.8C1675.78 1594.01 2053.07 1452.91 2043.31 1446.93C2033.55 1440.94 2150.14 1054.1 2209.66 861.432L1881.92 444.838L1190.19 346.197L152.13 798.698Z" fill="#FEE440"/>
+<path d="M160.129 798.698L461.61 1733.35L1033.66 1703.01L1493.91 1663.8C1683.78 1594.01 2061.07 1452.91 2051.31 1446.93C2041.55 1440.94 2158.14 1054.1 2217.65 861.432L1889.92 444.838L1198.19 346.197L160.129 798.698Z" fill="#FEE440"/>
 </g>
 <g filter="url(#filter1_d_53_87)">
-<rect x="255" y="369" width="1750" height="714" fill="url(#pattern0)" shape-rendering="crispEdges"/>
+<rect x="263" y="369" width="1750" height="714" fill="url(#pattern0)" shape-rendering="crispEdges"/>
 </g>
-<mask id="mask0_53_87" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="152" y="346" width="2058" height="1388">
-<path d="M152.13 798.698L453.61 1733.35L1025.66 1703.01L1485.91 1663.8C1675.78 1594.01 2053.07 1452.91 2043.31 1446.93C2033.55 1440.94 2150.14 1054.1 2209.66 861.432L1881.92 444.838L1190.19 346.197L152.13 798.698Z" fill="#FEE440"/>
+<mask id="mask0_53_87" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="160" y="346" width="2058" height="1388">
+<path d="M160.13 798.698L461.61 1733.35L1033.66 1703.01L1493.91 1663.8C1683.78 1594.01 2061.07 1452.91 2051.31 1446.93C2041.55 1440.94 2158.14 1054.1 2217.66 861.432L1889.92 444.838L1198.19 346.197L160.13 798.698Z" fill="#FEE440"/>
 </mask>
 <g mask="url(#mask0_53_87)">
 <g filter="url(#filter2_d_53_87)">
-<rect x="255" y="369" width="1750" height="1390" fill="url(#pattern1)" shape-rendering="crispEdges"/>
+<rect x="263" y="369" width="1750" height="1390" fill="url(#pattern1)" shape-rendering="crispEdges"/>
 </g>
 </g>
 <defs>
-<filter id="filter0_d_53_87" x="0.129761" y="194.197" width="2361.53" height="1691.15" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_53_87" x="8.12939" y="194.197" width="2361.53" height="1691.15" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset/>
@@ -25,7 +25,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_53_87"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_53_87" result="shape"/>
 </filter>
-<filter id="filter1_d_53_87" x="99" y="213" width="2062" height="1026" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_d_53_87" x="107" y="213" width="2062" height="1026" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_53_87"/>
@@ -39,7 +39,7 @@
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_53_87" transform="scale(0.000520843 0.00127658)"/>
 </pattern>
-<filter id="filter2_d_53_87" x="99" y="213" width="2062" height="1702" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter2_d_53_87" x="107" y="213" width="2062" height="1702" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_53_87"/>
