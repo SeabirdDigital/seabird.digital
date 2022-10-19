@@ -69,51 +69,25 @@ const { overlayHeader } = Astro.props
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: var(--sb-paytone);
-		line-height: 1;
+		@apply
+			font-paytone
+			leading-4;
 	}
 	
 	h1 {
-		font-size: 2rem;
+		@apply
+			text-3xl md:text-5xl lg:text-6xl;
 	}
 
 	h3 {
-        font-size: 1.75rem;
+		@apply
+			text-2xl md:text-2xl lg:text-3xl;
 	}
 	
 	p {
-		font-size: 1rem;
-		font-family: var(--sb-mulish);
-		font-weight: 700;
+		@apply
+			text-base md:text-xl lg:text-2xl
+			font-mulish
+			font-bold;
 	}
-
-	/* md */
-	@media (min-width: 768px) {
-		h1 {
-			font-size: 3rem;
-		}
-
-		h3 {
-			font-size: 1.5rem;
-		}
-
-		p {
-			font-size: 1.25rem;
-		}
-	}
-	/* xl */
-	@media (min-width: 1280px) {
-		h1 {
-			font-size: 4rem;
-		}
-
-		h3 {
-			font-size: 2rem;
-		}
-
-		p {
-			font-size: 1.5rem;
-		}
-	}
-
 </style>
