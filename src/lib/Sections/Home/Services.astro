@@ -1,0 +1,49 @@
+<div id="services" class="container">
+    <div>
+        <h3>Webbdesign</h3>
+        <p>Din hemsida är som ditt digitala skyltfönster. Låt oss se till så att du ser bra ut online!</p>
+    </div>
+    <div>
+        <h3>Sökoptimering</h3>
+        <p>Att spendera tusentals kronor på en sida som inte rankar Google är som att köpa en skyltannons på botten av Marianas Trench. Vi vet hur man får Google att älska din sida</p>
+    </div>
+    <div>
+        <h3>Logotypdesign</h3>
+        <p>En bra logga ska representera ditt varumärke och vad du står för. Låt oss se till så att det er logga förmedlar det ni vill!</p>
+    </div>
+</div>
+
+<style>
+    #services {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #services > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    h3 {
+        opacity: .75;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        opacity: .75;
+        font-size: 1rem;
+    }
+
+    /* lg */
+	@media (min-width: 1024px) {
+		#services {
+            flex-direction: row;
+        }
+	}
+</style>

@@ -8,7 +8,7 @@
     document.getElementById("hero-cta")?.addEventListener("click", () => goto("/kontakt"));
 </script>
 
-<div class="hero container">
+<div id="hero" class="container">
     <div>
         <h1>Nittiotalet ringde<br>och ville ha sin sida tillbaka</h1>
         <p>För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din plånbok. </p>
@@ -29,7 +29,7 @@
 
 
 <style>
-    .hero {
+    #hero {
         position: relative;
         display: flex;
         flex-direction: column-reverse;
@@ -41,7 +41,7 @@
         display: none;
     }
 
-    .hero > div {
+    #hero > div {
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -50,11 +50,11 @@
         text-align: center;
     }
 
-    .hero p {
+    #hero p {
         padding-top: 1rem;
     }
 
-    .hero button {
+    #hero button {
         margin-top: 1.5rem;
         width: fit-content;
         color: white;
@@ -74,18 +74,18 @@
         transition-duration: 150ms;
     }
 
-    .hero button:hover {
+    #hero button:hover {
         box-shadow: 0px 0px black;
         rotate: 0deg;
     }
 
     /* lg */
 	@media (min-width: 1024px) {
-		.hero {
+		#hero {
             flex-direction: row;
 		}
 
-        .hero > div {
+        #hero > div {
             align-items: baseline;
             text-align: left;
         }
