@@ -1,7 +1,8 @@
-import { cols, rows, ToggleOverlay } from "./components/Load";
+import { animating, cols, rows, ToggleOverlay } from "./components/Load";
 
 export const goto = (url: string) => {
-    if (url == location.href || url == location.pathname)
+    console.log(animating)
+    if (url == location.href || url == location.pathname || animating)
         return;
 
     ToggleOverlay();

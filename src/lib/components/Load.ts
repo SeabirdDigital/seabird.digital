@@ -1,14 +1,16 @@
 import anime from "animejs";
 
 let wrapper = document.getElementById("tiles") || new HTMLElement,
-toggled = true;
+    toggled = true;
 
 export let
     cols = Math.floor(wrapper.clientWidth / 50),
-    rows = Math.floor(wrapper.clientHeight / 50);
+    rows = Math.floor(wrapper.clientHeight / 50),
+    animating = false;
 
 export const ToggleOverlay = () => {
     toggled = !toggled;
+    animating = true;
 
     anime({
         targets: ".tile",
@@ -18,6 +20,8 @@ export const ToggleOverlay = () => {
             from: !toggled ? "first" : "last"
         })
     });
+    setTimeout(() => animating = false, 500)
+    
 }
 
 const createTile = () => {
