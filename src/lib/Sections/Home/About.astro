@@ -1,8 +1,18 @@
 <script>
     import { goto } from "../../tools"
+    import { CountUp } from "countup.js"
+
+    const countUp = new CountUp('counter', 94);
+    let startedCount = false;
 
     document.getElementById("about-cta")?.addEventListener("click", () => goto("/kontakt"))
     document.getElementById("about-read-more")?.addEventListener("click", () => goto("/om"))
+
+    document.body.addEventListener("onscroll", () => {
+        console.log(window.scrollY)
+        if (window.scrollY > (document.getElementById("counter")?.offsetTop || 0) && !startedCount)
+            countUp.start();
+    })
 </script>
 
 <div id="about">
@@ -16,7 +26,7 @@
         </div>
     </div>
     <div>
-        <img src="" alt="">
+        <div id="counter"></div>
     </div>
 </div>
 
