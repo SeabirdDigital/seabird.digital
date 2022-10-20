@@ -3,6 +3,7 @@ import "./Layout.css"
 import { SEO } from "astro-seo";
 import Load from "./components/Load.astro";
 import Header from "./Sections/General/Header.astro";
+import Footer from "./Sections/General/Footer.astro";
 
 type Props = {
 	overlayHeader?: boolean
@@ -53,6 +54,7 @@ const { overlayHeader } = Astro.props
 		<Load />
 		<Header overlay={overlayHeader} />
 		<slot/>
+		<Footer />
 	</body>
 </html>
 
