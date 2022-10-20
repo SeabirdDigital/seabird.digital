@@ -7,7 +7,7 @@
 <div id="project">
     <div>
         <div>
-            <img src="/assets/davidsons.svg" alt="">
+            <img id="project-graphic" src="/assets/davidsons.svg" alt="">
         </div>
         <div>
             <span>Projekt</span>
@@ -43,9 +43,10 @@
             opacity-75;
     }
 
-    #phone {
+    #project-graphic {
         @apply
-            hidden lg:block
+            h-80 lg:h-auto
+            w-auto
     }
 
     #project > div > div {

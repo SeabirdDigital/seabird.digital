@@ -35,7 +35,7 @@
     </div>
     <div class="stats">
         <div id="counter"></div>
-        <span>En sidas första intryck är 94% designrelaterat</span>
+        <span>av sidans första intryck är designrelaterat</span>
     </div>
 </div>
 
@@ -78,7 +78,7 @@
 
     .stats {
         @apply
-            flex
+            hidden lg:flex
             flex-1
             flex-col
 
@@ -98,9 +98,10 @@
 
     .stats > span {
         @apply
-            font-mulish
+            font-specify
             font-bold
             text-xl
+            text-center
     }
 
     p {
