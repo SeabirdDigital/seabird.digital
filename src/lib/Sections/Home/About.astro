@@ -2,31 +2,40 @@
     import { goto } from "../../tools"
     import { CountUp } from "countup.js"
 
-    const countUp = new CountUp('counter', 94);
+    const countUp = new CountUp('counter', 94, {
+        suffix: "%"
+    });
     let startedCount = false;
 
     document.getElementById("about-cta")?.addEventListener("click", () => goto("/kontakt"))
     document.getElementById("about-read-more")?.addEventListener("click", () => goto("/om"))
 
-    document.body.addEventListener("onscroll", () => {
-        console.log(window.scrollY)
-        if (window.scrollY > (document.getElementById("counter")?.offsetTop || 0) && !startedCount)
-            countUp.start();
+    if (window.scrollY > (document.getElementById("counter")?.offsetTop || 0) && !startedCount) {
+        startedCount = true;
+        setTimeout(() => countUp.start(), 500)
+    }
+
+    document.addEventListener("scroll", () => {
+        if (window.scrollY > (document.getElementById("counter")?.offsetTop || 0) && !startedCount) {
+            startedCount = true;
+            setTimeout(() => countUp.start(), 50)
+        }
     })
 </script>
 
 <div id="about">
-    <div>
+    <div class="content">
         <span>Varför oss?</span>
         <h2>Moderna hemsidor utan<br>att skada din plånbok</h2>
-        <p>Vi på Seabird vet hur krävande det kan vara att driva ett företag, men vi vet också hur viktigt din hemsidas design är. Därför erbjuder vi modern webbdesign till ett rimligt pris.</p>
+        <p>Vi på Seabird vet hur krävande det kan vara att driva ett företag, men vi vet också hur viktigt din hemsidas design är. Designen på din hemsida kan ge kundens uppfattning om hur ni är som företag. Därför erbjuder vi modern webbdesign till ett rimligt pris, så att du kan fokusera på det du gör bäst!</p>
         <div id="about-ctas">
             <button id="about-cta">Kontakt</button>
             <button id="about-read-more">Läs mer</button>
         </div>
     </div>
-    <div>
+    <div class="stats">
         <div id="counter"></div>
+        <span>En sidas första intryck är 94% designrelaterat</span>
     </div>
 </div>
 
@@ -42,7 +51,7 @@
             py-20;
     }
 
-    #about > div > span {
+    #about > .content > span {
         @apply
             font-specify-ex
             text-xs
@@ -56,7 +65,7 @@
             hidden lg:block
     }
 
-    #about > div {
+    .content {
         @apply
             flex
             flex-1
@@ -67,7 +76,34 @@
             text-center lg:text-left
     }
 
-    #about p {
+    .stats {
+        @apply
+            flex
+            flex-1
+            flex-col
+
+            justify-center
+            items-center
+    }
+
+    .stats > div {
+        @apply
+            font-paytone
+            text-9xl
+            text-sb-orange
+            -mt-3
+
+            mb-2
+    }
+
+    .stats > span {
+        @apply
+            font-mulish
+            font-bold
+            text-xl
+    }
+
+    p {
         @apply
             pt-4
     }
@@ -93,7 +129,6 @@
             px-5
 
             shadow-hard
-            -rotate-3 hover:rotate-0
 
             duration-150 hover:shadow-none;
     }

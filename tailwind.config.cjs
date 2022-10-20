@@ -19,6 +19,7 @@ module.exports = {
                 "sb-blue": "#00BBF9",
                 "sb-purple": "#9B5DE5",
                 "sb-pink": "#FF1CB2",
+                "sb-orange": "#FEB240",
                 "sb-yellow": "#FEE440",
                 "sb-green": "#018E42"
             },
