@@ -10,8 +10,8 @@
 
 <div id="hero" class="container">
     <div>
-        <span>Webbyrå utanför Göteborg</span>
-        <h1>Nittiotalet ringde<br>och ville ha sin sida tillbaka</h1>
+        <h1>Webbyrå utanför Göteborg</h1>
+        <span>Nittiotalet ringde<br>och ville ha sin sida tillbaka</span>
         <p>För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din plånbok. </p>
         <button id="hero-cta">Kontakt</button>
 
@@ -42,6 +42,12 @@
     }
 
     #hero > div > span {
+		@apply
+			font-paytone
+			leading-4
+			text-3xl md:text-4xl lg:text-5xl;
+    }
+    #hero h1 {
         @apply
             font-specify-ex
             text-xs
