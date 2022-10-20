@@ -14,7 +14,8 @@ export const ToggleOverlay = () => {
         targets: ".tile",
         opacity: toggled ? 1 : 0,
         delay: anime.stagger(500 / Math.sqrt(cols**2 + rows**2), {
-            grid: [cols, rows]
+            grid: [cols, rows],
+            from: !toggled ? "first" : "last"
         })
     });
 }
