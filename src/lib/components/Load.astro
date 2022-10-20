@@ -1,0 +1,23 @@
+<script src="./Load.ts" />
+
+<div id="tiles" style="background-color: #FEE440;">
+</div>
+
+<style is:global>
+    #tiles {
+        height: 100vh;
+        width: 100vw;
+
+        position: fixed;
+        z-index: 99;
+        display: grid;
+        grid-template-columns: repeat(var(--cols), 1fr);
+        grid-template-rows: repeat(var(--rows), 1fr);
+
+        pointer-events: none;
+    }
+
+    .tile {
+        background: var(--sb-yellow);
+    }
+</style>

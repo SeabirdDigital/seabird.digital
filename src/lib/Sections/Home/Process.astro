@@ -1,0 +1,88 @@
+<div id="process">
+    <div>
+        <span>Från start till klart<span class="text-sb-blue">!</span></span>
+        <h2>Allt börjar med ett gratis designförslag</h2>
+
+        <div class="steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <h3>Designförslag</h3>
+                <p>Kontakta oss för att få ett gratis designförslag. Vi ändrar nu designen efter dina önskemål utan extra kostnad så att du får den hemsidan du vill ha</p>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <h3>Utveckling</h3>
+                <p>Nu när vi har en färdig design utvecklar vi din nya hemsida utifrån designförslaget. Här lägger vi också till eventuella animationer och annan funktionalitet</p>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <h3>Distribution</h3>
+                <p>När vi utvecklat klart hemsidan och fått ditt godkännande publicerar vi hemsidan. Vi sköter allt och gör dig synlig på Google så att du kan fokusera på det du gör bäst!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #process {
+        @apply
+            bg-sb-blue/5
+    }
+    #process > div {
+        @apply
+            container
+
+            relative
+            flex
+            flex-col
+            items-center
+
+            py-20;
+    }
+
+    h2 {
+        @apply
+            text-center;
+    }
+
+    #process > div > span {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-75;
+    }
+
+    .steps {
+        @apply
+            flex
+            flex-col lg:flex-row
+            gap-2
+            mt-2
+    }
+
+    .step {
+        @apply
+            flex
+            flex-col
+            flex-1
+            relative
+
+            pt-12
+    }
+
+    .step-number {
+        @apply
+            absolute
+            -top-0
+            -left-8
+
+            text-9xl
+            font-mulish
+            font-bold
+            text-black/10
+
+            -z-20
+    }
+</style>

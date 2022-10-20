@@ -1,20 +1,211 @@
 ---
-import Blob2 from "../../components/Blob2.svelte";
-import Box2 from "../../components/Box2.svelte";
-import Button from "../../components/reuseable/Button.svelte";
-import LinkButton from "../../components/reuseable/LinkButton.svelte";
+
 ---
 
-<div class="px-8 flex flex-col justify-center items-center h-screen relative pt-16 overflow-hidden">
-    <h1 class="font-paytone text-center text-3xl md:text-5xl 2xl:text-6xl mb-6">Vi skapar moderna sidor<br class="hidden md:block">utan att skada din plånbok</h1>
-    <p class="text-center mb-8">Att se bra ut online ska inte kosta en förmögenhet.<br class="hidden md:block"> Kontakta oss idag för att få eran nya makeover!</p>
+<script>
+    import { goto } from "../../tools";
 
-    <div class="flex items-center gap-8 text-xl">
-        <LinkButton href="#tjanster" class="-rotate-1">Se tjänster</LinkButton>
-        <Button href="/calculator" flipRotation class="bg-pink-500">Få en offert</Button>
+    document.getElementById("hero-cta")?.addEventListener("click", () => goto("/kontakt"));
+</script>
+
+<div id="hero" class="container">
+    <div>
+        <h1>Webbyrå utanför Göteborgs<span class="text-sb-purple">.</span></h1>
+        <span>Nittiotalet ringde<br>och ville ha sin sida tillbaka</span>
+        <p>För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din plånbok. </p>
+        <button id="hero-cta">Kontakt</button>
+
+        <img class="background-graphic stripes" src="/assets/stripes.svg" alt="">
+    </div>
+    <div>
+        <img id="phone" src="/assets/phone.svg" alt="">
     </div>
 
-    <Box2 client:load />
-
-    <Blob2 client:load />
+    <img id="star1" class="background-graphic star" src="/assets/star.svg" alt="">
+    <img id="bolt1" class="background-graphic bolt" src="/assets/bolt.svg" alt="">
+    <img id="bolt2" class="background-graphic bolt" src="/assets/bolt.svg" alt="">
+    <span id="rectangle1" class="background-graphic rectangle"/>
+    <span id="circle1" class="background-graphic circle"/>
 </div>
+
+
+<style>
+    #hero {
+        @apply
+            container
+
+            relative
+            flex
+            flex-col-reverse lg:flex-row
+
+            py-48;
+    }
+
+    #hero > div > span {
+		@apply
+			font-paytone
+			leading-8
+			text-3xl md:text-4xl lg:text-5xl;
+    }
+    #hero h1 {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-90;
+    }
+
+    #phone {
+        @apply
+            hidden lg:block
+    }
+
+    #hero > div {
+        @apply
+            flex
+            flex-1
+            flex-col
+
+            justify-center
+            items-center lg:items-baseline
+            text-center lg:text-left
+    }
+
+    #hero p {
+        @apply
+            pt-4
+			text-base md:text-lg lg:text-xl;
+    }
+
+    #hero button {
+        @apply
+            mt-6
+            w-fit
+            bg-sb-purple
+
+            text-white
+            font-mulish
+            font-bold
+
+            py-3
+            px-5
+
+            shadow-hard
+            -rotate-3 hover:rotate-0
+
+            duration-150 hover:shadow-none;
+    }
+
+    /* #region Background Graphics */
+    .background-graphic {
+        @apply
+            absolute
+            -z-10;
+    }
+
+    .stripes {
+        @apply
+            bottom-32
+            -left-40;
+    }
+
+    .star {
+        @apply
+            w-12;
+    }
+
+    #star1 {
+        @apply
+            bottom-28
+            right-2/3
+            -rotate-90;
+    }
+
+    .bolt {
+        @apply
+            w-6;
+    }
+
+    #bolt1 {
+        @apply
+            top-28
+            left-1/3
+            rotate-90;
+    }
+    #bolt2 {
+        @apply
+            bottom-12
+            right-1/4
+            rotate-12;
+    }
+
+    .rectangle {
+        @apply
+            h-12
+            w-12;
+    }
+    .rectangle::before {
+        content: " ";
+        @apply
+            h-full
+            w-full
+
+            absolute
+            z-10
+    }
+    .rectangle::after {
+        content: " ";
+        @apply
+            h-full
+            w-full
+
+            top-3
+            left-3
+            bg-black
+            absolute
+            z-0;
+    }
+
+    #rectangle1 {
+        @apply
+            rotate-12
+            top-12
+            -left-16;
+    }
+    #rectangle1::before {
+        @apply
+            bg-sb-blue;
+    }
+
+
+    .circle {
+        @apply
+            h-12
+            w-12
+            rounded-full;
+    }
+    .circle::after {
+        content: " ";
+        @apply
+            h-3/4
+            w-3/4
+
+            top-6
+            border-4
+            border-black
+            rounded-full
+
+            absolute
+            -z-10;
+    }
+
+    #circle1 {
+        @apply
+            rotate-45
+            top-24
+            right-24
+            bg-sb-pink;
+    }
+    /* #endregion */
+</style>

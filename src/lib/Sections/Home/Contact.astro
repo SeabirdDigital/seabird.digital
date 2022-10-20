@@ -1,0 +1,60 @@
+<div id="contact">
+    <span>Är du redo<span class="text-sb-purple">?</span></span>
+    <h2>Be om ett prisförslag redan idag!</h2>
+    <p>Redo att ta din närvaro på nätet till den nästa nivån? Be om ett prisförslag så skickar vi samtidigt med ett gratis designförslag till dig!</p>
+
+    <button id="contact-cta">Kontakt</button>
+</div>
+
+<style>
+    #contact {
+        @apply
+            container
+
+            relative
+            flex
+            flex-col
+            items-center
+
+            py-20;
+    }
+
+    h2 {
+        @apply
+            text-center;
+    }
+
+    #contact > span {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-75;
+    }
+
+    p {
+        @apply
+            mt-2
+            mb-6
+
+            text-center
+    }
+
+    #contact-cta {
+        @apply
+            w-fit
+            bg-sb-purple
+
+            text-white
+            font-mulish
+            font-bold
+
+            py-3
+            px-5
+
+            shadow-hard
+
+            duration-150 hover:shadow-none;
+    }
+</style>

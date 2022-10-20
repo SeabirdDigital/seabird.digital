@@ -1,21 +1,28 @@
 ---
-import Layout from "../lib/Layout.astro";
-import Space from "../lib/Sections/Home/Space.astro";
 import Hero from "../lib/Sections/Home/Hero.astro";
-import UnderConstruction from "../lib/Sections/UnderConstruction.astro";
-import UsingAstro from "../lib/Sections/Home/Astro.astro";
-import Featured from "../lib/Sections/Home/Featured.astro";
+import Layout from "../lib/Layout.astro";
 import Services from "../lib/Sections/Home/Services.astro";
+import Project from "../lib/Sections/Home/Project.astro";
+import About from "../lib/Sections/Home/About.astro";
+import Process from "../lib/Sections/Home/Process.astro";
+import Contact from "../lib/Sections/Home/Contact.astro";
 ---
 
-<Layout>    
+<script>
+    import { goto } from "../lib/tools"
+
+    const redirect = () => {
+        goto("")
+    }
+
+    document.getElementById("yo")?.addEventListener("click", redirect)
+</script>
+
+<Layout overlayHeader={true}>
     <Hero />
-
     <Services />
-    
-    <UsingAstro />
-
-    <Featured />
-
-    <Space />
+    <Project />
+    <About />
+    <Process />
+    <Contact />
 </Layout>

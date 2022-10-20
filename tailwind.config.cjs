@@ -16,11 +16,15 @@ module.exports = {
                 "chevron": `url("/assets/chevron.svg")`,
             },
             colors: {
-                "sb-yellow": "#F2C94C",
-                "sb-orange": "#fb923c",
-                "sb-green": "#10b981",
-                "sb-blue": "#38bef8",
-                "sb-dark-blue": "#152443",
+                "sb-blue": "#00BBF9",
+                "sb-purple": "#9B5DE5",
+                "sb-pink": "#FF1CB2",
+                "sb-orange": "#FEB240",
+                "sb-yellow": "#FEE440",
+                "sb-green": "#018E42"
+            },
+            boxShadow: {
+                hard: "8px 8px black"
             }
         },
     },

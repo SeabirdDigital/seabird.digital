@@ -1,0 +1,49 @@
+---
+type Props = {
+    overlay?: boolean
+}
+const { overlay = false } = Astro.props
+
+let position = overlay ? "absolute" : "relative"
+---
+
+<script>
+    import { goto } from "../../tools";
+
+    document.getElementById("logo")?.addEventListener("click", () => goto("/"));
+</script>
+
+<header>
+    <div class="container">
+        <div>
+            <img id="logo" src="/assets/logo.svg" alt="">
+        </div>
+    </div>
+</header>
+
+<style define:vars={{ position }}>
+    header {
+        @apply
+            w-full
+            py-16
+            z-30;
+
+        position: var(--position);
+    }
+
+    .container {
+        @apply
+            flex
+            justify-between
+            items-center
+            
+            px-4;
+    }
+
+    #logo {
+        @apply
+            h-6
+            w-auto
+            hover:cursor-pointer;
+    }
+</style>

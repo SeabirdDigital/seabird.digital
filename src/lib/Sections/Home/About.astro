@@ -1,0 +1,149 @@
+<script>
+    import { goto } from "../../tools"
+    import { CountUp } from "countup.js"
+
+    const countUp = new CountUp('counter', 94, {
+        suffix: "%"
+    });
+    let startedCount = false;
+
+    document.getElementById("about-cta")?.addEventListener("click", () => goto("/kontakt"))
+    document.getElementById("about-read-more")?.addEventListener("click", () => goto("/om"))
+
+    if (window.scrollY > (document.getElementById("counter")?.offsetTop || 0) && !startedCount) {
+        startedCount = true;
+        setTimeout(() => countUp.start(), 500)
+    }
+
+    document.addEventListener("scroll", () => {
+        if (window.scrollY > (document.getElementById("counter")?.offsetTop || 0) && !startedCount) {
+            startedCount = true;
+            setTimeout(() => countUp.start(), 50)
+        }
+    })
+</script>
+
+<div id="about">
+    <div class="content">
+        <span>Varför oss<span class="text-sb-orange">?</span></span>
+        <h2>Moderna hemsidor utan<br>att skada din plånbok</h2>
+        <p>Vi på Seabird vet hur krävande det kan vara att driva ett företag, men vi vet också hur viktigt din hemsidas design är. Designen på din hemsida kan ge kundens uppfattning om hur ni är som företag. Därför erbjuder vi modern webbdesign till ett rimligt pris, så att du kan fokusera på det du gör bäst!</p>
+        <div id="about-ctas">
+            <button id="about-cta">Kontakt</button>
+            <!-- <button id="about-read-more">Läs mer</button> -->
+        </div>
+    </div>
+    <div class="stats">
+        <div id="counter"></div>
+        <span>av sidans första intryck är designrelaterat</span>
+    </div>
+</div>
+
+<style>
+    #about {
+        @apply
+            container
+
+            relative
+            flex
+            flex-col-reverse lg:flex-row
+
+            py-20;
+    }
+
+    #about > .content > span {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-75;
+    }
+
+    #phone {
+        @apply
+            hidden lg:block
+    }
+
+    .content {
+        @apply
+            flex
+            flex-1
+            flex-col
+
+            justify-center
+            items-center lg:items-baseline
+            text-center lg:text-left
+    }
+
+    .stats {
+        @apply
+            hidden lg:flex
+            flex-1
+            flex-col
+
+            justify-center
+            items-center
+    }
+
+    .stats > div {
+        @apply
+            font-paytone
+            text-9xl
+            text-sb-orange
+            -mt-3
+
+            mb-2
+    }
+
+    .stats > span {
+        @apply
+            font-specify
+            font-bold
+            text-xl
+            text-center
+    }
+
+    p {
+        @apply
+            pt-4
+    }
+
+    #about-ctas {
+        @apply
+            mt-6
+            flex
+            items-center
+            gap-6;
+    }
+
+    #about-cta {
+        @apply
+            w-fit
+            bg-sb-orange
+
+            text-white
+            font-mulish
+            font-bold
+
+            py-3
+            px-5
+
+            shadow-hard
+
+            duration-150 hover:shadow-none;
+    }
+
+    #about-read-more {
+        @apply
+            font-mulish
+            font-bold
+
+            pt-1 hover:pt-2
+            pb-[2px] hover:pb-[6px]
+            border-b-[2px]
+            border-black hover:border-transparent
+
+            duration-150
+    }
+</style>
