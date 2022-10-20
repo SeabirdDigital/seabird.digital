@@ -1,8 +1,53 @@
 ---
 import Layout from "../lib/Layout.astro";
+import Form from "../lib/Sections/Contact/Form.astro";
 
 ---
 
 <Layout>
-    
+    <div id="contact">
+        <div>
+            <span>Säg hej<span class="text-sb-orange">!</span></span>
+            <h2>Kontakta oss så återkommer vi så snabbt som möjligt!</h2>
+            <p>
+                Vill du få ett prisförslag eller vill du bara säga hej? Vi är här för dig och kommer svara så snabbt vi kan.
+                <!-- <br>Har du en snabb fråga och är otållig? Skicka oss ett SMS så svarar vi lite snabbare. -->
+            </p>
+        </div>
+        <div>
+            <Form />
+        </div>
+    </div>
 </Layout>
+
+<style>
+    #contact {
+        @apply
+            container
+            flex
+            gap-2
+            pb-16
+    }
+
+    #contact > div {
+        @apply
+            flex
+            flex-1
+            flex-col
+            justify-center
+    }
+
+    p {
+        @apply
+            py-2
+    }
+
+    #contact > div > span {
+        @apply
+            font-specify-ex
+            text-xs
+            tracking-normal
+            uppercase
+            opacity-75;
+    }
+</style>
