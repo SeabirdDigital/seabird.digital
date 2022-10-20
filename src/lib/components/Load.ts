@@ -13,7 +13,7 @@ export const ToggleOverlay = () => {
     anime({
         targets: ".tile",
         opacity: toggled ? 1 : 0,
-        delay: anime.stagger(1000 / Math.sqrt(cols**2 + rows**2), {
+        delay: anime.stagger(500 / Math.sqrt(cols**2 + rows**2), {
             grid: [cols, rows]
         })
     });

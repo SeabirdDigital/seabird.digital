@@ -7,5 +7,5 @@ export const goto = (url: string) => {
     ToggleOverlay();
     setTimeout(() => {
         location.href = url;
-    }, 1000);
+    }, 500);
 }
