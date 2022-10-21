@@ -40,7 +40,7 @@
     input, textarea {
         @apply
             border-b-2
-            border-black focus:border-sb-orange
+            border-gray-500 focus:border-sb-orange
             focus:outline-none
 
             p-2
@@ -52,13 +52,19 @@
 
     button {
         @apply
-            !bg-sb-orange
+            !bg-sb-orange hover:!bg-transparent
+            border-[2px]
+            border-sb-orange
 
-            text-white
+            text-white hover:text-sb-orange
             font-mulish
             font-bold
 
             py-3
+            rounded-b-md
+            hover:rounded-3xl
+
+            duration-200
     }
 
     .required {

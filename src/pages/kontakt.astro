@@ -11,8 +11,13 @@ import Form from "../lib/Sections/Contact/Form.astro";
             <h2>Kontakta oss så återkommer vi så snabbt som möjligt!</h2>
             <p>
                 Vill du få ett prisförslag eller vill du bara säga hej? Vi är här för dig och kommer svara så snabbt vi kan.
-                <!-- <br>Har du en snabb fråga och är otållig? Skicka oss ett SMS så svarar vi lite snabbare. -->
+                <br>Har du en snabb fråga och är otållig? Skicka oss ett SMS så svarar vi lite snabbare.
             </p>
+
+            <div id="contact-info">
+                <a href="tel:+46703048064">070 304 80 64</a>
+                <a href="mailto:hej.seabird.digital">hej@seabird<span class="text-sb-orange">.</span>digital</a>
+            </div>
         </div>
         <div>
             <Form />
@@ -25,7 +30,8 @@ import Form from "../lib/Sections/Contact/Form.astro";
         @apply
             container
             flex
-            gap-2
+            flex-col lg:flex-row
+            gap-8
             pb-16
     }
 
@@ -49,5 +55,32 @@ import Form from "../lib/Sections/Contact/Form.astro";
             tracking-normal
             uppercase
             opacity-75;
+    }
+
+    #contact-info {
+        @apply
+            mt-4
+            flex
+            lg:flex-col
+            gap-4
+
+            font-paytone
+            text-gray-800
+            text-lg
+            leading-6
+    }
+
+    #contact-info > a {
+        @apply
+            font-mulish
+            font-bold
+
+            w-fit
+            hover:pb-2
+            hover:-mb-2
+            border-b-[3px]
+            border-sb-orange hover:border-transparent
+
+            duration-150
     }
 </style>

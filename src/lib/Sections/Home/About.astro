@@ -1,3 +1,11 @@
+---
+type Props = {
+    noReadMore?: boolean
+}
+
+const { noReadMore = false } = Astro.props;
+---
+
 <script>
     import { goto } from "../../tools"
     import { CountUp } from "countup.js"
@@ -30,7 +38,7 @@
         <p>Vi på Seabird vet hur krävande det kan vara att driva ett företag, men vi vet också hur viktigt din hemsidas design är. Designen på din hemsida kan ge kundens uppfattning om hur ni är som företag. Därför erbjuder vi modern webbdesign till ett rimligt pris, så att du kan fokusera på det du gör bäst!</p>
         <div id="about-ctas">
             <button id="about-cta">Kontakt</button>
-            <!-- <button id="about-read-more">Läs mer</button> -->
+            <button id="about-read-more" class={noReadMore ? "hidden" : ""}>Läs mer</button>
         </div>
     </div>
     <div class="stats">
