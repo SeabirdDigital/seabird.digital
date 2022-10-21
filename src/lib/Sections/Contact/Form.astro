@@ -52,13 +52,19 @@
 
     button {
         @apply
-            !bg-sb-orange
+            !bg-sb-orange hover:!bg-transparent
+            border-[2px]
+            border-sb-orange
 
-            text-white
+            text-white hover:text-sb-orange
             font-mulish
             font-bold
 
             py-3
+            rounded-b-md
+            hover:rounded-3xl
+
+            duration-200
     }
 
     .required {
