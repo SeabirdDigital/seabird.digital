@@ -8,7 +8,7 @@
     document.getElementById("hero-cta")?.addEventListener("click", () => goto("/kontakt"));
 </script>
 
-<div id="hero" class="container">
+<div id="hero">
     <div>
         <h1>Webbyrå utanför Göteborg<span class="text-sb-purple">.</span></h1>
         <span>Nittiotalet ringde<br>och ville ha sin sida tillbaka</span>
@@ -38,7 +38,7 @@
             flex
             flex-col-reverse lg:flex-row
 
-            py-48;
+            py-48 lg:py-32 2xl:py-48;
     }
 
     #hero > div > span {
