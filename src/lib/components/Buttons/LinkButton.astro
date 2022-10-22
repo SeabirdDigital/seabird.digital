@@ -1,12 +1,13 @@
 ---
 type Props = {
     id?: string,
+    className?: string
     href?: string,
-    reversed?: boolean
+    reversed?: boolean,
     colour?: string
 }
 
-const { id, href, reversed = false, colour = "var(--sb-orange)" } = Astro.props;
+const { id, className, href, reversed = false, colour = "var(--sb-orange)" } = Astro.props;
 
 const pb = (reversed ? "0.5rem" : "0rem")
 const pbHover = (!reversed ? "0.5rem" : "0rem")
@@ -18,7 +19,7 @@ const color = (reversed ? "transparent" : colour)
 const colorHover = (!reversed ? "transparent" : colour)
 ---
 
-<a id={id} href={href}><slot/></a>
+<a id={id} class={className} href={href}><slot/></a>
 
 <style define:vars={{ pb, pbHover, mb, mbHover, color, colorHover }}>
     a {
