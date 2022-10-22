@@ -6,8 +6,6 @@ sendgrid.setApiKey(import.meta.env.SENDGRID_API_KEY || "");
 export async function post({ request }: APIContext) {
     const body = await request.formData()
 
-    console.log("Hi")
-
     try {
         console.log("REQ.BODY", request.body);
         console.log(import.meta.env.SENDGRID_API_KEY);
@@ -22,5 +20,5 @@ export async function post({ request }: APIContext) {
         return new Response(JSON.stringify({ error: error.message }), { status: error.statusCode || 500 });
     }
   
-    return Response.redirect("localhost:3000", 307);;
+    return Response.redirect(import.meta.env.VERCEL_URL || "localhost:300", 307);
   }
