@@ -1,0 +1,44 @@
+---
+import LinkButton from "../lib/components/Buttons/LinkButton.astro";
+import Layout from "../lib/Layout.astro"
+---
+
+<script>
+    import { goto } from "../lib/tools"
+
+    document.getElementById("back-home")?.addEventListener("click", () => goto("/"))
+</script>
+
+<Layout>
+    <div id="tack">
+        <div>
+            <iframe src="https://giphy.com/embed/doCy6bjRnZgTw6Oh2O" width="100%" height="100%" class="giphy-embed"></iframe>
+        </div>
+        <h1>Jajjebox!</h1>
+        <p>Tack för att du kontaktat oss. Vi hör av oss så snart som möjligt!</p>
+        <LinkButton id="back-home">Gå till startsidan</LinkButton>
+    </div>
+</Layout>
+
+<style>
+    #tack {
+        @apply
+            container
+            flex
+            flex-col
+            items-center
+
+            py-24
+    }
+
+    #tack > div {
+        @apply
+            h-36
+            mb-4
+    }
+
+    p {
+        @apply
+            py-4
+    }
+</style>
