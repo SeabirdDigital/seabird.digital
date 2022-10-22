@@ -7,8 +7,6 @@ export async function post({ request }: APIContext) {
     const body = await request.formData()
 
     try {
-        console.log("REQ.BODY", request.body);
-        console.log(import.meta.env.SENDGRID_API_KEY);
         await sendgrid.send({
           to: "filip.martensson@seabird.digital", // Your email where you'll receive emails
           from: "noreply@seabird.digital", // your website email address here
@@ -20,5 +18,6 @@ export async function post({ request }: APIContext) {
         return new Response(JSON.stringify({ error: error.message }), { status: error.statusCode || 500 });
     }
   
+    console.log(import.meta.env.VERCEL_URL)
     return Response.redirect(import.meta.env.VERCEL_URL || "localhost:300", 307);
   }
