@@ -19,5 +19,5 @@ export async function post({ request }: APIContext) {
     }
   
     console.log(import.meta.env.VERCEL_URL)
-    return Response.redirect("http://" + (import.meta.env.VERCEL_URL || "localhost:300)", 307);
+    return Response.redirect("http://" + (import.meta.env.VERCEL_URL || "localhost:300"), 307);
   }
