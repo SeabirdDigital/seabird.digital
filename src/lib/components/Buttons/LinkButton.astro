@@ -1,0 +1,45 @@
+---
+type Props = {
+    id?: string,
+    href?: string,
+    reversed?: boolean
+    colour?: string
+}
+
+const { id, href, reversed = false, colour = "var(--sb-orange)" } = Astro.props;
+
+const pb = (reversed ? "0.5rem" : "0rem")
+const pbHover = (!reversed ? "0.5rem" : "0rem")
+
+const mb = (reversed ? "-0.5rem" : "0rem")
+const mbHover = (!reversed ? "-0.5rem" : "0rem")
+
+const color = (reversed ? "transparent" : colour)
+const colorHover = (!reversed ? "transparent" : colour)
+---
+
+<a id={id} href={href}><slot/></a>
+
+<style define:vars={{ pb, pbHover, mb, mbHover, color, colorHover }}>
+    a {
+        @apply
+            font-mulish
+            font-bold
+
+            w-fit
+            border-b-[3px]
+            hover:cursor-pointer
+
+            duration-150;
+        
+        padding-bottom: var(--pb);
+        margin-bottom: var(--mb);
+        border-color: var(--color);
+    }
+
+    a:hover {
+        padding-bottom: var(--pbHover);
+        margin-bottom: var(--mbHover);
+        border-color: var(--colorHover);
+    }
+</style>
