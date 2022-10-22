@@ -2,6 +2,7 @@ import type { APIContext } from "astro";
 import sendgrid from "@sendgrid/mail";
 
 sendgrid.setApiKey(import.meta.env.SENDGRID_API_KEY || "");
+const isDeployed = import.meta.env.VERCEL_URL != undefined
 
 export async function post({ request }: APIContext) {
     const body = await request.formData()
@@ -18,6 +19,5 @@ export async function post({ request }: APIContext) {
         return new Response(JSON.stringify({ error: error.message }), { status: error.statusCode || 500 });
     }
   
-    console.log(import.meta.env.VERCEL_URL)
-    return Response.redirect("https://" + (import.meta.env.VERCEL_URL || "localhost:300"), 307);
+    return Response.redirect((isDeployed ? "https://" + import.meta.env.VERCEL_URL : "http://localhost:3000") + "/tack", 307);
   }

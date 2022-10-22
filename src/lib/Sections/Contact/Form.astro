@@ -1,3 +1,9 @@
+<script>
+    import { ToggleOverlay } from "../../components/Load"
+
+    document.getElementById("contact-submit")?.addEventListener("click", () => ToggleOverlay())
+</script>
+
 <form action="/api/contact" method="post">
     <div>
         <label for="firstN">Förnamn<span class="required">*</span></label>
@@ -20,7 +26,7 @@
         <textarea required id="message" name="message" placeholder="Berätta lite om vad du vill göra" />
     </div>
 
-    <button type="submit" class="col-span-2">Skicka</button>
+    <button id="contact-submit" type="submit" class="col-span-2">Skicka</button>
 </form>
 
 <style>
