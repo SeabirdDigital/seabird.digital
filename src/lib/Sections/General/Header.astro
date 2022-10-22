@@ -1,4 +1,6 @@
 ---
+import LinkButton from '../../components/Buttons/LinkButton.astro';
+
 type Props = {
     overlay?: boolean
 }
@@ -11,6 +13,10 @@ let position = overlay ? "absolute" : "relative"
     import { goto } from "../../tools";
 
     document.getElementById("logo")?.addEventListener("click", () => goto("/"));
+
+    document.getElementById("nav-services")?.addEventListener("click", () => goto("/tjanster"));
+    document.getElementById("nav-about")?.addEventListener("click", () => goto("/om"));
+    document.getElementById("nav-contact")?.addEventListener("click", () => goto("/kontakt"));
 </script>
 
 <header>
@@ -18,6 +24,11 @@ let position = overlay ? "absolute" : "relative"
         <div>
             <img id="logo" src="/assets/logo.svg" alt="">
         </div>
+        <nav>
+            <LinkButton id="nav-services" reversed>Tjänster</LinkButton>
+            <LinkButton id="nav-about" reversed>Om Oss</LinkButton>
+            <LinkButton id="nav-contact" className="text-sb-blue" colour="var(--sb-blue)">Kontakt</LinkButton>
+        </nav>
     </div>
 </header>
 
@@ -38,6 +49,18 @@ let position = overlay ? "absolute" : "relative"
             items-center
             
             px-4;
+    }
+
+    .container > * {
+        @apply
+            flex
+            items-center;
+    }
+
+    nav {
+        @apply
+            text-lg
+            gap-12
     }
 
     #logo {
