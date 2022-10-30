@@ -6,9 +6,8 @@ import Layout from "../lib/Layout.astro";
     import anime from "animejs";
 
     let size: number = document.body.clientWidth > 800 ? 100 : 50,
-        cols: number = Math.floor(document.body.clientHeight / size), 
+        cols: number = Math.floor(document.body.clientHeight / size),
         rows: number = Math.floor(document.body.clientHeight / size),
-        
         toggled: boolean = true;
 
     const grid = document.getElementById("grid") || new HTMLDivElement();
@@ -17,11 +16,10 @@ import Layout from "../lib/Layout.astro";
         toggled = !toggled;
 
         if (toggled) {
-            grid.classList.add("toggled")
+            grid.classList.add("toggled");
+        } else {
+            grid.classList.remove("toggled");
         }
-        else {
-            grid.classList.remove("toggled")
-        };
 
         anime({
             targets: ".tile",
@@ -29,12 +27,7 @@ import Layout from "../lib/Layout.astro";
             delay: anime.stagger(50, {
                 grid: [cols, rows],
                 from: index,
-            })
-        });
-        anime({
-            targets: "#overlay",
-            opacity: toggled ? 1 : 0,
-            duration: 50000
+            }),
         });
     };
 
@@ -65,10 +58,9 @@ import Layout from "../lib/Layout.astro";
         grid.style.setProperty("--rows", rows.toString());
 
         if (toggled) {
-            grid.classList.add("toggled")
-        }
-        else {
-            grid.classList.remove("toggled")
+            grid.classList.add("toggled");
+        } else {
+            grid.classList.remove("toggled");
         }
 
         createTiles(cols * rows);
@@ -81,21 +73,19 @@ import Layout from "../lib/Layout.astro";
 <Layout overlayHeader={true}>
     <div id="hero">
         <div id="overlay"></div>
-        <div id="grid">
-        </div>
+        <div id="grid"></div>
     </div>
 </Layout>
 
 <style>
-    
-        @keyframes background-pan {
-            from {
-                background-position: 0% center;
-            }
-            to {
-                background-position: -200% center;
-            }
+    @keyframes background-pan {
+        from {
+            background-position: 0% center;
         }
+        to {
+            background-position: -200% center;
+        }
+    }
 
     #hero {
         height: 100vh;
