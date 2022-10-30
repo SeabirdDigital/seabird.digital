@@ -1,28 +1,107 @@
 ---
-import Hero from "../lib/Sections/Home/Hero.astro";
 import Layout from "../lib/Layout.astro";
-import Services from "../lib/Sections/Home/Services.astro";
-import Project from "../lib/Sections/Home/Project.astro";
-import About from "../lib/Sections/Home/About.astro";
-import Process from "../lib/Sections/Home/Process.astro";
-import Contact from "../lib/Sections/Home/Contact.astro";
 ---
 
 <script>
-    import { goto } from "../lib/tools"
+    import anime from "animejs";
 
-    const redirect = () => {
-        goto("")
-    }
+    let cols: number, rows: number;
 
-    document.getElementById("yo")?.addEventListener("click", redirect)
+    const grid = document.getElementById("grid") || new HTMLDivElement();
+
+    const onClickOnTile = (index: number) => {
+        anime({
+            targets: ".tile",
+            delay: anime.stagger(50, {
+                grid: [cols, rows],
+                from: index,
+            }),
+        });
+    };
+
+    const createTile = (index: number) => {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+        tile.onclick = () => onClickOnTile(index);
+
+        return tile;
+    };
+
+    const createTiles = (quantity: number) => {
+        Array.from(Array(quantity)).map(
+            (tile: HTMLDivElement, index: number) => {
+                grid.appendChild(createTile(index));
+            }
+        );
+    };
+
+    const createGrid = () => {
+        grid.innerHTML = "";
+
+        cols = Math.floor(document.body.clientWidth / 50);
+        rows = Math.floor(document.body.clientHeight / 50);
+
+        grid.style.setProperty("--cols", cols.toString());
+        grid.style.setProperty("--rows", rows.toString());
+
+        createTiles(cols * rows);
+    };
+
+    createGrid();
+    window.onresize = () => createGrid();
 </script>
 
 <Layout overlayHeader={true}>
-    <Hero />
-    <Services />
-    <Project />
-    <About />
-    <Process />
-    <Contact />
+    <div id="hero">
+        <div id="grid"></div>
+    </div>
 </Layout>
+
+<style>
+    #hero {
+        height: 100vh;
+        width: 100vw;
+
+        overflow: hidden;
+    }
+
+    @keyframes background-pan {
+        from {
+            background-position: 0% center;
+        }
+        to {
+            background-position: -200% center;
+        }
+    }
+
+    #grid {
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(var(--cols), 1fr);
+        grid-template-rows: repeat(var(--rows), 1fr);
+
+        animation: background-pan 10s linear infinite;
+        background: linear-gradient(
+            to right,
+            var(--sb-purple),
+            var(--sb-pink),
+            var(--sb-blue),
+            var(--sb-purple)
+        );
+        background-size: 200%;
+    }
+
+    #grid :global(.tile) {
+        position: relative;
+    }
+
+    #grid :global(.tile)::before {
+        content: "";
+
+        background-color: rgb(20, 20, 20);
+        position: absolute;
+        inset: 0.5px;
+    }
+</style>
