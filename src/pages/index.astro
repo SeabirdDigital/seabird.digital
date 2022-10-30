@@ -5,13 +5,22 @@ import Layout from "../lib/Layout.astro";
 <script>
     import anime from "animejs";
 
-    let cols: number, rows: number;
+    let size: number = document.body.clientWidth > 800 ? 100 : 50,
+        cols: number = Math.floor(document.body.clientHeight / size), 
+        rows: number = Math.floor(document.body.clientHeight / size),
+        
+        toggled: boolean = true;
 
     const grid = document.getElementById("grid") || new HTMLDivElement();
 
     const onClickOnTile = (index: number) => {
+        toggled = !toggled
+
+        toggled ? grid.classList.add("toggled") : grid.classList.remove("toggled")
+
         anime({
             targets: ".tile",
+            opacity: toggled ? 0 : 1,
             delay: anime.stagger(50, {
                 grid: [cols, rows],
                 from: index,
@@ -38,11 +47,14 @@ import Layout from "../lib/Layout.astro";
     const createGrid = () => {
         grid.innerHTML = "";
 
-        cols = Math.floor(document.body.clientWidth / 50);
-        rows = Math.floor(document.body.clientHeight / 50);
+        size = document.body.clientWidth > 800 ? 100 : 50;
+        cols = Math.floor(document.body.clientWidth / size);
+        rows = Math.floor(document.body.clientHeight / size);
 
         grid.style.setProperty("--cols", cols.toString());
         grid.style.setProperty("--rows", rows.toString());
+
+        toggled ? grid.classList.add("toggled") : grid.classList.remove("toggled")
 
         createTiles(cols * rows);
     };
@@ -86,7 +98,6 @@ import Layout from "../lib/Layout.astro";
         background: linear-gradient(
             to right,
             var(--sb-purple),
-            var(--sb-pink),
             var(--sb-blue),
             var(--sb-purple)
         );
@@ -97,11 +108,19 @@ import Layout from "../lib/Layout.astro";
         position: relative;
     }
 
+    #grid.toggled :global(.tile:hover) {
+        opacity: 0.1 !important;
+    }
+
     #grid :global(.tile)::before {
         content: "";
 
-        background-color: rgb(20, 20, 20);
+        background-color: rgb(15, 15, 15);
         position: absolute;
         inset: 0.5px;
+    }
+
+    #grid :global(.tile):hover::before {
+        background-color: rgb(30, 30, 30);
     }
 </style>
