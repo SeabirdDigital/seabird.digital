@@ -19,4 +19,9 @@
     --sb-paytone: "Paytone One", sans-serif;
     --sb-mulish: "Mulish", sans-serif;
     --sb-specify: "Specify ExExp", sans-serif;
+    --sb-darker: 'Darker Grotesque', sans-serif
+}
+
+body {
+    overflow-x: hidden;
 }

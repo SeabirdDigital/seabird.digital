@@ -47,11 +47,168 @@ const { overlayHeader = true } = Astro.props;
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&family=Darker+Grotesque:wght@400;700&display=swap"
             rel="stylesheet"
         />
     </head>
-    <body>
-        <slot />
+    <body data-menu="false">
+        <script>
+            const button = document.getElementById("menu-button"),
+                menuText = document.getElementById("menu-text-path");
+            if (button == null || menuText == null) {
+                throw new Error("Button or menu button text missing");
+            }
+
+            let menuOpen = false;
+
+            button.onclick = () => {
+                document.body.dataset.menu =
+                    document.body.dataset.menu === "true" ? "false" : "true";
+                menuOpen = !menuOpen;
+
+                menuText.innerHTML =
+                    menuText.innerHTML === "Meny" ? "Stäng" : "Meny";
+            };
+        </script>
+
+        <button id="menu-button" type="button">
+            <div class="background"></div>
+            <div class="text">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="51.439"
+                    height="18.838"
+                    viewBox="0 0 13.61 4.984"
+                >
+                    <g transform="translate(-30.558 -68.822)">
+                        <path
+                            id="a"
+                            d="M31.258 73.354a14.817 14.817 0 0 1 19.824 6.787 14.817 14.817 0 0 1-6.787 19.824 14.817 14.817 0 0 1-19.824-6.787 14.817 14.817 0 0 1 6.787-19.824Z"
+                            style="fill: none; stroke-width: 0.109699"></path>
+                        <text
+                            xml:space="preserve"
+                            style="font-size: 4.7625px; fill: #000; stroke-width: 0.264583"
+                        >
+                            <textPath
+                                id="menu-text-path"
+                                xlink:href="#a"
+                                style="font-size: 4.7625px; fill:white;"
+                                >Meny</textPath
+                            >
+                        </text>
+                    </g>
+                </svg>
+            </div>
+        </button>
+
+        <main>
+            <slot />
+        </main>
+        <nav></nav>
+
+        <style>
+            body::-webkit-scrollbar {
+                display: none;
+            }
+            body {
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+            }
+            body[data-menu="true"] {
+                overflow: hidden;
+            }
+
+            body > main {
+                transition: 1000ms;
+            }
+            body[data-menu="true"] > main {
+                translate: 0 -75vh;
+            }
+
+            body > nav {
+                height: 75vh;
+                width: 100%;
+
+                position: fixed;
+                bottom: -75vh;
+                left: 0;
+
+                background-color: black;
+
+                transition: bottom 1000ms;
+            }
+            body[data-menu="true"] > nav {
+                bottom: 0;
+            }
+
+            #menu-button {
+                height: 4rem;
+                width: 4rem;
+                position: fixed;
+                bottom: 3rem;
+                left: 50vw;
+                translate: -50%;
+
+                transition: 200ms;
+
+                z-index: 10;
+            }
+
+            #menu-button:hover {
+                scale: 1.25;
+            }
+
+            #menu-button:active {
+                scale: 1.1;
+            }
+
+            #menu-button .background {
+                height: 100%;
+                width: 100%;
+                position: relative;
+                background-color: var(--sb-purple);
+                border-radius: 2rem;
+                transition: background 200ms;
+
+                box-shadow: 0 0 4rem rgba(0 0 0 / 35%);
+
+                z-index: 2;
+            }
+
+            #menu-button .text {
+                height: 150%;
+                width: 150%;
+
+                display: flex;
+                justify-content: center;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+
+                font-family: var(--sb-darker);
+
+                scale: 0.5;
+                rotate: -90deg;
+                transition: rotate 250ms, scale 200ms;
+
+                z-index: 1;
+            }
+
+            body:not([data-menu="true"]) #menu-button:hover .text {
+                scale: 1;
+                rotate: 8deg;
+            }
+
+            body[data-menu="true"] #menu-button .text {
+                scale: 1;
+                rotate: 6deg;
+            }
+            body[data-menu="true"] #menu-button .background {
+                background: var(--sb-blue);
+            }
+        </style>
     </body>
 </html>
