@@ -7,4 +7,9 @@ export const goto = async (url: string) => {
     document.getElementsByTagName("main")[0].innerHTML = page.getElementsByTagName("main")[0].innerHTML
 
     document.getElementsByTagName("head")[0].replaceChildren(...page.getElementsByTagName("head")[0].childNodes)
+
+    const scripts = [...page.getElementsByTagName("head")[0].getElementsByTagName("script")]
+    for (const script of scripts) {
+        page.getElementsByTagName("head")[0].append(script)
+    }
 }
