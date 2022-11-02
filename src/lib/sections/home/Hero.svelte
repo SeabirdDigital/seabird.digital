@@ -42,16 +42,19 @@
 		createGrid();
 		window.onresize = () => createGrid();
 
-		anime({
-			targets: '#content span',
-			translateY: -100,
-			delay: anime.stagger(250),
-			opacity: 1,
-			duration: 1000,
-			easing: 'easeInOutSine',
+		console.log(scrollY);
+		if (scrollY < 100)
+			anime({
+				targets: '#content span',
+				translateY: -100,
+				delay: anime.stagger(100),
+				opacity: 1,
+				duration: 1000,
+				easing: 'easeInOutSine',
 
-			complete: () => (doneAnimating = true)
-		});
+				complete: () => (doneAnimating = true)
+			});
+		else doneAnimating = true;
 	});
 </script>
 
@@ -64,14 +67,16 @@
 		<h1>
 			<span
 				style={doneAnimating
-					? `transform: translateY(-${scrollY + 100}px); opacity: ${(75 - scrollY) / 75};`
+					? `transform: translateY(-${scrollY * 0.5 + 100}px); opacity: ${
+							(125 - scrollY * 0.5) / 125
+					  };`
 					: ''}>Lite annorlunda</span
 			>
 			<span
 				style={doneAnimating
-					? `transform: translateY(-${scrollY - 25 > 0 ? scrollY + 100 - 25 : 100}px); opacity: ${
-							(100 - scrollY) / 75
-					  };`
+					? `transform: translateY(-${
+							scrollY * 0.5 > 0 ? scrollY * 0.25 + 100 : 100
+					  }px); opacity: ${(100 - scrollY * 0.5) / 100};`
 					: ''}>digitalbyrå</span
 			>
 		</h1>
@@ -111,7 +116,10 @@
 
 	#content {
 		color: white;
-		position: relative;
+		position: fixed;
+		top: 50vh;
+		left: 50vw;
+		transform: translate(-50%, -50%);
 		text-align: center;
 		margin-bottom: 5rem;
 
