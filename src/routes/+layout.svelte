@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Header from '$lib/sections/layout/Header.svelte';
 	import { onMount } from 'svelte';
 
 	let menuOpen = false;
@@ -56,6 +57,7 @@
 </button>
 
 <main>
+	<Header />
 	<slot />
 </main>
 <nav>
@@ -109,6 +111,7 @@
 
 	main {
 		transition: 1000ms;
+		position: relative;
 	}
 	body[data-menu='true'] main {
 		translate: 0 -75vh;
