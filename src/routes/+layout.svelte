@@ -138,7 +138,7 @@
 	nav > #links {
 		display: flex;
 		gap: clamp(1rem, 2vw, 2rem);
-		margin-bottom: 5.5rem;
+		margin-bottom: 7rem;
 		padding: 0rem clamp(1rem, 2vw, 2rem);
 
 		transform: translateY(-100%) scale(0.9);
