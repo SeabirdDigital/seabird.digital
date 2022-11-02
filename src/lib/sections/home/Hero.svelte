@@ -76,7 +76,7 @@
 				style={doneAnimating
 					? `transform: translateY(-${
 							scrollY * 0.5 > 0 ? scrollY * 0.25 + 100 : 100
-					  }px); opacity: ${(100 - scrollY * 0.5) / 100};`
+					  }px); opacity: ${(125 - scrollY * 0.5) / 125};`
 					: ''}>digitalbyrå</span
 			>
 		</h1>
@@ -166,8 +166,8 @@
 		top: 0;
 		left: 0;
 
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(15, 15, 15)),
-			radial-gradient(at center top, rgba(0, 0, 0, 0), rgb(15, 15, 15));
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(25, 25, 25)),
+			radial-gradient(at center top, rgba(0, 0, 0, 0), rgb(25, 25, 25));
 
 		transition: opacity 500ms;
 		pointer-events: none;
@@ -182,12 +182,12 @@
 	#grid :global(.tile)::before {
 		content: '';
 
-		background-color: rgb(15, 15, 15);
+		background-color: rgb(25, 25, 25);
 		position: absolute;
 		inset: 0.5px;
 	}
 
 	#grid :global(.tile):hover::before {
-		background-color: rgb(20, 20, 20);
+		background-color: rgb(25, 25, 25);
 	}
 </style>

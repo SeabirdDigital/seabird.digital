@@ -19,7 +19,7 @@
 
 		width: 100%;
 
-		background-color: rgb(15, 15, 15);
+		background-color: rgb(25, 25, 25);
 	}
 
 	h2 {
