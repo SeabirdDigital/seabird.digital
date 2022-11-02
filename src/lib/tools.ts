@@ -1,12 +1,10 @@
-import { animating, cols, rows, ToggleOverlay } from "./components/Load";
+export const goto = async (url: string) => {
+    const pageFetch = await fetch(url),
+    page = new DOMParser().parseFromString(await pageFetch.text(), "text/html");;
 
-export const goto = (url: string) => {
-    console.log(animating)
-    if (url == location.href || url == location.pathname || animating)
-        return;
+    window.history.pushState({}, page.title, url);
 
-    ToggleOverlay();
-    setTimeout(() => {
-        location.href = url;
-    }, 500);
+    document.getElementsByTagName("main")[0].innerHTML = page.getElementsByTagName("main")[0].innerHTML
+
+    document.getElementsByTagName("head")[0].replaceChildren(...page.getElementsByTagName("head")[0].childNodes)
 }

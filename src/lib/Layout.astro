@@ -53,9 +53,18 @@ const { overlayHeader = true } = Astro.props;
     </head>
     <body data-menu="false">
         <script>
+            import { goto } from "./tools";
+
             const button = document.getElementById("menu-button"),
-                menuText = document.getElementById("menu-text-path");
-            if (button == null || menuText == null) {
+                menuText = document.getElementById("menu-text-path"),
+                home = document.getElementById("home"),
+                sub = document.getElementById("sub");
+            if (
+                button == null ||
+                menuText == null ||
+                home == null ||
+                sub == null
+            ) {
                 throw new Error("Button or menu button text missing");
             }
 
@@ -69,6 +78,9 @@ const { overlayHeader = true } = Astro.props;
                 menuText.innerHTML =
                     menuText.innerHTML === "Meny" ? "Stäng" : "Meny";
             };
+
+            home.onclick = () => goto("/");
+            sub.onclick = () => goto("/hi");
         </script>
 
         <button id="menu-button" type="button">
@@ -105,7 +117,10 @@ const { overlayHeader = true } = Astro.props;
         <main>
             <slot />
         </main>
-        <nav></nav>
+        <nav>
+            <button id="home">home</button>
+            <button id="sub">subpage</button>
+        </nav>
 
         <style>
             body::-webkit-scrollbar {
@@ -135,6 +150,7 @@ const { overlayHeader = true } = Astro.props;
                 left: 0;
 
                 background-color: black;
+                color: white;
 
                 transition: bottom 1000ms;
             }
