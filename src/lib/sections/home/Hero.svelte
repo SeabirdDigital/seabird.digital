@@ -65,14 +65,14 @@
 			<span
 				style={doneAnimating
 					? `transform: translateY(-${scrollY + 100}px); opacity: ${(75 - scrollY) / 75};`
-					: ''}>En något</span
+					: ''}>Lite annorlunda</span
 			>
 			<span
 				style={doneAnimating
 					? `transform: translateY(-${scrollY - 25 > 0 ? scrollY + 100 - 25 : 100}px); opacity: ${
 							(100 - scrollY) / 75
 					  };`
-					: ''}>annorlunda digitalbyrå</span
+					: ''}>digitalbyrå</span
 			>
 		</h1>
 	</div>
