@@ -17,10 +17,8 @@
 
 	onMount(() => {
 		const button = document.getElementById('menu-button'),
-			menuText = document.getElementById('menu-text-path'),
-			home = document.getElementById('home'),
-			sub = document.getElementById('sub');
-		if (button == null || menuText == null || home == null || sub == null) {
+			menuText = document.getElementById('menu-text-path');
+		if (button == null || menuText == null) {
 			throw new Error('Button or menu button text missing');
 		}
 
@@ -61,8 +59,24 @@
 	<slot />
 </main>
 <nav>
-	<button on:click={() => MenuItemClicked('/')} id="home">home</button>
-	<button on:click={() => MenuItemClicked('/sub')} id="sub">subpage</button>
+	<div id="links">
+		<button class="link" on:click={() => MenuItemClicked('/')}>
+			<span class="label">Home</span>
+			<img
+				class="image"
+				src="https://images.unsplash.com/photo-1667374026094-56bb3b0f6f55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+				alt=""
+			/>
+		</button>
+		<button class="link" on:click={() => MenuItemClicked('/sub')}>
+			<span class="label">Subpage</span>
+			<img
+				class="image"
+				src="https://plus.unsplash.com/premium_photo-1663839412165-1b23d904e50a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+				alt=""
+			/>
+		</button>
+	</div>
 </nav>
 
 <style global>
@@ -93,28 +107,71 @@
 		overflow: hidden;
 	}
 
-	body main {
+	main {
 		transition: 1000ms;
 	}
 	body[data-menu='true'] main {
-		translate: 0 -75vh;
+		translate: 0 -50vh;
 	}
 
-	body nav {
-		height: 75vh;
+	nav {
+		height: 50vh;
 		width: 100%;
 
 		position: fixed;
-		bottom: -75vh;
+		bottom: -50vh;
 		left: 0;
+
+		display: flex;
+		align-items: center;
 
 		background-color: black;
 		color: white;
 
 		transition: bottom 1000ms;
+		overflow: hidden;
 	}
 	body[data-menu='true'] nav {
 		bottom: 0;
+	}
+
+	nav > #links {
+		display: flex;
+		gap: clamp(1rem, 2vw, 2rem);
+		margin-bottom: 4.5rem;
+		padding: 0rem clamp(1rem, 2vw, 2rem);
+
+		transform: translateY(-100%) scale(0.9);
+		transition: transform 1000ms;
+	}
+	body[data-menu='true'] nav > #links {
+		transform: translateY(0%) scale(1);
+	}
+	nav > #links > .link {
+		background-color: transparent;
+		border: 0;
+		display: inline-flex;
+		flex-direction: column;
+		padding: 0;
+		transition: 200ms;
+	}
+	nav > #links > .link:hover {
+		transform: scale(1.05);
+		cursor: pointer;
+	}
+	nav > #links > .link > .label {
+		color: white;
+		font-size: 2rem;
+		margin: 0;
+		text-transform: uppercase;
+		font-family: var(--sb-darker);
+	}
+	nav > #links > .link > .image {
+		width: max(20vw, 400px);
+		aspect-ratio: 1.8 / 1;
+		border-radius: 0.25rem;
+		margin-top: 0.5rem;
+		object-fit: cover;
 	}
 
 	#menu-button {
