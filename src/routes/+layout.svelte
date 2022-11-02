@@ -87,7 +87,6 @@
 		scrollbar-width: none; /* Firefox */
 		overflow-x: hidden;
 		margin: 0;
-
 		background-color: black;
 	}
 	body[data-menu='true'] {
@@ -125,6 +124,7 @@
 		bottom: 3rem;
 		left: 50vw;
 		translate: -50%;
+		border: 0;
 
 		transition: 200ms;
 
