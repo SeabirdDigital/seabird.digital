@@ -111,15 +111,15 @@
 		transition: 1000ms;
 	}
 	body[data-menu='true'] main {
-		translate: 0 -50vh;
+		translate: 0 -75vh;
 	}
 
 	nav {
-		height: 50vh;
+		height: 75vh;
 		width: 100%;
 
 		position: fixed;
-		bottom: -50vh;
+		bottom: -75vh;
 		left: 0;
 
 		display: flex;
