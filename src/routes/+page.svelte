@@ -1,18 +1,55 @@
-<script>
-	import Hero from '../lib/sections/home/Hero.svelte';
+<script lang="ts">
+	import Hands from '$lib/assets/hands.jpg';
+
+	import Hero from '$lib/sections/home/Hero.svelte';
+
+	let y = 0,
+		image: HTMLImageElement;
 </script>
+
+<svelte:window bind:scrollY={y} />
 
 <Hero />
 
-<div id="about">
+<div id="quote">
 	<h2>
 		För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din
 		plånbok.
 	</h2>
 </div>
 
+<div id="about">
+	<div class="image">
+		<div>
+			<img
+				src={Hands}
+				bind:this={image}
+				style={`top: -${(y + (image?.offsetTop - image?.scrollTop + image?.clientTop)) * 0.25}px;`}
+				alt=""
+			/>
+		</div>
+	</div>
+	<div>
+		<h2>Vi skapar hemsidor som hjälper våra kunder att sälja mer.</h2>
+
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, porro cum officia
+			veniam itaque quam, excepturi recusandae laudantium atque quod exercitationem molestiae optio
+			vero tenetur saepe repudiandae dolore cupiditate magni?
+		</p>
+	</div>
+</div>
+
+<div id="full" />
+
 <style>
-	#about {
+	#full {
+		height: 100vh;
+
+		background-color: rgb(25, 25, 25);
+	}
+
+	#quote {
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 		padding-left: 3rem;
@@ -30,5 +67,45 @@
 		font-size: 3rem;
 		line-height: 2.75rem;
 		font-weight: normal;
+	}
+
+	#about {
+		display: flex;
+		padding-top: 12rem;
+		padding-bottom: 12rem;
+		padding-right: 3rem;
+		padding-left: 3rem;
+
+		background-color: rgb(25, 25, 25);
+	}
+	#about > div {
+		width: 50%;
+	}
+	#about > .image {
+		display: flex;
+		justify-content: center;
+	}
+	#about > .image > div {
+		width: 32rem;
+		aspect-ratio: 4 / 5;
+
+		position: relative;
+		overflow: hidden;
+	}
+	#about > .image > div > img {
+		width: 32rem;
+		aspect-ratio: 3 / 6;
+		object-fit: cover;
+		object-position: fixed;
+
+		position: absolute;
+	}
+
+	p {
+		width: 32rem;
+		color: white;
+		font-family: var(--sb-mulish);
+		font-size: 1.5rem;
+		font-weight: 200;
 	}
 </style>
