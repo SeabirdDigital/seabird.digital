@@ -60,27 +60,27 @@
 
 <svelte:window bind:scrollY />
 
+<div id="overlay" />
 <div id="hero">
-	<div id="overlay" />
 	<div id="grid" bind:this={grid} />
-	<div id="content">
-		<h1>
-			<span
-				style={doneAnimating
-					? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
-							(125 - scrollY * 0.5) / 125
-					  };`
-					: ''}>Lite annorlunda</span
-			>
-			<span
-				style={doneAnimating
-					? `transform: translateY(-${
-							scrollY * 0.5 > 0 ? scrollY * 0.25 + 125 : 125
-					  }px); opacity: ${(125 - scrollY * 0.5) / 125};`
-					: ''}>digitalbyrå</span
-			>
-		</h1>
-	</div>
+</div>
+<div id="content">
+	<h1>
+		<span
+			style={doneAnimating
+				? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
+						(125 - scrollY * 0.5) / 125
+				  };`
+				: ''}>Lite annorlunda</span
+		>
+		<span
+			style={doneAnimating
+				? `transform: translateY(-${scrollY * 0.5 > 0 ? scrollY * 0.25 + 125 : 125}px); opacity: ${
+						(125 - scrollY * 0.5) / 125
+				  };`
+				: ''}>digitalbyrå</span
+		>
+	</h1>
 </div>
 
 <style>
@@ -97,6 +97,11 @@
 		height: 100vh;
 		width: 100%;
 		position: relative;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -3;
 
 		display: flex;
 		justify-content: center;
@@ -149,6 +154,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+
 		display: grid;
 		grid-template-columns: repeat(var(--cols), 1fr);
 		grid-template-rows: repeat(var(--rows), 1fr);
@@ -161,10 +167,6 @@
 	#overlay {
 		height: 100vh;
 		width: 100%;
-
-		position: absolute;
-		top: 0;
-		left: 0;
 
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(25, 25, 25)),
 			radial-gradient(at center top, rgba(0, 0, 0, 0), rgb(25, 25, 25));
