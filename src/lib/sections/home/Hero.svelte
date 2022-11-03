@@ -46,7 +46,7 @@
 		if (scrollY < 100)
 			anime({
 				targets: '#content span',
-				translateY: -100,
+				translateY: -125,
 				delay: anime.stagger(100),
 				opacity: 1,
 				duration: 1000,
@@ -67,7 +67,7 @@
 		<h1>
 			<span
 				style={doneAnimating
-					? `transform: translateY(-${scrollY * 0.5 + 100}px); opacity: ${
+					? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
 							(125 - scrollY * 0.5) / 125
 					  };`
 					: ''}>Lite annorlunda</span
@@ -75,7 +75,7 @@
 			<span
 				style={doneAnimating
 					? `transform: translateY(-${
-							scrollY * 0.5 > 0 ? scrollY * 0.25 + 100 : 100
+							scrollY * 0.5 > 0 ? scrollY * 0.25 + 125 : 125
 					  }px); opacity: ${(125 - scrollY * 0.5) / 125};`
 					: ''}>digitalbyrå</span
 			>
@@ -130,7 +130,7 @@
 	#content h1 {
 		font-family: var(--sb-darker);
 		font-weight: 700;
-		font-size: 4rem;
+		font-size: 5rem;
 		line-height: 3.75rem;
 
 		display: flex;
