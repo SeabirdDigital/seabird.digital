@@ -4,10 +4,11 @@
 	import Hero from '$lib/sections/home/Hero.svelte';
 
 	let y = 0,
-		image: HTMLImageElement;
+		image: HTMLDivElement,
+		height = 0;
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={y} bind:innerHeight={height} />
 
 <Hero />
 
@@ -20,14 +21,12 @@
 
 <div id="about">
 	<div class="image">
-		<div>
-			<img
-				src={Hands}
-				bind:this={image}
-				style={`top: -${(y + (image?.offsetTop - image?.scrollTop + image?.clientTop)) * 0.25}px;`}
-				alt=""
-			/>
-		</div>
+		<div
+			bind:this={image}
+			style={`background-image: url("${Hands}"); background-position: top left ${
+				image?.getBoundingClientRect().left
+			}px;`}
+		/>
 	</div>
 	<div>
 		<h2>Vi skapar hemsidor som hjälper våra kunder att sälja mer.</h2>
@@ -91,14 +90,9 @@
 
 		position: relative;
 		overflow: hidden;
-	}
-	#about > .image > div > img {
-		width: 32rem;
-		aspect-ratio: 3 / 6;
-		object-fit: cover;
-		object-position: fixed;
 
-		position: absolute;
+		background-attachment: fixed;
+		background-size: 32rem 100vh;
 	}
 
 	p {
