@@ -70,7 +70,7 @@
 	<div id="grid" bind:this={grid} />
 </div>
 <div id="content">
-	<h1 class="rellax" data-rellax-speed="-18">
+	<h1 class="rellax" data-rellax-speed="-7">
 		<span
 			style={doneAnimating
 				? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${

@@ -11,7 +11,7 @@
 		height = 0;
 
 	onMount(() => {
-		const rellax = new Rellax('.rellax');
+		new Rellax('.rellax');
 	});
 </script>
 
