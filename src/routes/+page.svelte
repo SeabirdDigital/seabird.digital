@@ -1,11 +1,18 @@
 <script lang="ts">
+	import Rellax from 'rellax';
+
 	import Hands from '$lib/assets/hands.jpg';
 
 	import Hero from '$lib/sections/home/Hero.svelte';
+	import { onMount } from 'svelte';
 
 	let y = 0,
 		image: HTMLDivElement,
 		height = 0;
+
+	onMount(() => {
+		const rellax = new Rellax('.rellax');
+	});
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerHeight={height} />
@@ -13,7 +20,7 @@
 <Hero />
 
 <div id="quote">
-	<h2>
+	<h2 class="rellax" data-rellax-speed="-1">
 		För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din
 		plånbok.
 	</h2>
@@ -23,12 +30,12 @@
 	<div class="image">
 		<div
 			bind:this={image}
-			style={`background-image: url("${Hands}"); background-position: top left ${
+			style={`background-image: url("${Hands}"); background-position: top left calc(${
 				image?.getBoundingClientRect().left
-			}px;`}
+			}px - 16rem);`}
 		/>
 	</div>
-	<div>
+	<div class="rellax" data-rellax-speed="-2">
 		<h2>Vi skapar hemsidor som hjälper våra kunder att sälja mer.</h2>
 
 		<p>
@@ -92,7 +99,7 @@
 		overflow: hidden;
 
 		background-attachment: fixed;
-		background-size: 32rem 100vh;
+		background-size: calc(100vh * (4 / 5)) 100vh;
 	}
 
 	p {

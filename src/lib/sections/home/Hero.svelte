@@ -1,5 +1,6 @@
 <script lang="ts">
 	import anime from 'animejs';
+	import Rellax from 'rellax';
 	import { onMount } from 'svelte';
 
 	let height = 0,
@@ -56,16 +57,20 @@
 			});
 		else doneAnimating = true;
 	});
+
+	onMount(() => {
+		const rellax = new Rellax('.rellax');
+	});
 </script>
 
 <svelte:window bind:scrollY />
 
 <div id="overlay" />
-<div id="hero">
+<div id="background">
 	<div id="grid" bind:this={grid} />
 </div>
 <div id="content">
-	<h1>
+	<h1 class="rellax" data-rellax-speed="-18">
 		<span
 			style={doneAnimating
 				? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
@@ -93,7 +98,7 @@
 		}
 	}
 
-	#hero {
+	#background {
 		height: 100vh;
 		width: 100%;
 		position: relative;
@@ -121,7 +126,7 @@
 
 	#content {
 		color: white;
-		position: fixed;
+		position: absolute;
 		top: 50vh;
 		left: 50vw;
 		transform: translate(-50%, -50%);
