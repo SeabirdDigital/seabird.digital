@@ -8,7 +8,7 @@
 			<div />
 			<span>seabird</span>
 		</div>
-		<div>
+		<div class="right">
 			<button>
 				<span
 					style={`height: ${contactText?.clientHeight || 25}px; width: ${
@@ -71,6 +71,12 @@
 		line-height: 3rem;
 	}
 
+	.right {
+		height: 3.5rem;
+		display: flex;
+		align-items: center;
+	}
+
 	button {
 		position: relative;
 		background-color: var(--sb-purple);
@@ -88,10 +94,11 @@
 		display: flex;
 		overflow: hidden;
 
-		transition: transform 200ms;
+		transition: all 200ms cubic-bezier(0.68, -0.1, 0.265, 1.55);
 	}
 	button:hover {
-		transform: scale(1.05);
+		padding: 0.5rem 1.75rem;
+		margin-right: -0.5rem;
 	}
 	button:active {
 		transform: scale(1.025);

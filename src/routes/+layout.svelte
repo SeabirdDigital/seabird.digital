@@ -6,7 +6,7 @@
 	let menuOpen = false;
 
 	const InvertMenuOpen = () => {
-		document.body.dataset.menu = document.body.dataset.menu === 'true' ? 'false' : 'true';
+		document.body.dataset.menuOpen = document.body.dataset.menuOpen === 'true' ? 'false' : 'true';
 		menuOpen = !menuOpen;
 	};
 
@@ -26,6 +26,10 @@
 		button.onclick = () => {
 			InvertMenuOpen();
 			menuText.innerHTML = menuText.innerHTML === 'Meny' ? 'Stäng' : 'Meny';
+		};
+
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0);
 		};
 	});
 </script>
@@ -56,10 +60,6 @@
 	</div>
 </button>
 
-<main>
-	<Header />
-	<slot />
-</main>
 <nav>
 	<div id="links">
 		<button class="link" on:click={() => MenuItemClicked('/')}>
@@ -81,7 +81,16 @@
 	</div>
 </nav>
 
-<style global>
+<main>
+	<Header />
+	<slot />
+</main>
+
+<style global lang="postcss">
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
 	:root {
 		--sb-blue: #00bbf9;
 		--sb-purple: #9b5de5;
@@ -96,7 +105,7 @@
 	}
 
 	body::-webkit-scrollbar {
-		display: none;
+		@apply hidden;
 	}
 	body {
 		-ms-overflow-style: none; /* IE and Edge */
@@ -118,18 +127,21 @@
 	}
 
 	nav {
-		height: 75vh;
-		width: 100%;
+		@apply /**/
+			h-[30rem]
+			w-full
 
-		position: fixed;
-		bottom: -75vh;
-		left: 0;
+			fixed
+			bottom-[-30rem]
+			left-0
 
-		display: flex;
-		align-items: center;
+			flex
+			items-center
 
-		background-color: black;
-		color: white;
+			bg-black
+			text-white
+			
+			z-40;
 
 		transition: bottom 1000ms;
 		overflow: hidden;
@@ -139,10 +151,11 @@
 	}
 
 	nav > #links {
-		display: flex;
-		gap: clamp(1rem, 2vw, 2rem);
-		margin-bottom: 7rem;
-		padding: 0rem clamp(1rem, 2vw, 2rem);
+		@apply /**/
+			flex
+			gap-4
+			mb-28
+			p-0;
 
 		transform: translateY(-100%) scale(0.9);
 		transition: transform 1000ms;
@@ -151,44 +164,52 @@
 		transform: translateY(0%) scale(1);
 	}
 	nav > #links > .link {
-		background-color: transparent;
-		border: 0;
-		display: inline-flex;
-		flex-direction: column;
-		padding: 0;
-		transition: 200ms;
+		@apply /**/
+			bg-transparent
+			border-0
+			p-0
+
+			inline-flex
+			flex-col;
+
+		transition: transform 200ms;
 	}
 	nav > #links > .link:hover {
 		transform: scale(1.05);
 		cursor: pointer;
 	}
 	nav > #links > .link > .label {
-		color: white;
-		font-size: 2rem;
-		margin: 0;
-		text-transform: uppercase;
-		font-family: var(--sb-darker);
+		@apply /**/
+			font-sb-darker	
+			text-white
+			text-4xl
+			uppercase
+
+			m-0;
 	}
 	nav > #links > .link > .image {
-		width: max(20vw, 400px);
-		aspect-ratio: 1.8 / 1;
-		border-radius: 0.25rem;
-		margin-top: 0.5rem;
-		object-fit: cover;
+		@apply /**/
+			h-52
+			aspect-[1.8/1]
+			rounded-md
+			mt-2
+			object-cover;
 	}
 
 	#menu-button {
-		height: 4rem;
-		width: 4rem;
-		position: fixed;
-		bottom: 3rem;
-		left: 50vw;
+		@apply /**/
+			h-16
+			w-16
+			border-0
+
+			fixed
+			bottom-12
+			left-[50vw]
+
+			z-50;
+
 		translate: -50%;
-		border: 0;
-
-		transition: 200ms;
-
-		z-index: 10;
+		transition: scale 200ms;
 	}
 
 	#menu-button:hover {
@@ -200,16 +221,15 @@
 	}
 
 	#menu-button .background {
-		height: 100%;
-		width: 100%;
-		position: relative;
-		background-color: var(--sb-purple);
-		border-radius: 2rem;
-		transition: background 200ms;
+		@apply /**/
+			h-full
+			w-full
+			relative
+			bg-sb-purple
+			rounded-full
+			shadow-lg
 
-		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-
-		z-index: 2;
+			z-20;
 	}
 
 	#menu-button {
@@ -219,24 +239,26 @@
 	}
 
 	#menu-button .text {
-		height: 150%;
-		width: 150%;
+		@apply /**/
+			h-[150%]
+			w-[150%]
 
-		display: flex;
-		justify-content: center;
+			flex
+			justify-center
 
-		position: absolute;
-		top: 50%;
-		left: 50%;
+			absolute
+			top-1/2
+			left-1/2
+
+			font-sb-darker
+
+			scale-50
+			-rotate-90
+
+			z-10;
+
 		translate: -50% -50%;
-
-		font-family: var(--sb-darker);
-
-		scale: 0.5;
-		rotate: -90deg;
 		transition: rotate 250ms, scale 200ms;
-
-		z-index: 1;
 	}
 
 	body:not([data-menu='true']) #menu-button:hover .text {
@@ -248,7 +270,8 @@
 		scale: 1;
 		rotate: 6deg;
 	}
-	body[data-menu='true'] #menu-button .background {
-		background: var(--sb-blue);
+	body[data-menu-open='true'] #menu-button .background {
+		@apply /**/
+			bg-sb-blue;
 	}
 </style>

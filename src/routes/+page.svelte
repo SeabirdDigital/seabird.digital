@@ -20,7 +20,7 @@
 <Hero />
 
 <div id="quote">
-	<h2 class="rellax" data-rellax-speed="-1">
+	<h2>
 		För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din
 		plånbok.
 	</h2>
@@ -30,12 +30,12 @@
 	<div class="image">
 		<div
 			bind:this={image}
-			style={`background-image: url("${Hands}"); background-position: top left calc(${
+			style={`background-image: url("${Hands}"); background-position: top left ${
 				image?.getBoundingClientRect().left
-			}px - 16rem);`}
+			}px;`}
 		/>
 	</div>
-	<div class="rellax" data-rellax-speed="-2">
+	<div>
 		<h2>Vi skapar hemsidor som hjälper våra kunder att sälja mer.</h2>
 
 		<p>
