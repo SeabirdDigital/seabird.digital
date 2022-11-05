@@ -87,7 +87,6 @@
 			w-full
 
 			fixed
-			bottom-[-30rem]
 			left-0
 
 			flex
@@ -96,12 +95,13 @@
 			bg-black
 			text-white
 			
+			overflow-hidden
 			z-40;
 
+		bottom: -30rem;
 		transition: bottom 1000ms;
-		overflow: hidden;
 	}
-	body[data-menu='true'] nav {
+	body[data-menu-open='true'] nav {
 		bottom: 0;
 	}
 
@@ -115,7 +115,7 @@
 		transform: translateY(-100%) scale(0.9);
 		transition: transform 1000ms;
 	}
-	body[data-menu='true'] nav > #links {
+	body[data-menu-open='true'] nav > #links {
 		transform: translateY(0%) scale(1);
 	}
 	nav > #links > .link {
@@ -207,25 +207,25 @@
 
 			font-sb-darker
 
-			scale-50
-			-rotate-90
-
 			z-10;
 
 		translate: -50% -50%;
+
+		rotate: -90deg;
+		scale: 0.5;
 		transition: rotate 250ms, scale 200ms;
 	}
 
-	body:not([data-menu='true']) #menu-button:hover .text {
+	body:not([data-menu-open='true']) #menu-button:hover .text {
 		scale: 1;
 		rotate: 8deg;
 	}
 
-	body[data-menu='true'] #menu-button .text {
+	body[data-menu-open='true'] #menu-button .text {
 		scale: 1;
 		rotate: 6deg;
 	}
-	body[data-menu-open='true'] #menu-button .background {
+	body[data-menu-open-open='true'] #menu-button .background {
 		@apply /**/
 			bg-sb-blue;
 	}
