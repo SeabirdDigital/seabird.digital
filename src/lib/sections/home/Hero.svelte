@@ -1,4 +1,5 @@
 <script lang="ts">
+	import OnResize from '$lib/stores/OnResize';
 	import anime from 'animejs';
 	import Rellax from 'rellax';
 	import { onMount } from 'svelte';
@@ -41,7 +42,8 @@
 
 	onMount(() => {
 		createGrid();
-		window.onresize = () => createGrid();
+
+		OnResize.add(createGrid);
 
 		console.log(scrollY);
 		if (scrollY < 100)

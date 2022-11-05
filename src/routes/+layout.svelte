@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Header from '$lib/sections/layout/Header.svelte';
+	import OnResize from '$lib/stores/OnResize';
 	import { onMount } from 'svelte';
 
 	let menuOpen = false;
@@ -30,6 +31,10 @@
 
 		window.onbeforeunload = function () {
 			window.scrollTo(0, 0);
+		};
+
+		window.onresize = () => {
+			for (const f of OnResize.functions()) f();
 		};
 	});
 </script>

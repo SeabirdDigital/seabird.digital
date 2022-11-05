@@ -4,14 +4,23 @@
 	import Hands from '$lib/assets/hands.jpg';
 
 	import Hero from '$lib/sections/home/Hero.svelte';
+	import OnResize from '$lib/stores/OnResize';
 	import { onMount } from 'svelte';
 
 	let y = 0,
+		about: HTMLDivElement,
 		image: HTMLDivElement,
 		height = 0;
 
 	onMount(() => {
 		new Rellax('.rellax');
+
+		OnResize.add(() => {
+			if (image)
+				image.style.backgroundPosition = `top calc(${image?.getBoundingClientRect().left}px + ${
+					(height * (4 / 5)) / 2
+				}px)`;
+		});
 	});
 </script>
 
@@ -26,12 +35,12 @@
 	</h2>
 </div>
 
-<div id="about">
+<div id="about" bind:this={about}>
 	<div class="image">
 		<div
 			bind:this={image}
-			style={`background-image: url("${Hands}"); background-position: top left ${
-				image?.getBoundingClientRect().left
+			style={`background-image: url("${Hands}"); background-position: top 0 left ${
+				image?.getBoundingClientRect().left + (image?.clientWidth - height * (4 / 5)) / 2
 			}px;`}
 		/>
 	</div>
