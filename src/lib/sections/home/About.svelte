@@ -36,7 +36,7 @@
 		/>
 	</div>
 	<div>
-		<h2>Vi hjälper våra kunder att sälja mer.</h2>
+		<h2>Vi skapar hemsidor som hjälper våra kunder att sälja mer.</h2>
 
 		<p>
 			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, porro cum officia
@@ -46,39 +46,39 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	#about {
-		display: flex;
-		padding-top: 12rem;
-		padding-bottom: 12rem;
-		padding-right: 3rem;
-		padding-left: 3rem;
-
-		background-color: rgb(25, 25, 25);
+		@apply /**/
+			flex
+			py-48
+			px-12
+			bg-sb-dark;
 	}
 	#about > div {
-		width: 50%;
+		@apply /**/
+			w-1/2;
 	}
-	#about > .image {
-		display: flex;
-		justify-content: center;
+
+	.image {
+		@apply /**/
+			flex
+			justify-center;
 	}
-	#about > .image > div {
-		width: 32rem;
-		aspect-ratio: 4 / 5;
+	.image > div {
+		@apply /**/
+			w-[32rem]
+			
+			relative
+			overflow-hidden
+			
+			bg-fixed;
 
-		position: relative;
-		overflow: hidden;
-
-		background-attachment: fixed;
+		aspect-ratio: 4/5;
 		background-size: calc(100vh * (4 / 5)) 100vh;
 	}
 
-	p {
-		width: 32rem;
-		color: white;
-		font-family: var(--sb-mulish);
-		font-size: 1.5rem;
-		font-weight: 200;
+	h2 {
+		@apply /**/
+			mb-6;
 	}
 </style>

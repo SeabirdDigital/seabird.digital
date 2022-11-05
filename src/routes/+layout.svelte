@@ -61,4 +61,34 @@
 	body[data-menu='true'] main {
 		translate: 0 -75vh;
 	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply /**/
+			text-white
+			font-sb-darker
+			font-normal;
+	}
+
+	h1 {
+		@apply /**/
+			text-7xl;
+	}
+
+	h2 {
+		@apply /**/
+			text-5xl;
+	}
+
+	p {
+		@apply /**/
+			text-white
+			font-sb-mulish
+			text-2xl
+			font-extralight;
+	}
 </style>

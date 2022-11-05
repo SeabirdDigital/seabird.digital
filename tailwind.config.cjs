@@ -8,7 +8,8 @@ module.exports = {
 				'sb-purple': '#9b5de5',
 				'sb-pink': '#ff1cb2',
 				'sb-orange': '#feb240',
-				'sb-yellow': '#fee440'
+				'sb-yellow': '#fee440',
+				'sb-dark': '#191919'
 			},
 			fontFamily: {
 				'sb-paytone': ['Paytone One', 'sans-serif'],
