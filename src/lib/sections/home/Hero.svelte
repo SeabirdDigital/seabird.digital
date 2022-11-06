@@ -61,6 +61,8 @@
 	});
 
 	onMount(() => {
+		while (!doneAnimating);
+
 		const rellax = new Rellax('.rellax');
 	});
 </script>
