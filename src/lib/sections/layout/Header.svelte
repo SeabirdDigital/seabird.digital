@@ -23,22 +23,25 @@
 	</div>
 </header>
 
-<style>
+<style lang="postcss">
 	header {
 		position: absolute;
 		top: 0;
 		left: 0;
+
 		width: 100vw;
 
 		z-index: 100;
 	}
 
 	header > div {
+		@apply /**/
+			container	
+			py-8;
+
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
-		padding: 2rem 5rem;
 	}
 
 	#logo {
@@ -63,6 +66,9 @@
 		rotate: 45deg;
 	}
 	#logo > span {
+		@apply /**/
+			hidden md:block;
+
 		margin-top: -9px;
 		font-family: var(--sb-darker);
 		color: white;

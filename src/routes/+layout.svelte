@@ -47,6 +47,7 @@
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 		overflow-x: hidden;
+		overscroll-behavior: none;
 		margin: 0;
 		background-color: black;
 	}
@@ -83,7 +84,7 @@
 
 	h2 {
 		@apply /**/
-			text-5xl;
+			text-4xl sm:text-5xl;
 	}
 
 	p {

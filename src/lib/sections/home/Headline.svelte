@@ -1,28 +1,24 @@
 <div id="headline">
 	<h2>
-		För många sidor är fortfarande kvar i 90-talet. Vi skapar moderna hemsidor utan att skada din
-		plånbok.
+		<span>För många sidor är fortfarande kvar i</span>
+		<span>90-talet. Vi skapar moderna hemsidor</span>
+		<span>utan att skada din plånbok.</span>
 	</h2>
 </div>
 
-<style>
+<style lang="postcss">
 	#headline {
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-		padding-left: 3rem;
-
-		width: 100%;
-
-		background-color: rgb(25, 25, 25);
+		@apply /**/
+			py-12
+			
+			bg-sb-dark;
 	}
 
 	h2 {
-		width: 42rem;
-		color: white;
-
-		font-family: var(--sb-darker);
-		font-size: 3rem;
-		line-height: 2.75rem;
-		font-weight: normal;
+		@apply /**/
+			container
+			
+			block md:flex
+			flex-col;
 	}
 </style>
