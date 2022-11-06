@@ -1,13 +1,15 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	let contactText: HTMLSpanElement;
 </script>
 
 <header>
 	<div>
-		<div id="logo">
+		<button id="logo" on:click={() => goto('/')}>
 			<div />
 			<span>seabird</span>
-		</div>
+		</button>
 		<div class="right">
 			<button>
 				<span
@@ -49,6 +51,9 @@
 		align-items: center;
 		gap: 0.75rem;
 	}
+	#logo {
+		cursor: pointer;
+	}
 	#logo > div {
 		height: 2.5rem;
 		width: 2.5rem;
@@ -56,18 +61,31 @@
 
 		background-color: white;
 	}
+
+	@keyframes background-pan {
+		0% {
+			rotate: 45deg;
+		}
+		100% {
+			rotate: 405deg;
+		}
+	}
+
 	#logo > div::before {
 		content: '';
 		position: absolute;
 		inset: 8px;
 		border-radius: 100%;
 
-		background: linear-gradient(to bottom, var(--sb-pink), var(--sb-purple), var(--sb-orange));
+		background: linear-gradient(to bottom, var(--sb-blue), var(--sb-purple), var(--sb-orange));
 		rotate: 45deg;
+	}
+	#logo:hover > div::before {
+		animation: background-pan 750ms cubic-bezier(0.8, -0.5, 0.2, 1.4);
 	}
 	#logo > span {
 		@apply /**/
-			hidden md:block;
+			hidden sm:block;
 
 		margin-top: -9px;
 		font-family: var(--sb-darker);
@@ -83,7 +101,7 @@
 		align-items: center;
 	}
 
-	button {
+	.right button {
 		position: relative;
 		background-color: var(--sb-purple);
 		color: white;
@@ -102,15 +120,15 @@
 
 		transition: all 200ms cubic-bezier(0.68, -0.1, 0.265, 1.55);
 	}
-	button:hover {
+	.right button:hover {
 		padding: 0.5rem 1.75rem;
 		margin-right: -0.5rem;
 	}
-	button:active {
+	.right button:active {
 		transform: scale(1.025);
 	}
 
-	button > span {
+	.right button > span {
 		overflow: hidden;
 		position: relative;
 		margin-top: -3px;
@@ -118,17 +136,17 @@
 		height: auto;
 		width: auto;
 	}
-	button:hover > span > span:first-child,
-	button:hover > span > span:last-child {
+	.right button:hover > span > span:first-child,
+	.right button:hover > span > span:last-child {
 		transform: translateY(-100%);
 		transition: transform 200ms;
 	}
-	button > span > span:first-child {
+	.right button > span > span:first-child {
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
-	button > span > span:last-child {
+	.right button > span > span:last-child {
 		position: absolute;
 		top: 100%;
 		left: 0;
