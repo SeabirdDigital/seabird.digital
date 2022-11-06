@@ -48,7 +48,7 @@
 		console.log(scrollY);
 		if (scrollY < 100)
 			anime({
-				targets: '#content span',
+				targets: '#hero .content span',
 				translateY: -125,
 				delay: anime.stagger(100),
 				opacity: 1,
@@ -67,30 +67,32 @@
 
 <svelte:window bind:scrollY />
 
-<div id="overlay" />
-<div id="background">
-	<div id="grid" bind:this={grid} />
-</div>
-<div id="content">
-	<h1 class={doneAnimating ? 'rellax' : ''} data-rellax-speed="-7">
-		<span
-			style={doneAnimating
-				? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
-						(125 - scrollY * 0.5) / 125
-				  };`
-				: ''}>Lite annorlunda</span
-		>
-		<span
-			style={doneAnimating
-				? `transform: translateY(-${scrollY * 0.5 > 0 ? scrollY * 0.25 + 125 : 125}px); opacity: ${
-						(125 - scrollY * 0.5) / 125
-				  };`
-				: ''}>digitalbyrå</span
-		>
-	</h1>
+<div id="hero">
+	<div class="overlay" />
+	<div class="background">
+		<div class="grid" bind:this={grid} />
+	</div>
+	<div class="content">
+		<h1 class={doneAnimating ? 'rellax' : ''} data-rellax-speed="-7">
+			<span
+				style={doneAnimating
+					? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
+							(125 - scrollY * 0.5) / 125
+					  };`
+					: ''}>Lite annorlunda</span
+			>
+			<span
+				style={doneAnimating
+					? `transform: translateY(-${
+							scrollY * 0.5 > 0 ? scrollY * 0.25 + 125 : 125
+					  }px); opacity: ${(125 - scrollY * 0.5) / 125};`
+					: ''}>digitalbyrå</span
+			>
+		</h1>
+	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	@keyframes background-pan {
 		from {
 			background-position: center 0%;
@@ -100,7 +102,10 @@
 		}
 	}
 
-	#background {
+	.background {
+		@apply /**/
+			-z-10;
+
 		height: 100vh;
 		width: 100%;
 		position: relative;
@@ -108,7 +113,6 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		z-index: -3;
 
 		display: flex;
 		justify-content: center;
@@ -126,35 +130,37 @@
 		background-size: 100% 200%;
 	}
 
-	#content {
-		color: white;
+	.content {
+		@apply /**/
+			z-30;
+
+		width: 100%;
+		margin-bottom: 5rem;
+
 		position: absolute;
 		top: 50vh;
 		left: 50vw;
+
 		transform: translate(-50%, -50%);
 		text-align: center;
-		margin-bottom: 5rem;
 
-		z-index: 5;
 		pointer-events: none;
 	}
 
-	#content h1 {
-		font-family: var(--sb-darker);
-		font-weight: 700;
-		font-size: 5rem;
-		line-height: 3.75rem;
-
+	.content h1 {
 		display: flex;
 		flex-direction: column;
 	}
 
-	#content h1 span {
+	.content h1 span {
 		translate: 0 100px;
 		opacity: 0;
 	}
 
-	#grid {
+	.grid {
+		@apply /**/
+			z-10;
+
 		height: 100%;
 		width: 100%;
 
@@ -167,11 +173,12 @@
 		grid-template-rows: repeat(var(--rows), 1fr);
 
 		transition-duration: 200ms;
-
-		z-index: 1;
 	}
 
-	#overlay {
+	.overlay {
+		@apply /**/
+			z-20;
+
 		height: 100vh;
 		width: 100%;
 
@@ -180,15 +187,13 @@
 
 		transition: opacity 500ms;
 		pointer-events: none;
-
-		z-index: 2;
 	}
 
-	#grid :global(.tile) {
+	.grid :global(.tile) {
 		position: relative;
 	}
 
-	#grid :global(.tile)::before {
+	.grid :global(.tile)::before {
 		content: '';
 
 		background-color: rgb(25, 25, 25);
@@ -196,7 +201,7 @@
 		inset: 0.5px;
 	}
 
-	#grid :global(.tile):hover::before {
+	.grid :global(.tile):hover::before {
 		background-color: rgb(25, 25, 25);
 	}
 </style>

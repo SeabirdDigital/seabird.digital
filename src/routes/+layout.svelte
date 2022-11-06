@@ -69,14 +69,16 @@
 	h5,
 	h6 {
 		@apply /**/
-			text-white
 			font-sb-darker
-			font-normal;
+			text-white
+			font-normal
+			leading-none;
 	}
 
 	h1 {
 		@apply /**/
-			text-7xl;
+			text-5xl sm:text-6xl md:text-7xl
+			font-bold;
 	}
 
 	h2 {
