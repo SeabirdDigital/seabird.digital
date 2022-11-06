@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Rellax from 'rellax';
-
 	import Hands from '$lib/assets/hands.jpg';
 
 	import Hero from '$lib/sections/home/Hero.svelte';
@@ -13,8 +11,6 @@
 		height = 0;
 
 	onMount(() => {
-		new Rellax('.rellax');
-
 		OnResize.add(() => {
 			if (image)
 				image.style.backgroundPosition = `top calc(${image?.getBoundingClientRect().left}px + ${
