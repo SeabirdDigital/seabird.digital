@@ -54,6 +54,7 @@
 		overscroll-behavior: none;
 		margin: 0;
 		background-color: black;
+		color: white;
 	}
 	body[data-menu='true'] {
 		overflow: hidden;
@@ -75,7 +76,6 @@
 	h6 {
 		@apply /**/
 			font-sb-darker
-			text-white
 			font-normal
 			leading-none;
 	}
@@ -97,5 +97,9 @@
 			font-sb-mulish
 			text-2xl
 			font-extralight;
+	}
+
+	button:focus {
+		background-color: transparent;
 	}
 </style>

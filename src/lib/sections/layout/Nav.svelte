@@ -42,7 +42,10 @@
 
 <button
 	id="menu-button"
-	data-hidden={scrollY + innerHeight - (height - innerHeight / 4) > 0 ? 'true' : 'false'}
+	data-hidden={scrollY + innerHeight - (height - innerHeight / 4) > 0 &&
+	scrollY + innerHeight < height - innerHeight / 4
+		? 'true'
+		: 'false'}
 	type="button"
 >
 	<div class="background" />
@@ -80,8 +83,8 @@
 				alt=""
 			/>
 		</button>
-		<button class="link" on:click={() => MenuItemClicked('/sub')}>
-			<span class="label">Subpage</span>
+		<button class="link" on:click={() => MenuItemClicked('/kontakt')}>
+			<span class="label">Kontakt</span>
 			<img
 				class="image"
 				src="https://plus.unsplash.com/premium_photo-1663839412165-1b23d904e50a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
