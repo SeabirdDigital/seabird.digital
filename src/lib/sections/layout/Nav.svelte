@@ -42,7 +42,7 @@
 
 <button
 	id="menu-button"
-	data-hidden={scrollY + innerHeight - (height - innerHeight / 2) > 0 ? 'true' : 'false'}
+	data-hidden={scrollY + innerHeight - (height - innerHeight / 4) > 0 ? 'true' : 'false'}
 	type="button"
 >
 	<div class="background" />

@@ -16,7 +16,7 @@
 
 <header
 	data-small-logo={scrollY - innerHeight / 3 > 0 ? 'true' : 'false'}
-	data-hidden={scrollY + innerHeight - (height - innerHeight / 2) > 0 ? 'true' : 'false'}
+	data-hidden={scrollY + innerHeight - (height - innerHeight / 4) > 0 ? 'true' : 'false'}
 >
 	<div>
 		<button class="logo" on:click={() => goto('/')}>
