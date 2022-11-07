@@ -7,13 +7,3 @@
 <Hero />
 <Headline />
 <About />
-
-<div id="full" />
-
-<style>
-	#full {
-		height: 100vh;
-
-		background-color: rgb(25, 25, 25);
-	}
-</style>

@@ -2,7 +2,10 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	let menuOpen = false;
+	let menuOpen = false,
+		scrollY = 0,
+		innerHeight = 0,
+		height = 0;
 
 	const InvertMenuOpen = () => {
 		document.body.dataset.menuOpen = document.body.dataset.menuOpen === 'true' ? 'false' : 'true';
@@ -22,6 +25,8 @@
 			throw new Error('Button or menu button text missing');
 		}
 
+		height = document.getElementsByTagName('main')[0].clientHeight;
+
 		button.onclick = () => {
 			InvertMenuOpen();
 			menuText.innerHTML = menuText.innerHTML === 'Meny' ? 'Stäng' : 'Meny';
@@ -33,7 +38,13 @@
 	});
 </script>
 
-<button id="menu-button" type="button">
+<svelte:window bind:scrollY bind:innerHeight />
+
+<button
+	id="menu-button"
+	data-hidden={scrollY + innerHeight - (height - innerHeight / 2) > 0 ? 'true' : 'false'}
+	type="button"
+>
 	<div class="background" />
 	<div class="text">
 		<svg
@@ -101,6 +112,7 @@
 		bottom: -30rem;
 		transition: bottom 1000ms;
 	}
+
 	body[data-menu-open='true'] nav {
 		bottom: 0;
 	}
@@ -163,8 +175,11 @@
 
 			z-50;
 
-		translate: -50%;
-		transition: scale 200ms;
+		translate: -50% 0;
+		transition: scale 200ms, translate 750ms;
+	}
+	#menu-button[data-hidden='true'] {
+		translate: -50% 10rem;
 	}
 
 	#menu-button:hover {

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '$lib/sections/layout/Footer.svelte';
 	import Header from '$lib/sections/layout/Header.svelte';
 	import Nav from '$lib/sections/layout/Nav.svelte';
 	import OnResize from '$lib/stores/OnResize';
@@ -20,6 +21,7 @@
 <main>
 	<Header />
 	<slot />
+	<Footer />
 </main>
 
 <style global lang="postcss">
@@ -33,6 +35,7 @@
 		--sb-pink: #ff1cb2;
 		--sb-orange: #feb240;
 		--sb-yellow: #fee440;
+		--sb-dark: #191919;
 
 		--sb-paytone: 'Paytone One', sans-serif;
 		--sb-mulish: 'Mulish', sans-serif;
@@ -58,6 +61,8 @@
 	main {
 		transition: 1000ms;
 		position: relative;
+
+		background-color: var(--sb-dark);
 	}
 	body[data-menu='true'] main {
 		translate: 0 -75vh;

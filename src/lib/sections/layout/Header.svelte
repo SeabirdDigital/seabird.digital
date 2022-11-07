@@ -6,7 +6,7 @@
 
 <header>
 	<div>
-		<button id="logo" on:click={() => goto('/')}>
+		<button class="logo" on:click={() => goto('/')}>
 			<div />
 			<span>seabird</span>
 		</button>
@@ -25,7 +25,7 @@
 	</div>
 </header>
 
-<style lang="postcss">
+<style global lang="postcss">
 	header {
 		position: absolute;
 		top: 0;
@@ -46,15 +46,14 @@
 		align-items: center;
 	}
 
-	#logo {
+	.logo {
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-	}
-	#logo {
+
 		cursor: pointer;
 	}
-	#logo > div {
+	.logo > div {
 		height: 2.5rem;
 		width: 2.5rem;
 		position: relative;
@@ -71,7 +70,7 @@
 		}
 	}
 
-	#logo > div::before {
+	.logo > div::before {
 		content: '';
 		position: absolute;
 		inset: 8px;
@@ -80,10 +79,10 @@
 		background: linear-gradient(to bottom, var(--sb-blue), var(--sb-purple), var(--sb-orange));
 		rotate: 45deg;
 	}
-	#logo:hover > div::before {
+	.logo:hover > div::before {
 		animation: background-pan 750ms cubic-bezier(0.8, -0.5, 0.2, 1.4);
 	}
-	#logo > span {
+	.logo > span {
 		@apply /**/
 			hidden sm:block;
 
