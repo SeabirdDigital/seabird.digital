@@ -5,14 +5,6 @@
 	let footer: HTMLElement,
 		scrollY = 0,
 		innerHeight = 0;
-
-	function scrollToTop() {
-		var position = document.body.scrollTop || document.documentElement.scrollTop;
-		if (position) {
-			window.scrollBy(0, -Math.max(1, Math.floor(position / 10)));
-			scrollAnimation = setTimeout('scrollToTop()', 30);
-		} else clearTimeout(scrollAnimation);
-	}
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight />
