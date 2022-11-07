@@ -26,16 +26,18 @@
 			</div>
 		</button>
 		<div class="right">
-			<button>
-				<span
-					style={`height: ${contactText?.clientHeight || 25}px; width: ${
-						contactText?.clientWidth || 75
-					}px;`}
-				>
-					<span bind:this={contactText}>Kontakt</span>
-					<span>Kontakt</span>
-				</span>
-			</button>
+			<div>
+				<button on:click={() => goto('/kontakt')}>
+					<span
+						style={`height: ${contactText?.clientHeight || 25}px; width: ${
+							contactText?.clientWidth || 75
+						}px;`}
+					>
+						<span bind:this={contactText}>Kontakt</span>
+						<span>Kontakt</span>
+					</span>
+				</button>
+			</div>
 		</div>
 	</div>
 </header>
@@ -133,13 +135,13 @@
 		translate: -150% 0;
 	}
 
-	.right {
+	.right > div {
 		height: 3.5rem;
 		display: flex;
 		align-items: center;
 	}
 
-	.right button {
+	.right div > button {
 		position: relative;
 		background-color: var(--sb-purple);
 		color: white;
@@ -158,18 +160,17 @@
 
 		transition: all 200ms cubic-bezier(0.68, -0.1, 0.265, 1.55);
 	}
-	.right button:hover {
+	.right div:hover > button {
 		padding: 0.5rem 1.75rem;
-		margin-right: -0.5rem;
-	}
-	.right button:active {
-		transform: scale(1.025);
 
+		margin: -0.5rem -0.5rem;
+	}
+	.right div > button:active {
 		padding: 0.75rem 1.25rem;
 		margin-right: 0;
 	}
 
-	.right button > span {
+	.right div > button > span {
 		overflow: hidden;
 		position: relative;
 		margin-top: -3px;
@@ -177,19 +178,19 @@
 		height: auto;
 		width: auto;
 	}
-	.right button:hover > span > span:first-child,
-	.right button:hover > span > span:last-child {
+	.right div:hover > button > span > span:first-child,
+	.right div:hover > button > span > span:last-child {
 		transform: translateY(-100%);
 		transition: transform 300ms;
 	}
-	.right button > span > span:first-child,
-	.right button:active > span > span:first-child {
+	.right div > button > span > span:first-child,
+	.right div > button:active > span > span:first-child {
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
-	.right button > span > span:last-child,
-	.right button:active > span > span:last-child {
+	.right div > button > span > span:last-child,
+	.right div > button:active > span > span:last-child {
 		position: absolute;
 		top: 100%;
 		left: 0;
