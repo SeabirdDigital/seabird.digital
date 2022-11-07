@@ -61,8 +61,6 @@
 	main {
 		transition: 1000ms;
 		position: relative;
-
-		background-color: var(--sb-dark);
 	}
 	body[data-menu='true'] main {
 		translate: 0 -75vh;

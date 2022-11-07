@@ -28,6 +28,8 @@
 <style lang="postcss">
 	footer {
 		overflow: hidden;
+
+		background-color: var(--sb-dark);
 	}
 
 	footer > div {
