@@ -1,39 +1,43 @@
 <script lang="ts">
 	import Hands from '$lib/assets/hands.jpg';
+	import Us from '$lib/assets/us.jpg';
 
 	import Hero from '$lib/sections/home/Hero.svelte';
 	import OnResize from '$lib/stores/OnResize';
 	import { onMount } from 'svelte';
 
 	let y = 0,
-		about: HTMLDivElement,
-		image: HTMLDivElement,
+		image1: HTMLDivElement,
+		image2: HTMLDivElement,
 		height = 0;
 
 	onMount(() => {
 		OnResize.add(() => {
-			if (image)
-				image.style.backgroundPosition = `top calc(${image?.getBoundingClientRect().left}px + ${
+			if (image1 && image2)
+				image1.style.backgroundPosition = `top calc(${image1?.getBoundingClientRect().left}px + ${
 					(height * (4 / 5)) / 2
 				}px)`;
+			image2.style.backgroundPosition = `top calc(${image2?.getBoundingClientRect().left}px + ${
+				(height * (4 / 5)) / 2
+			}px)`;
 		});
 	});
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerHeight={height} />
 
-<div id="about" bind:this={about}>
-	<div>
+<div id="about">
+	<div class="first">
 		<div class="image">
 			<div
-				bind:this={image}
+				bind:this={image1}
 				style={`background-image: url("${Hands}"); background-position: top 0 left ${
-					image?.getBoundingClientRect().left + (image?.clientWidth - height * (4 / 5)) / 2
+					image1?.getBoundingClientRect().left + (image1?.clientWidth - height * (4 / 5)) / 2
 				}px;`}
 			/>
 		</div>
 		<div>
-			<h2>Vi skapar hemsidor som hjälper våra kunder att sälja mer.</h2>
+			<h2>Hemsidor som hjälper dig att sälja mer.</h2>
 
 			<p>
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, porro cum officia
@@ -42,17 +46,41 @@
 			</p>
 		</div>
 	</div>
+	<div class="second">
+		<div>
+			<h2>En lite annorlunda digitalbyrå</h2>
+
+			<p>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, porro cum officia
+				veniam itaque quam, excepturi recusandae laudantium atque quod exercitationem molestiae
+				optio vero tenetur saepe repudiandae dolore cupiditate magni?
+			</p>
+		</div>
+		<div class="image">
+			<div
+				bind:this={image2}
+				style={`background-image: url("${Us}"); background-position: top 0 left ${
+					image2?.getBoundingClientRect().left + (image2?.clientWidth - height * (4 / 5)) / 2
+				}px;`}
+			/>
+		</div>
+	</div>
 </div>
 
 <style lang="postcss">
 	#about {
 		@apply /**/
+			py-48
+
+			flex
+			flex-col
+			gap-60
+
 			bg-sb-dark;
 	}
 	#about > div {
 		@apply /**/
 			container
-			py-48
 
 			flex
 			flex-col lg:flex-row
@@ -75,7 +103,13 @@
 		position: relative;
 
 		background-attachment: fixed;
+	}
+
+	.first .image > div {
 		background-size: calc(100vh * (4 / 5)) 100vh;
+	}
+	.second .image > div {
+		background-size: calc(120vh * (2 / 3)) 120vh;
 	}
 
 	h2 {
