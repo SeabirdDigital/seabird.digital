@@ -125,6 +125,9 @@
 	}
 	.right button:active {
 		transform: scale(1.025);
+
+		padding: 0.75rem 1.25rem;
+		margin-right: 0;
 	}
 
 	.right button > span {
@@ -138,14 +141,16 @@
 	.right button:hover > span > span:first-child,
 	.right button:hover > span > span:last-child {
 		transform: translateY(-100%);
-		transition: transform 200ms;
+		transition: transform 300ms;
 	}
-	.right button > span > span:first-child {
+	.right button > span > span:first-child,
+	.right button:active > span > span:first-child {
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
-	.right button > span > span:last-child {
+	.right button > span > span:last-child,
+	.right button:active > span > span:last-child {
 		position: absolute;
 		top: 100%;
 		left: 0;
