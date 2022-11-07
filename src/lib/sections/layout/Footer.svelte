@@ -1,9 +1,18 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Arrow from '$lib/icons/arrow.svelte';
 
 	let footer: HTMLElement,
 		scrollY = 0,
 		innerHeight = 0;
+
+	function scrollToTop() {
+		var position = document.body.scrollTop || document.documentElement.scrollTop;
+		if (position) {
+			window.scrollBy(0, -Math.max(1, Math.floor(position / 10)));
+			scrollAnimation = setTimeout('scrollToTop()', 30);
+		} else clearTimeout(scrollAnimation);
+	}
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight />
@@ -18,6 +27,10 @@
 		<div>
 			<button class="logo" on:click={() => goto('/')}>
 				<div />
+			</button>
+
+			<button on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+				<Arrow />
 			</button>
 		</div>
 
@@ -55,6 +68,12 @@
 	footer[data-full='true'] > div {
 		scale: 1;
 		translate: 0 0;
+	}
+
+	footer > div > div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.logo {

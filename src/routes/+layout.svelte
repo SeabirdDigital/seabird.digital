@@ -50,6 +50,7 @@
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 		overflow-x: hidden;
+		scroll-behavior: smooth;
 		overscroll-behavior: none;
 		margin: 0;
 		background-color: black;
