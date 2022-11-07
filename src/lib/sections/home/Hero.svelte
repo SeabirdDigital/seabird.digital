@@ -41,6 +41,8 @@
 	};
 
 	onMount(() => {
+		document.body.style.overflow = 'hidden';
+
 		createGrid();
 
 		OnResize.add(createGrid);
@@ -55,15 +57,18 @@
 				duration: 1000,
 				easing: 'easeInOutSine',
 
-				complete: () => (doneAnimating = true)
+				complete: () => {
+					doneAnimating = true;
+					new Rellax('.rellax');
+					document.body.style.overflow = '';
+				}
 			});
-		else doneAnimating = true;
-	});
+		else {
+			doneAnimating = true;
+			document.body.style.overflow = '';
+		}
 
-	onMount(() => {
-		while (!doneAnimating);
-
-		const rellax = new Rellax('.rellax');
+		new Rellax('.rellax');
 	});
 </script>
 
@@ -75,7 +80,7 @@
 		<div class="grid" bind:this={grid} />
 	</div>
 	<div class="content">
-		<h1 class={doneAnimating ? 'rellax' : ''} data-rellax-speed="-7">
+		<h1 class="rellax" data-rellax-speed="-7">
 			<span
 				style={doneAnimating
 					? `transform: translateY(-${scrollY * 0.5 + 125}px); opacity: ${
