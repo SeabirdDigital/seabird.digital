@@ -5,7 +5,8 @@
 	let menuOpen = false,
 		scrollY = 0,
 		innerHeight = 0,
-		height = 0;
+		height = 0,
+		footer: HTMLElement;
 
 	const InvertMenuOpen = () => {
 		document.body.dataset.menuOpen = document.body.dataset.menuOpen === 'true' ? 'false' : 'true';
@@ -26,6 +27,7 @@
 		}
 
 		height = document.getElementsByTagName('main')[0].clientHeight;
+		footer = document.getElementsByTagName('footer')[0];
 
 		button.onclick = () => {
 			InvertMenuOpen();
@@ -42,8 +44,8 @@
 
 <button
 	id="menu-button"
-	data-hidden={scrollY + innerHeight - (height - innerHeight / 4) > 0 &&
-	scrollY + innerHeight < height - innerHeight / 4
+	data-hidden={scrollY + innerHeight - (height - (footer?.clientHeight + 128)) > 0 &&
+	innerHeight + (footer?.clientHeight - 64) < height - (footer?.clientHeight + 64)
 		? 'true'
 		: 'false'}
 	type="button"
