@@ -43,6 +43,36 @@
 		--sb-darker: 'Darker Grotesque', sans-serif;
 	}
 
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply /**/
+			font-sb-darker
+			font-normal
+			leading-none;
+	}
+	h1 {
+		@apply /**/
+			text-5xl sm:text-6xl md:text-7xl
+			font-bold;
+	}
+
+	h2 {
+		@apply /**/
+			text-4xl sm:text-5xl;
+	}
+
+	p {
+		@apply /**/
+			text-white
+			font-sb-mulish
+			text-2xl
+			font-extralight;
+	}
+
 	body::-webkit-scrollbar {
 		@apply hidden;
 	}
@@ -61,43 +91,11 @@
 	}
 
 	main {
-		background-color: var(--sb-dark);
 		transition: 1000ms;
 		position: relative;
 	}
 	body[data-menu='true'] main {
 		translate: 0 -75vh;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		@apply /**/
-			font-sb-darker
-			font-normal
-			leading-none;
-	}
-
-	h1 {
-		@apply /**/
-			text-5xl sm:text-6xl md:text-7xl
-			font-bold;
-	}
-
-	h2 {
-		@apply /**/
-			text-4xl sm:text-5xl;
-	}
-
-	p {
-		@apply /**/
-			text-white
-			font-sb-mulish
-			text-2xl
-			font-extralight;
 	}
 
 	button:focus {
