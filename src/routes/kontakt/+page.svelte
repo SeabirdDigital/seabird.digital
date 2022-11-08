@@ -1,11 +1,32 @@
-<script>
+<script lang="ts">
 	import Phone from '$lib/assets/phone.jpg';
 	import Form from '$lib/sections/contact/Form.svelte';
+	import { onMount } from 'svelte';
+
+	let width = 0,
+		height: number | undefined;
+
+	onMount(() => {
+		document.body.style.overflow = 'hidden';
+
+		document
+			.getElementById('hero')
+			?.getElementsByClassName('image')[0]
+			.addEventListener('animationend', function () {
+				document.body.style.overflow = '';
+			});
+	});
 </script>
 
 <div id="hero">
-	<div class="image" style="background-image: url('{Phone}');">
-		<h1>Kontakt</h1>
+	<div bind:clientWidth={width} style="{`height: ${height ? height + 'px' : '100vh'}`};">
+		<div
+			class="image {height ? 'animate' : ''}"
+			bind:clientHeight={height}
+			style="background-image: url('{Phone}'); --width: {width}px; --height: calc({width}px / 3);"
+		>
+			<h1>Kontakt</h1>
+		</div>
 	</div>
 </div>
 
@@ -17,20 +38,40 @@
 
 <style lang="postcss">
 	#hero {
+		padding: 0;
+
 		background-color: var(--sb-dark);
 	}
-
-	#hero .image {
+	#hero > div {
 		@apply /**/
-            container;
+			container;
+	}
 
-		position: relative;
-		width: 100%;
-		aspect-ratio: 16/9;
+	@keyframes load {
+		25% {
+			width: 100vw;
+			height: 100vh;
+		}
+		100% {
+			height: var(--height);
+			width: var(--width);
+			border-radius: 0 0 50px 50px;
+		}
+	}
+	#hero .image {
+		position: absolute;
+		top: 0;
+		left: 50vw;
+		translate: -50% 0;
+
+		width: 100vw;
+		height: 100vh;
 
 		background-size: cover;
-
-		border-radius: 0 0 50px 50px;
+		background-position: center center;
+	}
+	.image.animate {
+		animation: load 3000ms forwards;
 	}
 
 	h1 {

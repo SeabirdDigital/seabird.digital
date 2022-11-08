@@ -61,6 +61,7 @@
 	}
 
 	main {
+		background-color: var(--sb-dark);
 		transition: 1000ms;
 		position: relative;
 	}
