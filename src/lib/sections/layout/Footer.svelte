@@ -11,7 +11,7 @@
 
 <footer
 	bind:this={footer}
-	data-full={scrollY + innerHeight - (footer?.offsetTop + footer?.clientHeight / 2) > 0
+	data-full={scrollY + innerHeight - (footer?.offsetTop + footer?.clientHeight / 1.25) > 0
 		? 'true'
 		: 'false'}
 >

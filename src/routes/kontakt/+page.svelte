@@ -50,8 +50,4 @@
 		display: flex;
 		flex-direction: column;
 	}
-
-	button {
-		width: fit;
-	}
 </style>

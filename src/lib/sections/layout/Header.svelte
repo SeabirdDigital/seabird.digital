@@ -5,11 +5,11 @@
 	let contactText: HTMLSpanElement,
 		scrollY = 0,
 		innerHeight = 0,
-		height = 0,
+		main: HTMLElement,
 		footer: HTMLElement;
 
 	onMount(() => {
-		height = document.getElementsByTagName('main')[0].clientHeight;
+		main = document.getElementsByTagName('main')[0];
 		footer = document.getElementsByTagName('footer')[0];
 	});
 </script>
@@ -18,8 +18,8 @@
 
 <header
 	data-small-logo={scrollY - innerHeight / 3 > 0 ? 'true' : 'false'}
-	data-hidden={scrollY + innerHeight - (height - (footer?.clientHeight + 64)) > 0 &&
-	innerHeight + (footer?.clientHeight - 64) < height - (footer?.clientHeight + 64)
+	data-hidden={scrollY + innerHeight - (main?.clientHeight - (footer?.clientHeight + 64)) > 0 &&
+	innerHeight + (footer?.clientHeight - 64) < main?.clientHeight - (footer?.clientHeight + 64)
 		? 'true'
 		: 'false'}
 >

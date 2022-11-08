@@ -5,7 +5,7 @@
 	let menuOpen = false,
 		scrollY = 0,
 		innerHeight = 0,
-		height = 0,
+		main: HTMLElement,
 		footer: HTMLElement;
 
 	const InvertMenuOpen = () => {
@@ -26,7 +26,7 @@
 			throw new Error('Button or menu button text missing');
 		}
 
-		height = document.getElementsByTagName('main')[0].clientHeight;
+		main = document.getElementsByTagName('main')[0];
 		footer = document.getElementsByTagName('footer')[0];
 
 		button.onclick = () => {
@@ -44,8 +44,8 @@
 
 <button
 	id="menu-button"
-	data-hidden={scrollY + innerHeight - (height - (footer?.clientHeight + 128)) > 0 &&
-	innerHeight + (footer?.clientHeight - 64) < height - (footer?.clientHeight + 64)
+	data-hidden={scrollY + innerHeight - (main?.clientHeight - (footer?.clientHeight + 64)) > 0 &&
+	innerHeight + (footer?.clientHeight - 64) < main?.clientHeight - (footer?.clientHeight + 64)
 		? 'true'
 		: 'false'}
 	type="button"
