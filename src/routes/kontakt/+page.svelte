@@ -23,7 +23,9 @@
 		<div
 			class="image {height ? 'animate' : ''}"
 			bind:clientHeight={height}
-			style="background-image: url('{Phone}'); --width: {width}px; --height: calc({width}px / 3);"
+			style="background-image: url('{Phone}'); --width: {width}px; --height: {width / 3 > 250
+				? `calc(${width}px / 3)`
+				: '250px'};"
 		>
 			<h1>Kontakt</h1>
 		</div>
@@ -75,8 +77,8 @@
 
 				h1 {
 					position: absolute;
-					bottom: 4rem;
-					left: 3rem;
+					bottom: 3rem;
+					left: 2rem;
 				}
 			}
 		}
