@@ -226,6 +226,10 @@
 							}
 						}
 					}
+
+					&:not(:hover) {
+						transition: transform 1000ms, translate 1000ms;
+					}
 				}
 			}
 
