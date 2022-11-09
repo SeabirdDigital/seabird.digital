@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import OnResize from '$lib/stores/OnResize';
 	import { onMount } from 'svelte';
 
 	let contactText: HTMLSpanElement,
@@ -7,6 +8,8 @@
 		innerHeight = 0,
 		main: HTMLElement,
 		footer: HTMLElement;
+
+	OnResize.add(() => (innerHeight = window.innerHeight));
 
 	onMount(() => {
 		main = document.getElementsByTagName('main')[0];
