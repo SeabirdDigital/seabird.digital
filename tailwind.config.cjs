@@ -1,35 +1,32 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{astro,html,js,svelte,ts}"],
-    theme: {
-        extend: {
-            container: {
-                center: true,
-                padding: "2rem"
-            },
-            fontFamily: {
-                "paytone": ["Paytone One", "display"],
-                "mulish": ["Mulish", "sans-serif"],
-                "specify-ex": ["Specify ExExp", "sans-serif"],
-                "specify": ["Specify Exp", "sans-serif"],
-            },
-            backgroundImage: {
-                "chevron": `url("/assets/chevron.svg")`,
-            },
-            colors: {
-                "sb-blue": "#00BBF9",
-                "sb-purple": "#9B5DE5",
-                "sb-pink": "#FF1CB2",
-                "sb-orange": "#FEB240",
-                "sb-yellow": "#FEE440",
-                "sb-green": "#018E42"
-            },
-            boxShadow: {
-                hard: "8px 8px black"
-            }
-        },
-    },
-    variants: {
-        animation: ({ after }) => after(["motion-safe", "motion-reduce"])
-    },
-    plugins: [],
-}
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		extend: {
+			colors: {
+				'sb-blue': '#00bbf9',
+				'sb-purple': '#9b5de5',
+				'sb-pink': '#ff1cb2',
+				'sb-orange': '#feb240',
+				'sb-yellow': '#fee440',
+				'sb-dark': '#191919'
+			},
+			fontFamily: {
+				'sb-paytone': ['Paytone One', 'sans-serif'],
+				'sb-mulish': ['Mulish', 'sans-serif'],
+				'sb-specify': ['Specify ExExp', 'sans-serif'],
+				'sb-darker': ['Darker Grotesque', 'sans-serif']
+			},
+
+			data: {
+				'menu-open': 'menu-open="true"'
+			},
+
+			container: {
+				center: true,
+				padding: '2rem'
+			}
+		}
+	},
+	plugins: []
+};
