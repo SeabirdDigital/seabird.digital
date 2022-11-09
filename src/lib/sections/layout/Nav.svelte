@@ -96,7 +96,7 @@
 			on:mouseleave={() => (mouseOver = false)}
 			style={!isTouch
 				? `translate: ${
-						mouseOver
+						mouseOver && menuOpen
 							? mouseX * -1 * ((links?.clientWidth - main?.clientWidth) / main?.clientWidth)
 							: -32
 				  }px 0;`
@@ -329,6 +329,10 @@
 						rotate: 8deg;
 					}
 				}
+			}
+
+			#links {
+				transition: transform 1000ms, translate 1000ms;
 			}
 		}
 	}

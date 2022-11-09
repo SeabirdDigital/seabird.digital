@@ -32,7 +32,6 @@
 
 		cols = Math.floor(grid.clientWidth / 100);
 		rows = Math.floor(grid.clientHeight / 100);
-		console.log(grid.clientHeight);
 
 		grid.style.setProperty('--cols', cols.toString());
 		grid.style.setProperty('--rows', rows.toString());

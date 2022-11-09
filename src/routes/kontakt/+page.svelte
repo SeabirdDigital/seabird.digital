@@ -34,7 +34,26 @@
 
 <div id="contact">
 	<div>
-		<Form />
+		<div>
+			<Form />
+		</div>
+		<div class="info">
+			<div>
+				<div>
+					<h3>Säg hej!</h3>
+					<span
+						>Vill du få ett prisförslag eller vill du bara säga hej? Vi är här för dig och kommer
+						svara så snabbt vi kan. Har du en snabb fråga och är otållig? Skicka oss ett SMS så
+						svarar vi lite snabbare.</span
+					>
+				</div>
+				<div>
+					<h3>Support</h3>
+					<a href="mailto:support@seabird.digital">support@seabird.digital</a>
+					<a href="tel:0704048064">070-304 80 64</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -89,11 +108,51 @@
 
 		& > div {
 			@apply /**/
-				container
-				py-32;
+				container;
+
+			padding: 8rem 0;
 
 			display: flex;
-			flex-direction: column;
+
+			& > div {
+				@apply /**/
+				lg:w-1/2;
+
+				&.info {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					& > div {
+						max-width: 24rem;
+
+						display: flex;
+						flex-direction: column;
+						gap: 3rem;
+
+						h3 {
+							font-size: 1.5rem;
+							opacity: 0.3;
+
+							padding-bottom: 0.75rem;
+						}
+
+						span,
+						a {
+							font-size: 1rem;
+							opacity: 0.5;
+
+							display: block;
+
+							transition: opacity 200ms;
+
+							&:is(a):hover {
+								opacity: 0.7;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 </style>

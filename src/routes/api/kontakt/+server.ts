@@ -26,7 +26,8 @@ export const POST = async (event: RequestEvent): Promise<Response> => {
 	}
 
 	return Response.redirect(
-		(isDeployed ? 'https://' + import.meta.env.VERCEL_URL : 'http://localhost:3000') + '/tack',
+		(isDeployed ? 'https://' + import.meta.env.VERCEL_URL : 'http://localhost:5173') +
+			'/kontakt/tack',
 		307
 	);
 };

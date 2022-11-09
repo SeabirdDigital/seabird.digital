@@ -3,6 +3,8 @@ module.exports = {
 		tailwindcss: {},
 		autoprefixer: {},
 		'postcss-nested': {},
-		'postcss-current-selector': {}
+		'postcss-atroot': {},
+		'postcss-current-selector': {},
+		'postcss-nested-ancestors': {}
 	}
 };
