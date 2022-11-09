@@ -101,7 +101,7 @@
 			}
 		}
 
-		&[data-menu='true'] {
+		&[data-menu-open='true'] {
 			overflow: hidden;
 
 			main {

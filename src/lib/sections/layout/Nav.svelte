@@ -38,6 +38,7 @@
 		main = document.getElementsByTagName('main')[0];
 		footer = document.getElementsByTagName('footer')[0];
 
+		isTouch = isTouchDevice();
 		OnResize.add(() => (isTouch = isTouchDevice()));
 
 		button.onclick = () => {
@@ -102,10 +103,26 @@
 				: ''}
 		>
 			<button class="link" on:click={() => MenuItemClicked('/')}>
-				<span class="label">Home</span>
+				<span class="label">Hem</span>
 				<img
 					class="image"
-					src="https://images.unsplash.com/photo-1667374026094-56bb3b0f6f55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+					src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+					alt=""
+				/>
+			</button>
+			<button class="link unavailable">
+				<span class="label">Tjänster</span>
+				<img
+					class="image"
+					src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+					alt=""
+				/>
+			</button>
+			<button class="link unavailable">
+				<span class="label">Om Oss</span>
+				<img
+					class="image"
+					src="https://images.unsplash.com/photo-1664575599618-8f6bd76fc670?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
 					alt=""
 				/>
 			</button>
@@ -113,7 +130,7 @@
 				<span class="label">Kontakt</span>
 				<img
 					class="image"
-					src="https://plus.unsplash.com/premium_photo-1663839412165-1b23d904e50a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+					src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
 					alt=""
 				/>
 			</button>
@@ -145,52 +162,69 @@
 			transition: bottom 1000ms;
 
 			& > div {
-				margin-bottom: 7rem;
+				margin-bottom: 9rem;
 				width: 100%;
-			}
 
-			#links {
-				width: fit-content;
-				padding: 0 4rem;
+				#links {
+					width: fit-content;
+					padding: 0 4rem;
 
-				display: flex;
-				gap: 1.5rem;
+					display: flex;
+					gap: 1.5rem;
 
-				transform: translateY(-100%) scale(0.9);
-				transition: transform 1000ms, translate 100ms;
+					transform: translateY(-100%) scale(0.9);
+					transition: transform 1000ms, translate 100ms;
 
-				& > .link {
-					width: 24rem;
-					background-color: transparent;
-					padding: 0;
-					border: 0;
+					& > .link {
+						width: 20rem;
+						background-color: transparent;
+						padding: 0;
+						border: 0;
 
-					display: inline-flex;
-					flex-direction: column;
+						display: inline-flex;
+						flex-direction: column;
 
-					transition: transform 200ms;
+						transition: transform 200ms;
 
-					&:hover {
-						transform: scale(1.01);
-						cursor: pointer;
-					}
+						&:hover {
+							transform: scale(1.02);
+							cursor: pointer;
+						}
 
-					& > .label {
-						@apply /**/
-							font-sb-darker	
-							text-white
-							text-4xl
-							uppercase
-				
-							m-0;
-					}
-					& > .image {
-						@apply /**/
-							h-52
-							w-96
-							rounded-md
-							mt-2
-							object-cover;
+						& > .label {
+							@apply /**/
+								font-sb-darker	
+								text-white
+								text-3xl
+								uppercase
+					
+								m-0;
+						}
+						& > .image {
+							@apply /**/
+								h-44
+								w-80
+								rounded-md
+								mt-2
+								object-cover;
+						}
+
+						&.unavailable {
+							opacity: 0.6;
+
+							transform: scale(1);
+							cursor: auto;
+
+							& > .label {
+								&::after {
+									content: ' - Kommer snart';
+
+									font-size: 1rem;
+									line-height: 1rem;
+									opacity: 0.6;
+								}
+							}
+						}
 					}
 				}
 			}

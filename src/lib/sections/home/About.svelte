@@ -59,7 +59,7 @@
 		<div class="image">
 			<div
 				bind:this={image2}
-				style={`background-image: url("${Us}"); background-position: top 0 left ${
+				style={`background-image: url("https://images.unsplash.com/photo-1664574654700-75f1c1fad74e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"); background-position: top 0 left ${
 					image2?.getBoundingClientRect().left + (image2?.clientWidth - height * (4 / 5)) / 2
 				}px;`}
 			/>
