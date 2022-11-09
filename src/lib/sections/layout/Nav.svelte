@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import OnResize from '$lib/stores/OnResize';
 	import { onMount } from 'svelte';
 
-	let menuOpen = false,
+	let isTouch: boolean,
+		menuOpen = false,
 		scrollY = 0,
 		mouseX = 0,
 		mouseOver = false,
@@ -22,6 +24,10 @@
 		goto(toSlug);
 	};
 
+	const isTouchDevice = () => {
+		return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+	};
+
 	onMount(() => {
 		const button = document.getElementById('menu-button'),
 			menuText = document.getElementById('menu-text-path');
@@ -31,6 +37,8 @@
 
 		main = document.getElementsByTagName('main')[0];
 		footer = document.getElementsByTagName('footer')[0];
+
+		OnResize.add(() => (isTouch = isTouchDevice()));
 
 		button.onclick = () => {
 			InvertMenuOpen();
@@ -78,16 +86,20 @@
 	</div>
 </button>
 
-<nav>
+<nav data-isTouch={isTouch}>
 	<div on:mousemove={(e) => (mouseX = e.clientX)}>
 		<div
 			id="links"
 			bind:this={links}
 			on:mouseenter={() => (mouseOver = true)}
 			on:mouseleave={() => (mouseOver = false)}
-			style="translate: {mouseOver
-				? mouseX * -1 * ((links?.clientWidth - main?.clientWidth) / main?.clientWidth)
-				: -32}px 0; transition"
+			style={!isTouch
+				? `translate: ${
+						mouseOver
+							? mouseX * -1 * ((links?.clientWidth - main?.clientWidth) / main?.clientWidth)
+							: -32
+				  }px 0;`
+				: ''}
 		>
 			<button class="link" on:click={() => MenuItemClicked('/')}>
 				<span class="label">Home</span>
@@ -148,7 +160,7 @@
 				transition: transform 1000ms, translate 100ms;
 
 				& > .link {
-					width: fit-content;
+					width: 24rem;
 					background-color: transparent;
 					padding: 0;
 					border: 0;
@@ -180,6 +192,14 @@
 							mt-2
 							object-cover;
 					}
+				}
+			}
+
+			&[data-isTouch='true'] {
+				overflow: scroll;
+
+				#links {
+					padding: 0 2rem;
 				}
 			}
 		}
