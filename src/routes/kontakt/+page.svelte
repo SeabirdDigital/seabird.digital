@@ -108,46 +108,54 @@
 
 		& > div {
 			@apply /**/
-				container;
+				container
+				
+				flex
+				flex-col-reverse lg:flex-row
+				gap-6;
 
-			padding: 8rem 0;
-
-			display: flex;
+			padding: 8rem 2rem;
 
 			& > div {
 				@apply /**/
-				lg:w-1/2;
+					lg:w-1/2;
 
 				&.info {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-
+					@apply /**/
+						flex
+						justify-center;
 					& > div {
-						max-width: 24rem;
+						@apply /**/
+							lg:max-w-sm
 
-						display: flex;
-						flex-direction: column;
-						gap: 3rem;
+							flex
+							flex-col sm:flex-row lg:flex-col
+							gap-12;
 
-						h3 {
-							font-size: 1.5rem;
-							opacity: 0.3;
+						& > div {
+							@apply /**/
+								lg:max-w-sm
+								flex-1 lg:flex-none;
 
-							padding-bottom: 0.75rem;
-						}
+							h3 {
+								font-size: 1.5rem;
+								opacity: 0.3;
 
-						span,
-						a {
-							font-size: 1rem;
-							opacity: 0.5;
+								padding-bottom: 0.75rem;
+							}
 
-							display: block;
+							span,
+							a {
+								font-size: 1rem;
+								opacity: 0.5;
 
-							transition: opacity 200ms;
+								display: block;
 
-							&:is(a):hover {
-								opacity: 0.7;
+								transition: opacity 200ms;
+
+								&:is(a):hover {
+									opacity: 0.7;
+								}
 							}
 						}
 					}
