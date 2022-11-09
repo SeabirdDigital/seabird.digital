@@ -1,4 +1,4 @@
-<form action="/api/contact" method="post">
+<form action="/api/kontakt" method="post">
 	<div class="input-field">
 		<label for="name">Namn<span class="required">*</span></label>
 		<input required id="name" name="name" type="text" autocomplete="name" />

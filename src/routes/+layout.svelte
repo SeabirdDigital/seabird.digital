@@ -105,7 +105,7 @@
 			overflow: hidden;
 
 			main {
-				translate: 0 -75vh;
+				translate: 0 -30rem;
 			}
 		}
 	}

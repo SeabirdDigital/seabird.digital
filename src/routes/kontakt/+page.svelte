@@ -72,7 +72,7 @@
 				background-position: center center;
 
 				&.animate {
-					animation: load 3000ms forwards;
+					animation: load 3500ms forwards;
 				}
 
 				h1 {
