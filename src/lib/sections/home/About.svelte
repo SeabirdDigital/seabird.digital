@@ -77,43 +77,57 @@
 			gap-60
 
 			bg-sb-dark;
-	}
-	#about > div {
-		@apply /**/
-			container
 
-			flex
-			flex-col lg:flex-row
-			gap-12;
-	}
-	#about > div > div {
-		@apply /**/
-			lg:w-1/2;
-	}
+		& > div {
+			@apply /**/
+				container
+	
+				flex
+				flex-col lg:flex-row
+				gap-12;
 
-	.image {
-		display: flex;
-		justify-content: center;
-	}
-	.image > div {
-		@apply /**/
-			w-full lg:w-[32rem]
-			aspect-square sm:aspect-[2/1] lg:aspect-[3/4];
+			h2 {
+				@apply /**/
+					mb-6;
+			}
 
-		position: relative;
+			& > div {
+				@apply /**/
+					lg:w-1/2;
+			}
 
-		background-attachment: fixed;
-	}
+			.image {
+				display: flex;
+				justify-content: center;
 
-	.first .image > div {
-		background-size: calc(100vh * (4 / 5)) 100vh;
-	}
-	.second .image > div {
-		background-size: calc(120vh * (2 / 3)) 120vh;
-	}
+				& > div {
+					@apply /**/
+						w-full lg:w-[32rem]
+						aspect-square sm:aspect-[2/1] lg:aspect-[3/4];
 
-	h2 {
-		@apply /**/
-			mb-6;
+					position: relative;
+
+					background-attachment: fixed;
+				}
+			}
+
+			&.first {
+				.image {
+					& > div {
+						background-size: calc(100vh * (4 / 5)) 100vh;
+					}
+				}
+			}
+			&.second {
+				@apply /**/
+					flex-col-reverse lg:flex-row;
+
+				.image {
+					& > div {
+						background-size: calc(120vh * (2 / 3)) 120vh;
+					}
+				}
+			}
+		}
 	}
 </style>

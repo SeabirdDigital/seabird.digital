@@ -110,164 +110,172 @@
 </nav>
 
 <style global lang="postcss">
-	nav {
-		@apply /**/
-			h-[30rem]
-			w-full
+	body {
+		nav {
+			@apply /**/
+				z-40;
 
-			fixed
-			left-0
+			height: 30rem;
+			width: 100%;
 
-			flex
-			items-center
+			position: fixed;
+			left: 0;
+			bottom: -30rem;
 
-			bg-black
-			text-white
-			
-			overflow-hidden
-			z-40;
+			display: flex;
+			align-items: center;
 
-		bottom: -30rem;
-		transition: bottom 1000ms;
-	}
+			background-color: black;
+			color: white;
 
-	nav > div {
-		@apply /**/
-			mb-28;
+			overflow: hidden;
 
-		width: 100%;
-	}
+			transition: bottom 1000ms;
 
-	body[data-menu-open='true'] nav {
-		bottom: 0;
-	}
+			& > div {
+				margin-bottom: 7rem;
+				width: 100%;
+			}
 
-	nav #links {
-		@apply /**/
-			flex
-			gap-6
-			w-fit
-			px-16;
+			#links {
+				width: fit-content;
+				padding: 0 4rem;
 
-		transform: translateY(-100%) scale(0.9);
-		transition: transform 1000ms, translate 100ms;
-	}
-	body[data-menu-open='true'] nav #links {
-		transform: translateY(0%) scale(1);
-	}
-	nav #links > .link {
-		@apply /**/
-			bg-transparent
-			border-0
-			w-96
-			p-0
+				display: flex;
+				gap: 1.5rem;
 
-			inline-flex
-			flex-col;
+				transform: translateY(-100%) scale(0.9);
+				transition: transform 1000ms, translate 100ms;
 
-		transition: transform 200ms;
-	}
-	nav #links > .link:hover {
-		transform: scale(1.01);
-		cursor: pointer;
-	}
-	nav #links > .link > .label {
-		@apply /**/
-			font-sb-darker	
-			text-white
-			text-4xl
-			uppercase
+				& > .link {
+					width: fit-content;
+					background-color: transparent;
+					padding: 0;
+					border: 0;
 
-			m-0;
-	}
-	nav #links > .link > .image {
-		@apply /**/
-			h-52
-			w-96
-			rounded-md
-			mt-2
-			object-cover;
-	}
+					display: inline-flex;
+					flex-direction: column;
 
-	#menu-button {
-		@apply /**/
-			h-16
-			w-16
-			border-0
+					transition: transform 200ms;
 
-			fixed
-			bottom-12
-			left-[50vw]
+					&:hover {
+						transform: scale(1.01);
+						cursor: pointer;
+					}
 
-			z-50;
+					& > .label {
+						@apply /**/
+							font-sb-darker	
+							text-white
+							text-4xl
+							uppercase
+				
+							m-0;
+					}
+					& > .image {
+						@apply /**/
+							h-52
+							w-96
+							rounded-md
+							mt-2
+							object-cover;
+					}
+				}
+			}
+		}
 
-		translate: -50% 0;
-		transition: scale 200ms, translate 750ms;
-	}
-	#menu-button[data-hidden='true'] {
-		translate: -50% 10rem;
-	}
+		#menu-button {
+			@apply /**/
+				h-16
+				w-16
+				border-0
+	
+				fixed
+				bottom-12
+				left-[50vw]
+	
+				z-50;
 
-	#menu-button:hover {
-		scale: 1.25;
-	}
+			margin: 0;
+			padding: 0;
+			background-color: transparent;
 
-	#menu-button:active {
-		scale: 1.1;
-	}
+			translate: -50% 0;
+			transition: scale 200ms, translate 750ms;
 
-	#menu-button .background {
-		@apply /**/
-			h-full
-			w-full
-			relative
-			bg-sb-purple
-			rounded-full
-			shadow-lg
+			.background {
+				@apply /**/
+					shadow-lg
+					z-20;
 
-			z-20;
-	}
+				height: 100%;
+				width: 100%;
+				position: relative;
+				background-color: var(--sb-purple);
+				border-radius: 100%;
+			}
 
-	#menu-button {
-		margin: 0;
-		padding: 0;
-		background-color: transparent;
-	}
+			.text {
+				@apply /**/
+					z-10;
 
-	#menu-button .text {
-		@apply /**/
-			h-[150%]
-			w-[150%]
+				height: 150%;
+				width: 150%;
 
-			flex
-			justify-center
+				display: flex;
+				justify-content: center;
 
-			absolute
-			top-1/2
-			left-1/2
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				translate: -50% -50%;
 
-			font-sb-darker
+				font-family: var(--sb-darker);
+				rotate: -90deg;
+				scale: 0.5;
+				transition: rotate 250ms, scale 200ms;
+			}
 
-			z-10;
+			&[data-hidden='true'] {
+				translate: -50% 10rem;
+			}
+			&:hover {
+				scale: 1.25;
+			}
+			&:active {
+				scale: 1.1;
+			}
+		}
 
-		translate: -50% -50%;
+		&[data-menu-open='true'] {
+			nav {
+				bottom: 0;
 
-		rotate: -90deg;
-		scale: 0.5;
-		transition: rotate 250ms, scale 200ms;
-	}
+				#links {
+					transform: translateY(0%) scale(1);
+				}
+			}
+			#menu-button {
+				.text {
+					scale: 1;
+					rotate: 6deg;
+				}
 
-	body:not([data-menu-open='true']) #menu-button:hover .text {
-		scale: 1;
-		rotate: 8deg;
-	}
-
-	body[data-menu-open='true'] #menu-button .text {
-		scale: 1;
-		rotate: 6deg;
-	}
-	body[data-menu-open-open='true'] #menu-button .background {
-		@apply /**/
-			bg-sb-blue;
+				.background {
+					@apply /**/
+					   bg-sb-blue;
+				}
+			}
+		}
+		&:not([data-menu-open='true']) {
+			#menu-button {
+				&:hover {
+					.text {
+						scale: 1;
+						rotate: 8deg;
+					}
+				}
+			}
+		}
 	}
 </style>

@@ -73,32 +73,40 @@
 			font-extralight;
 	}
 
-	body::-webkit-scrollbar {
-		@apply hidden;
-	}
 	body {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-		overflow-x: hidden;
-		scroll-behavior: smooth;
-		overscroll-behavior: none;
-		margin: 0;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
 		background-color: black;
 		color: white;
-	}
-	body[data-menu='true'] {
-		overflow: hidden;
-	}
 
-	main {
-		transition: 1000ms;
-		position: relative;
-	}
-	body[data-menu='true'] main {
-		translate: 0 -75vh;
-	}
+		overflow-x: hidden;
 
-	button:focus {
-		background-color: transparent;
+		scroll-behavior: smooth;
+		overscroll-behavior: none;
+
+		margin: 0;
+
+		main {
+			transition: 1000ms;
+			position: relative;
+		}
+
+		button {
+			&:focus {
+				background-color: transparent;
+			}
+		}
+
+		&[data-menu='true'] {
+			overflow: hidden;
+
+			main {
+				translate: 0 -75vh;
+			}
+		}
 	}
 </style>

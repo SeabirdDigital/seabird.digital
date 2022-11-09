@@ -23,18 +23,19 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-	}
-	form > div {
-		display: flex;
-		flex-direction: column;
-	}
 
-	button {
-		width: fit-content;
-		margin-left: auto;
-	}
+		& > div {
+			display: flex;
+			flex-direction: column;
+		}
 
-	.required {
-		color: var(--sb-orange);
+		button {
+			width: fit-content;
+			margin-left: auto;
+		}
+
+		.required {
+			color: var(--sb-orange);
+		}
 	}
 </style>

@@ -8,17 +8,15 @@
 
 <style lang="postcss">
 	#headline {
-		@apply /**/
-			py-12
-			
-			bg-sb-dark;
-	}
+		padding: 3rem 0;
+		background-color: var(--sb-dark);
 
-	h2 {
-		@apply /**/
-			container
-			
-			block md:flex
-			flex-col;
+		h2 {
+			@apply /**/
+				container
+				
+				block md:flex
+				flex-col;
+		}
 	}
 </style>

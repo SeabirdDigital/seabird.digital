@@ -100,115 +100,113 @@
 </div>
 
 <style lang="postcss">
-	@keyframes background-pan {
-		from {
-			background-position: center 0%;
+	#hero {
+		@keyframes background-pan {
+			from {
+				background-position: center 0%;
+			}
+			to {
+				background-position: center 200%;
+			}
 		}
-		to {
-			background-position: center 200%;
+
+		& > .background {
+			@apply /**/
+				-z-10;
+
+			height: 100vh;
+			width: 100%;
+			position: relative;
+
+			position: fixed;
+			top: 0;
+			left: 0;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			overflow: hidden;
+			animation: background-pan 7s linear infinite;
+			background: linear-gradient(
+				to bottom,
+				var(--sb-purple),
+				var(--sb-blue),
+				var(--sb-pink),
+				var(--sb-purple)
+			);
+			background-size: 100% 200%;
 		}
-	}
 
-	.background {
-		@apply /**/
-			-z-10;
+		.content {
+			@apply /**/
+				z-30;
 
-		height: 100vh;
-		width: 100%;
-		position: relative;
+			width: 100%;
+			margin-bottom: 5rem;
 
-		position: fixed;
-		top: 0;
-		left: 0;
+			position: absolute;
+			top: 50vh;
+			left: 50vw;
 
-		display: flex;
-		justify-content: center;
-		align-items: center;
+			transform: translate(-50%, -50%);
+			text-align: center;
 
-		overflow: hidden;
-		animation: background-pan 7s linear infinite;
-		background: linear-gradient(
-			to bottom,
-			var(--sb-purple),
-			var(--sb-blue),
-			var(--sb-pink),
-			var(--sb-purple)
-		);
-		background-size: 100% 200%;
-	}
+			pointer-events: none;
 
-	.content {
-		@apply /**/
-			z-30;
+			h1 {
+				display: flex;
+				flex-direction: column;
 
-		width: 100%;
-		margin-bottom: 5rem;
+				& > span {
+					translate: 0 100px;
+					opacity: 0;
+				}
+			}
+		}
 
-		position: absolute;
-		top: 50vh;
-		left: 50vw;
+		.grid {
+			@apply /**/
+				z-10;
 
-		transform: translate(-50%, -50%);
-		text-align: center;
+			height: 100%;
+			width: 100%;
 
-		pointer-events: none;
-	}
+			position: absolute;
+			top: 0;
+			left: 0;
 
-	.content h1 {
-		display: flex;
-		flex-direction: column;
-	}
+			display: grid;
+			grid-template-columns: repeat(var(--cols), 1fr);
+			grid-template-rows: repeat(var(--rows), 1fr);
 
-	.content h1 span {
-		translate: 0 100px;
-		opacity: 0;
-	}
+			transition-duration: 200ms;
 
-	.grid {
-		@apply /**/
-			z-10;
+			:global(.tile) {
+				position: relative;
 
-		height: 100%;
-		width: 100%;
+				&::before {
+					content: '';
 
-		position: absolute;
-		top: 0;
-		left: 0;
+					background-color: rgb(25, 25, 25);
+					position: absolute;
+					inset: 0.5px;
+				}
+			}
+		}
 
-		display: grid;
-		grid-template-columns: repeat(var(--cols), 1fr);
-		grid-template-rows: repeat(var(--rows), 1fr);
+		.overlay {
+			@apply /**/
+				z-20;
 
-		transition-duration: 200ms;
-	}
+			height: 100vh;
+			width: 100%;
 
-	.overlay {
-		@apply /**/
-			z-20;
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(25, 25, 25)),
+				radial-gradient(at center top, rgba(0, 0, 0, 0), rgb(25, 25, 25));
 
-		height: 100vh;
-		width: 100%;
-
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(25, 25, 25)),
-			radial-gradient(at center top, rgba(0, 0, 0, 0), rgb(25, 25, 25));
-
-		transition: opacity 500ms;
-		pointer-events: none;
-	}
-
-	.grid :global(.tile) {
-		position: relative;
-	}
-
-	.grid :global(.tile)::before {
-		content: '';
-
-		background-color: rgb(25, 25, 25);
-		position: absolute;
-		inset: 0.5px;
-	}
-
-	.grid :global(.tile):hover::before {
-		background-color: rgb(25, 25, 25);
+			transition: opacity 500ms;
+			pointer-events: none;
+		}
 	}
 </style>

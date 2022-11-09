@@ -35,52 +35,55 @@
 		overflow: hidden;
 
 		background-color: var(--sb-dark);
-	}
 
-	footer > div {
-		@apply /**/
-            container
-            px-12
-            pt-12
-            pb-4
-            
-            flex
-            flex-col
-            gap-6;
+		& > div {
+			@apply /**/
+				container
+				px-12
+				pt-12
+				pb-4
+				
+				flex
+				flex-col
+				gap-6;
 
-		background-color: var(--sb-orange);
-		border-radius: 50px 50px 0 0;
+			background-color: var(--sb-orange);
+			border-radius: 50px 50px 0 0;
 
-		scale: 0.9;
-		translate: 0 4rem;
+			scale: 0.9;
+			translate: 0 4rem;
 
-		transition: all 200ms;
-	}
+			transition: all 200ms;
 
-	footer[data-full='true'] > div {
-		scale: 1;
-		translate: 0 0;
-	}
+			& > div {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 
-	footer > div > div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+			& > span {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				text-align: center;
 
-	.logo {
-		scale: 1.25;
-	}
-	.logo > div {
-		background-color: black;
-	}
+				font-family: var(--mulish);
+			}
+		}
 
-	footer > div > span {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		text-align: center;
+		.logo {
+			scale: 1.25;
 
-		font-family: var(--mulish);
+			& > div {
+				background-color: black;
+			}
+		}
+
+		&[data-full='true'] {
+			& > div {
+				scale: 1;
+				translate: 0 0;
+			}
+		}
 	}
 </style>

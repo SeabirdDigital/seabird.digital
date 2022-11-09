@@ -41,54 +41,57 @@
 		padding: 0;
 
 		background-color: var(--sb-dark);
-	}
-	#hero > div {
-		@apply /**/
-			container;
-	}
 
-	@keyframes load {
-		25% {
-			width: 100vw;
-			height: 100vh;
+		& > div {
+			@apply /**/
+				container;
+
+			@keyframes load {
+				25% {
+					width: 100vw;
+					height: 100vh;
+				}
+				100% {
+					height: var(--height);
+					width: var(--width);
+					border-radius: 0 0 50px 50px;
+				}
+			}
+			& > .image {
+				position: absolute;
+				top: 0;
+				left: 50vw;
+				translate: -50% 0;
+
+				width: 100vw;
+				height: 100vh;
+
+				background-size: cover;
+				background-position: center center;
+
+				&.animate {
+					animation: load 3000ms forwards;
+				}
+
+				h1 {
+					position: absolute;
+					bottom: 4rem;
+					left: 3rem;
+				}
+			}
 		}
-		100% {
-			height: var(--height);
-			width: var(--width);
-			border-radius: 0 0 50px 50px;
-		}
-	}
-	#hero .image {
-		position: absolute;
-		top: 0;
-		left: 50vw;
-		translate: -50% 0;
-
-		width: 100vw;
-		height: 100vh;
-
-		background-size: cover;
-		background-position: center center;
-	}
-	.image.animate {
-		animation: load 3000ms forwards;
-	}
-
-	h1 {
-		position: absolute;
-		bottom: 4rem;
-		left: 3rem;
 	}
 
 	#contact {
 		background-color: var(--sb-dark);
-	}
-	#contact > div {
-		@apply /**/
-            container
-			py-32;
 
-		display: flex;
-		flex-direction: column;
+		& > div {
+			@apply /**/
+				container
+				py-32;
+
+			display: flex;
+			flex-direction: column;
+		}
 	}
 </style>
