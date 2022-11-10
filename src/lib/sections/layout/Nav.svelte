@@ -142,14 +142,14 @@
 	body {
 		nav {
 			@apply /**/
+				h-[30rem] 2xl:h-[40rem]
+				w-full
+
+				fixed
+				left-0
+				-bottom-[30rem] 2xl:-bottom-[40rem]
+
 				z-40;
-
-			height: 30rem;
-			width: 100%;
-
-			position: fixed;
-			left: 0;
-			bottom: -30rem;
 
 			display: flex;
 			align-items: center;
@@ -162,7 +162,9 @@
 			transition: bottom 1000ms;
 
 			& > div {
-				margin-bottom: 9rem;
+				@apply /**/
+					mb-36;
+
 				width: 100%;
 
 				#links {
@@ -176,7 +178,9 @@
 					transition: transform 1000ms, translate 100ms;
 
 					& > .link {
-						width: 20rem;
+						@apply /**/
+							w-[20rem] 2xl:w-[32rem];
+
 						background-color: transparent;
 						padding: 0;
 						border: 0;
@@ -195,17 +199,17 @@
 							@apply /**/
 								font-sb-darker	
 								text-white
-								text-3xl
+								text-3xl 2xl:text-5xl
 								uppercase
 					
 								m-0;
 						}
 						& > .image {
 							@apply /**/
-								h-44
-								w-80
+								h-[11rem] 2xl:h-[16rem]
+								w-[20rem] 2xl:w-[32rem]
 								rounded-md
-								mt-2
+								mt-2 2xl:mt-4
 								object-cover;
 						}
 
@@ -219,8 +223,9 @@
 								&::after {
 									content: ' - Kommer snart';
 
-									font-size: 1rem;
-									line-height: 1rem;
+									@apply /**/
+										text-base 2xl:text-3xl;
+
 									opacity: 0.6;
 								}
 							}
