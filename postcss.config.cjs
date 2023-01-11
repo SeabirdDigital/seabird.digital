@@ -5,6 +5,7 @@ module.exports = {
 		'postcss-nested': {},
 		'postcss-atroot': {},
 		'postcss-current-selector': {},
-		'postcss-nested-ancestors': {}
+		'postcss-nested-ancestors': {},
+		'postcss-breakpoints': {}
 	}
 };
