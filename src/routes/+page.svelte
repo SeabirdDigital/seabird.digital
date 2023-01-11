@@ -1,11 +1,11 @@
 <script>
-	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Pointer from '$lib/assets/pointer.svg';
+	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Header from '$lib/components/layout/Header.svelte';
 	import { gsap } from 'gsap';
-	import { onMount } from 'svelte';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-	import { scrollTo, scrollRef } from 'svelte-scrolling';
+	import { onMount } from 'svelte';
+	import { scrollRef, scrollTo } from 'svelte-scrolling';
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -25,8 +25,8 @@
 		tl.addLabel('start')
 			.to('#pointer', { opacity: 0, duration: 0.1 })
 			.to('#pointer', { height: 0, duration: 0.5 }, 0.1)
-			.to('#hero-text', { width: '100%', right: 0, duration: 0.975 }, 0)
-			.from('header>div', { width: '50vw', left: '0', duration: 0.975 }, 0)
+			.to('#hero-text', { width: '100%', right: '0vw', duration: 0.975 }, 0)
+			.to('header', { width: '100%', right: '0%', duration: 0.975 }, 0)
 			.to('#hero-image', { left: '100vw', duration: 0.9 }, 0)
 			.fromTo('#hero>div', { height: '100vh' }, { height: '75vh' }, 0)
 			.addLabel('end');
@@ -35,7 +35,7 @@
 			// yes, we can add it to an entire timeline!
 			scrollTrigger: {
 				trigger: '#about',
-				start: 'top top',
+				start: 'top calc(500px+25vw)',
 				end: '+=100',
 				scrub: 1
 			}
@@ -45,8 +45,10 @@
 	});
 </script>
 
-<header class="">
-	<Header class="z-50 fixed top-10 h-16 opacity-0" simplified={false} />
+<svelte:window on:resize={() => ScrollTrigger.refresh()} />
+
+<header class="z-50 fixed top-10 right-1/2 w-1/2">
+	<Header class="w-full h-16" simplified={false} />
 </header>
 
 <div class="overflow-hidden">
