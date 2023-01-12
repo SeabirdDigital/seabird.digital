@@ -7,6 +7,8 @@
 	import { onMount } from 'svelte';
 	import { scrollRef, scrollTo } from 'svelte-scrolling';
 
+	let width = 0;
+
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +31,20 @@
 			.to('#hero-text', { width: '100%', right: '0vw', duration: 0.975 }, 0)
 			.to('header', { width: '100%', right: '0%', duration: 0.975 }, 0)
 			.to('#hero-image', { left: '100vw', duration: 0.9 }, 0)
-			.fromTo('#hero', { height: '100vh' }, { height: '75vh' }, 0);
+			.fromTo('#hero', { height: '100vh' }, { height: '75vh' }, 0)
+			.addLabel('end');
+
+		let tl3 = gsap.timeline({
+			// yes, we can add it to an entire timeline!
+			scrollTrigger: {
+				start: 0, // when the top of the trigger hits the top of the viewport
+				end: '+=2500', // end after scrolling 500px beyond the start
+				scrub: 1 // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+			}
+		});
+
+		// add animations and labels to the timeline
+		tl3.addLabel('start').to('#banner>div', { marginLeft: '-100vw' }).addLabel('end');
 
 		gsap
 			.timeline({
@@ -59,14 +74,14 @@
 	});
 </script>
 
-<svelte:window on:resize={() => ScrollTrigger.refresh()} />
+<svelte:window on:resize={() => ScrollTrigger.refresh()} bind:innerWidth={width} />
 
 <header class="z-50 fixed top-10 right-1/2 w-1/2">
 	<Header class="w-full h-16" simplified={false} />
 </header>
 
 <div class="overflow-hidden">
-	<div id="upper">
+	<div id="upper" class="-mb-[150px]">
 		<div id="hero" class="relative h-screen w-full bg-sb-blue/20">
 			<div
 				id="hero-text"
@@ -93,7 +108,18 @@
 			</div>
 		</div>
 
-		<div id="about" class="container h-screen" use:scrollRef={'about'}>
+		<div
+			id="banner"
+			class="w-full bg-sb-blue text-white/80 py-4 text-3xl font-ultra overflow-hidden"
+		>
+			<div class="flex gap-4 whitespace-nowrap">
+				{#each Array(Math.ceil(width / 632) * 2) as i}
+					<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
+				{/each}
+			</div>
+		</div>
+
+		<div id="about" class="bg-sb-blue/20" use:scrollRef={'about'}>
 			<h2>About</h2>
 			<p>
 				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est
@@ -112,7 +138,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	@keyframes pointer {
 		from {
 			margin-top: 0rem;
