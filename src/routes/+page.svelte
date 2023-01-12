@@ -17,7 +17,8 @@
 				pin: true, // pin the trigger element while active
 				start: 'top top', // when the top of the trigger hits the top of the viewport
 				end: '+=500', // end after scrolling 500px beyond the start
-				scrub: 1 // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+				scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+				snap: 'labels'
 			}
 		});
 
@@ -28,20 +29,33 @@
 			.to('#hero-text', { width: '100%', right: '0vw', duration: 0.975 }, 0)
 			.to('header', { width: '100%', right: '0%', duration: 0.975 }, 0)
 			.to('#hero-image', { left: '100vw', duration: 0.9 }, 0)
-			.fromTo('#hero>div', { height: '100vh' }, { height: '75vh' }, 0)
+			.fromTo('#hero', { height: '100vh' }, { height: '75vh' }, 0);
+
+		gsap
+			.timeline({
+				// yes, we can add it to an entire timeline!
+				scrollTrigger: {
+					start: 600,
+					end: '+=100',
+					scrub: 1
+				}
+			})
+			.addLabel('start')
+			.fromTo('header', { opacity: 0 }, { opacity: 1 }, 0)
 			.addLabel('end');
 
-		let tl2 = gsap.timeline({
-			// yes, we can add it to an entire timeline!
-			scrollTrigger: {
-				trigger: '#about',
-				start: 'top calc(500px+25vw)',
-				end: '+=100',
-				scrub: 1
-			}
-		});
-
-		tl2.addLabel('start').fromTo('header>div', { opacity: 0 }, { opacity: 1 }).addLabel('end');
+		gsap
+			.timeline({
+				// yes, we can add it to an entire timeline!
+				scrollTrigger: {
+					start: 500,
+					end: '+=200',
+					toggleActions: 'restart none none none'
+				}
+			})
+			.addLabel('start')
+			.fromTo('header', { top: '-64px' }, { top: '40px' }, 0)
+			.addLabel('end');
 	});
 </script>
 
