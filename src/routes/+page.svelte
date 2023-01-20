@@ -1,11 +1,13 @@
 <script>
-	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Pointer from '$lib/assets/pointer.svg';
+	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Header from '$lib/components/layout/Header.svelte';
 	import { gsap } from 'gsap';
-	import { onMount } from 'svelte';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-	import { scrollTo, scrollRef } from 'svelte-scrolling';
+	import { onMount } from 'svelte';
+	import { scrollRef, scrollTo } from 'svelte-scrolling';
+
+	let width = 0;
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -15,9 +17,10 @@
 			scrollTrigger: {
 				trigger: '#upper',
 				pin: true, // pin the trigger element while active
-				start: 'top top', // when the top of the trigger hits the top of the viewport
-				end: '+=500', // end after scrolling 500px beyond the start
-				scrub: 1 // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+				start: 0, // when the top of the trigger hits the top of the viewport
+				end: '+=100', // end after scrolling 500px beyond the start
+				scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+				snap: 'labels'
 			}
 		});
 
@@ -25,33 +28,62 @@
 		tl.addLabel('start')
 			.to('#pointer', { opacity: 0, duration: 0.1 })
 			.to('#pointer', { height: 0, duration: 0.5 }, 0.1)
-			.to('#hero-text', { width: '100%', right: 0, duration: 0.975 }, 0)
-			.from('header>div', { width: '50vw', left: '0', duration: 0.975 }, 0)
+			.to('#hero-text', { width: '100%', right: '0vw', duration: 0.975 }, 0)
+			.to('header', { width: '100%', right: '0%', duration: 0.975 }, 0)
 			.to('#hero-image', { left: '100vw', duration: 0.9 }, 0)
-			.fromTo('#hero>div', { height: '100vh' }, { height: '75vh' }, 0)
+			.fromTo('#hero', { height: '100vh' }, { height: '75vh' }, 0)
+			.fromTo('#upper-container', { marginBottom: '0vh' }, { marginBottom: '-25vh' }, 0)
 			.addLabel('end');
 
-		let tl2 = gsap.timeline({
+		let tl3 = gsap.timeline({
 			// yes, we can add it to an entire timeline!
 			scrollTrigger: {
-				trigger: '#about',
-				start: 'top top',
-				end: '+=100',
-				scrub: 1
+				start: 0, // when the top of the trigger hits the top of the viewport
+				end: '+=2500', // end after scrolling 500px beyond the start
+				scrub: 1 // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
 			}
 		});
 
-		tl2.addLabel('start').fromTo('header>div', { opacity: 0 }, { opacity: 1 }).addLabel('end');
+		// add animations and labels to the timeline
+		tl3.addLabel('start').to('#banner>div', { marginLeft: '-100vw' }).addLabel('end');
+
+		gsap
+			.timeline({
+				// yes, we can add it to an entire timeline!
+				scrollTrigger: {
+					start: 600,
+					end: '+=100',
+					scrub: 1
+				}
+			})
+			.addLabel('start')
+			.fromTo('header', { opacity: 0 }, { opacity: 1 }, 0)
+			.addLabel('end');
+
+		gsap
+			.timeline({
+				// yes, we can add it to an entire timeline!
+				scrollTrigger: {
+					start: 500,
+					end: '+=200',
+					toggleActions: 'restart none none none'
+				}
+			})
+			.addLabel('start')
+			.fromTo('header', { top: '-64px' }, { top: '40px' }, 0)
+			.addLabel('end');
 	});
 </script>
 
-<header class="">
-	<Header class="z-50 fixed top-10 h-16 opacity-0" simplified={false} />
+<svelte:window on:resize={() => ScrollTrigger.refresh()} bind:innerWidth={width} />
+
+<header class="z-50 fixed top-10 right-1/2 w-1/2 opacity-0">
+	<Header class="w-full h-16" simplified={false} />
 </header>
 
-<div class="overflow-hidden">
-	<div id="upper">
-		<div id="hero" class="relative h-screen w-full bg-sb-blue/20">
+<div id="upper-container" class="overflow-hidden">
+	<div id="upper" class="">
+		<div id="hero" class="relative h-screen w-full">
 			<div
 				id="hero-text"
 				class="absolute right-1/2 w-1/2 h-full flex flex-col justify-between items-center text-center py-10"
@@ -65,7 +97,7 @@
 						quam ratione voluptatem omnis.
 					</p>
 				</div>
-				<button use:scrollTo={{ ref: 'about', duration: 2500 }}>
+				<button use:scrollTo={{ ref: 'headline', duration: 2500 }}>
 					<img src={Pointer} id="pointer" class="h-16" alt="" />
 				</button>
 			</div>
@@ -76,27 +108,37 @@
 				/>
 			</div>
 		</div>
-
-		<div id="about" class="container h-screen" use:scrollRef={'about'}>
-			<h2>About</h2>
-			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est
-				quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat
-				iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis
-				consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa
-				fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Eius blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id
-				nostrum, culpa fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur
-				adipisicing elit. Eius blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione
-				error dolores id nostrum, culpa fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet
-				consectetur adipisicing elit. Eius blanditiis consequatur, est quos et sequi! Eos fugit
-				beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat iste quae.
-			</p>
-		</div>
+	</div>
+</div>
+<div id="banner" class="w-full bg-sb-blue text-white/80 py-4 text-3xl font-ultra overflow-hidden">
+	<div class="flex gap-4 whitespace-nowrap">
+		{#each Array(Math.ceil(width / 632) * 2) as i}
+			<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
+		{/each}
 	</div>
 </div>
 
-<style>
+<div class="container py-24" use:scrollRef={'headline'}>
+	<h2 class="text-3xl font-pt font-bold text-sb-blue">
+		För många sidor är fortfarande kvar<br />
+		i 90-talet. Vi skapar moderna hemsidor<br />
+		utan att skada din plånbok.
+	</h2>
+</div>
+
+<div class="relative container grid grid-cols-2 gap-12 py-12">
+	<div class="bg-cover bg-center rounded-3xl" style="background-image: url({TakeOff});" />
+	<div class="py-16">
+		<h2 class="text-2xl font-ultra text-sb-blue">Hemsidor som hjälper<br />dig sälja mer</h2>
+		<p>
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque totam corrupti omnis
+			necessitatibus facilis ducimus quos dolorum modi impedit. Aperiam mollitia, vel vero aliquid
+			enim reprehenderit beatae illum repudiandae sapiente?
+		</p>
+	</div>
+</div>
+
+<style lang="postcss">
 	@keyframes pointer {
 		from {
 			margin-top: 0rem;
