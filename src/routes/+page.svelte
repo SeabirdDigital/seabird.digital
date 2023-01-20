@@ -77,7 +77,7 @@
 
 <svelte:window on:resize={() => ScrollTrigger.refresh()} bind:innerWidth={width} />
 
-<header class="z-50 fixed top-10 right-1/2 w-1/2">
+<header class="z-50 fixed top-10 right-1/2 w-1/2 opacity-0">
 	<Header class="w-full h-16" simplified={false} />
 </header>
 
@@ -97,7 +97,7 @@
 						quam ratione voluptatem omnis.
 					</p>
 				</div>
-				<button use:scrollTo={{ ref: 'about', duration: 2500 }}>
+				<button use:scrollTo={{ ref: 'headline', duration: 2500 }}>
 					<img src={Pointer} id="pointer" class="h-16" alt="" />
 				</button>
 			</div>
@@ -117,24 +117,26 @@
 		{/each}
 	</div>
 </div>
-<div id="about" class="" use:scrollRef={'about'}>
-	<h2>About</h2>
-	<p>
-		Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est quos
-		et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat iste
-		quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est
-		quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat
-		iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis
-		consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga?
-		In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
-		blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id nostrum,
-		culpa fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-		Eius blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id
-		nostrum, culpa fuga? In aut quaerat iste quae.
-	</p>
+
+<div class="container py-24" use:scrollRef={'headline'}>
+	<h2 class="text-3xl font-pt font-bold text-sb-blue">
+		För många sidor är fortfarande kvar<br />
+		i 90-talet. Vi skapar moderna hemsidor<br />
+		utan att skada din plånbok.
+	</h2>
 </div>
 
-d
+<div class="relative container grid grid-cols-2 gap-12 py-12">
+	<div class="bg-cover bg-center rounded-3xl" style="background-image: url({TakeOff});" />
+	<div class="py-16">
+		<h2 class="text-2xl font-ultra text-sb-blue">Hemsidor som hjälper<br />dig sälja mer</h2>
+		<p>
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque totam corrupti omnis
+			necessitatibus facilis ducimus quos dolorum modi impedit. Aperiam mollitia, vel vero aliquid
+			enim reprehenderit beatae illum repudiandae sapiente?
+		</p>
+	</div>
+</div>
 
 <style lang="postcss">
 	@keyframes pointer {
