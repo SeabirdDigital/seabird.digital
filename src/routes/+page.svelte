@@ -17,8 +17,8 @@
 			scrollTrigger: {
 				trigger: '#upper',
 				pin: true, // pin the trigger element while active
-				start: 'top top', // when the top of the trigger hits the top of the viewport
-				end: '+=500', // end after scrolling 500px beyond the start
+				start: 0, // when the top of the trigger hits the top of the viewport
+				end: '+=100', // end after scrolling 500px beyond the start
 				scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
 				snap: 'labels'
 			}
@@ -32,6 +32,7 @@
 			.to('header', { width: '100%', right: '0%', duration: 0.975 }, 0)
 			.to('#hero-image', { left: '100vw', duration: 0.9 }, 0)
 			.fromTo('#hero', { height: '100vh' }, { height: '75vh' }, 0)
+			.fromTo('#upper-container', { marginBottom: '0vh' }, { marginBottom: '-25vh' }, 0)
 			.addLabel('end');
 
 		let tl3 = gsap.timeline({
@@ -80,9 +81,9 @@
 	<Header class="w-full h-16" simplified={false} />
 </header>
 
-<div class="overflow-hidden">
-	<div id="upper" class="-mb-[150px]">
-		<div id="hero" class="relative h-screen w-full bg-sb-blue/20">
+<div id="upper-container" class="overflow-hidden">
+	<div id="upper" class="">
+		<div id="hero" class="relative h-screen w-full">
 			<div
 				id="hero-text"
 				class="absolute right-1/2 w-1/2 h-full flex flex-col justify-between items-center text-center py-10"
@@ -107,36 +108,33 @@
 				/>
 			</div>
 		</div>
-
-		<div
-			id="banner"
-			class="w-full bg-sb-blue text-white/80 py-4 text-3xl font-ultra overflow-hidden"
-		>
-			<div class="flex gap-4 whitespace-nowrap">
-				{#each Array(Math.ceil(width / 632) * 2) as i}
-					<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
-				{/each}
-			</div>
-		</div>
-
-		<div id="about" class="bg-sb-blue/20" use:scrollRef={'about'}>
-			<h2>About</h2>
-			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est
-				quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat
-				iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis
-				consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa
-				fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Eius blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id
-				nostrum, culpa fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur
-				adipisicing elit. Eius blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione
-				error dolores id nostrum, culpa fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet
-				consectetur adipisicing elit. Eius blanditiis consequatur, est quos et sequi! Eos fugit
-				beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat iste quae.
-			</p>
-		</div>
 	</div>
 </div>
+<div id="banner" class="w-full bg-sb-blue text-white/80 py-4 text-3xl font-ultra overflow-hidden">
+	<div class="flex gap-4 whitespace-nowrap">
+		{#each Array(Math.ceil(width / 632) * 2) as i}
+			<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
+		{/each}
+	</div>
+</div>
+<div id="about" class="" use:scrollRef={'about'}>
+	<h2>About</h2>
+	<p>
+		Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est quos
+		et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat iste
+		quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis consequatur, est
+		quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga? In aut quaerat
+		iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis
+		consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id nostrum, culpa fuga?
+		In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
+		blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id nostrum,
+		culpa fuga? In aut quaerat iste quae. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+		Eius blanditiis consequatur, est quos et sequi! Eos fugit beatae ratione error dolores id
+		nostrum, culpa fuga? In aut quaerat iste quae.
+	</p>
+</div>
+
+d
 
 <style lang="postcss">
 	@keyframes pointer {
