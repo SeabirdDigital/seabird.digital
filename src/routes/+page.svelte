@@ -5,7 +5,7 @@
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
-	import { scrollRef, scrollTo } from 'svelte-scrolling';
+	import { scrollTo, smoothScroll } from 'svelte-smooth-scroll';
 
 	let width = 0;
 
@@ -97,7 +97,7 @@
 						quam ratione voluptatem omnis.
 					</p>
 				</div>
-				<button use:scrollTo={{ ref: 'headline', duration: 2500 }}>
+				<button on:click={() => scrollTo('heading')}>
 					<img src={Pointer} id="pointer" class="h-16" alt="" />
 				</button>
 			</div>
@@ -118,7 +118,7 @@
 	</div>
 </div>
 
-<div class="container py-24" use:scrollRef={'headline'}>
+<div id="heading" class="container py-24" use:smoothScroll>
 	<h2 class="text-3xl font-pt font-bold text-sb-blue">
 		För många sidor är fortfarande kvar<br />
 		i 90-talet. Vi skapar moderna hemsidor<br />
