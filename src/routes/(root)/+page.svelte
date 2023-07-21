@@ -75,10 +75,14 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Seabird Digital | Lite annorlunda digitalbyrå</title>
+</svelte:head>
+
 <svelte:window on:resize={() => ScrollTrigger.refresh()} bind:innerWidth={width} />
 
-<header class="z-50 fixed top-10 right-1/2 w-1/2 opacity-0">
-	<Header class="w-full h-16" simplified={false} />
+<header class="fixed right-1/2 top-10 z-50 w-1/2 opacity-0">
+	<Header class="h-16 w-full" simplified={false} />
 </header>
 
 <div id="upper-container" class="overflow-hidden">
@@ -86,12 +90,12 @@
 		<div id="hero" class="relative h-screen w-full">
 			<div
 				id="hero-text"
-				class="absolute right-1/2 w-1/2 h-full flex flex-col justify-between items-center text-center py-10"
+				class="absolute right-1/2 flex h-full w-1/2 flex-col items-center justify-between py-10 text-center"
 			>
 				<Header />
 
 				<div class="flex flex-col gap-3">
-					<h1 class="font-ultra text-sb-blue text-4xl">Helping your <br /> brand take-off!</h1>
+					<h1 class="font-ultra text-4xl text-sb-blue">Helping your <br /> brand take-off!</h1>
 					<p class="w-[24rem]">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, eos sit. Quibusdam beatae
 						quam ratione voluptatem omnis.
@@ -101,16 +105,16 @@
 					<img src={Pointer} id="pointer" class="h-16" alt="" />
 				</button>
 			</div>
-			<div id="hero-image" class="absolute left-[50vw] top-6 bottom-6 right-8">
+			<div id="hero-image" class="absolute bottom-6 left-[50vw] right-8 top-6">
 				<div
-					class="h-full flex justify-center items-center rounded-3xl bg-[length:50vw] bg-center"
+					class="flex h-full items-center justify-center rounded-3xl bg-[length:50vw] bg-center"
 					style="background-image: url({TakeOff});"
 				/>
 			</div>
 		</div>
 	</div>
 </div>
-<div id="banner" class="w-full bg-sb-blue text-white/80 py-4 text-3xl font-ultra overflow-hidden">
+<div id="banner" class="w-full overflow-hidden bg-sb-blue py-4 font-ultra text-3xl text-white/80">
 	<div class="flex gap-4 whitespace-nowrap">
 		{#each Array(Math.ceil(width / 632) * 2) as i}
 			<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
@@ -119,17 +123,17 @@
 </div>
 
 <div id="heading" class="container py-24" use:smoothScroll>
-	<h2 class="text-3xl font-pt font-bold text-sb-blue">
+	<h2 class="font-pt text-3xl font-bold text-sb-blue">
 		För många sidor är fortfarande kvar<br />
 		i 90-talet. Vi skapar moderna hemsidor<br />
 		utan att skada din plånbok.
 	</h2>
 </div>
 
-<div class="relative container grid grid-cols-2 gap-12 py-12">
-	<div class="bg-cover bg-center rounded-3xl" style="background-image: url({TakeOff});" />
+<div class="container relative grid grid-cols-2 gap-12 py-12">
+	<div class="rounded-3xl bg-cover bg-center" style="background-image: url({TakeOff});" />
 	<div class="py-16">
-		<h2 class="text-2xl font-ultra text-sb-blue">Hemsidor som hjälper<br />dig sälja mer</h2>
+		<h2 class="font-ultra text-2xl text-sb-blue">Hemsidor som hjälper<br />dig sälja mer</h2>
 		<p>
 			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque totam corrupti omnis
 			necessitatibus facilis ducimus quos dolorum modi impedit. Aperiam mollitia, vel vero aliquid
