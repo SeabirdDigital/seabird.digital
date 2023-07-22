@@ -24,12 +24,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	if (
 		event.url.pathname.startsWith('/dashboard') &&
-		!event.url.pathname.startsWith('/dashboard/auth')
+		!event.url.pathname.startsWith('/dashboard/api/auth')
 	) {
 		const session = await event.locals.getSession();
 		if (!session) {
 			// the user is not signed in
-			throw redirect(303, '/dashboard/auth/login');
+			throw redirect(303, '/dashboard/api/auth/login');
 		}
 	}
 

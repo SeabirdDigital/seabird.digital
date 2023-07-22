@@ -21,14 +21,10 @@
 		$$slots.actions;
 </script>
 
-<div
-	class="rounded-md border-sb-blue/50 bg-sb-blue/10 shadow-md shadow-sb-blue/10 {$$slots.default
-		? 'border'
-		: ''}"
->
+<div class="rounded-md border border-sb-blue/50 bg-sb-blue/10 shadow-md shadow-sb-blue/10">
 	{#if hasHeader}
 		<slot name="header">
-			<div class="flex justify-between border-b p-4">
+			<div class="flex justify-between border-sb-blue/50 p-4 {$$slots.default ? 'border-b' : ''}">
 				<div class="flex">
 					<div class="flex w-72 items-center gap-4">
 						{#if header?.image || $$slots.image}
@@ -77,7 +73,9 @@
 		</slot>
 	{/if}
 
-	<div>
-		<slot />
-	</div>
+	{#if $$slots.default}
+		<div class="p-4">
+			<slot />
+		</div>
+	{/if}
 </div>

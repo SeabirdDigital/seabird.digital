@@ -17,5 +17,8 @@ export const load: LayoutLoad = async ({ fetch, data, depends }) => {
 		data: { session }
 	} = await supabase.auth.getSession();
 
-	return { supabase, session };
+	const profileResponse = await supabase.from('profiles').select().eq('id', session?.user?.id);
+	const profile: Profile | undefined = profileResponse.data?.[0];
+
+	return { supabase, session, profile };
 };
