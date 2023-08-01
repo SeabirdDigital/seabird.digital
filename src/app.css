@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-	@apply font-pt;
+	@apply font-pt bg-sb-blue/20;
 }

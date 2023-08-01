@@ -1,11 +1,12 @@
 <script>
 	import Pointer from '$lib/assets/pointer.svg';
+	import StandOut from '$lib/assets/stand-out.webp';
 	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Header from '$lib/components/layout/Header.svelte';
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
-	import { scrollRef, scrollTo } from 'svelte-scrolling';
+	import { scrollTo, smoothScroll } from 'svelte-smooth-scroll';
 
 	let width = 0;
 
@@ -91,26 +92,29 @@
 				<Header />
 
 				<div class="flex flex-col gap-3">
-					<h1 class="font-ultra text-sb-blue text-4xl">Helping your <br /> brand take-off!</h1>
+					<h1 class="font-ultra text-sb-blue text-heading">Helping your <br /> brand take-off!</h1>
 					<p class="w-[24rem]">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, eos sit. Quibusdam beatae
 						quam ratione voluptatem omnis.
 					</p>
 				</div>
-				<button use:scrollTo={{ ref: 'headline', duration: 2500 }}>
+				<button on:click={() => scrollTo('headline')}>
 					<img src={Pointer} id="pointer" class="h-16" alt="" />
 				</button>
 			</div>
 			<div id="hero-image" class="absolute left-[50vw] top-6 bottom-6 right-8">
 				<div
-					class="h-full flex justify-center items-center rounded-3xl bg-[length:50vw] bg-center"
+					class="h-full flex bg-[length:50vw] justify-center items-center rounded-[6rem] border-8 border-sb-blue bg-center"
 					style="background-image: url({TakeOff});"
 				/>
 			</div>
 		</div>
 	</div>
 </div>
-<div id="banner" class="w-full bg-sb-blue text-white/80 py-4 text-3xl font-ultra overflow-hidden">
+<div
+	id="banner"
+	class="w-full bg-sb-blue text-white/80 py-4 text-heading font-ultra overflow-hidden"
+>
 	<div class="flex gap-4 whitespace-nowrap">
 		{#each Array(Math.ceil(width / 632) * 2) as i}
 			<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
@@ -118,8 +122,8 @@
 	</div>
 </div>
 
-<div class="container py-24" use:scrollRef={'headline'}>
-	<h2 class="text-3xl font-pt font-bold text-sb-blue">
+<div class="container py-24" use:smoothScroll={'headline'}>
+	<h2 class="text-heading font-pt font-bold text-sb-blue">
 		För många sidor är fortfarande kvar<br />
 		i 90-talet. Vi skapar moderna hemsidor<br />
 		utan att skada din plånbok.
@@ -129,7 +133,7 @@
 <div class="relative container grid grid-cols-2 gap-12 py-12">
 	<div class="bg-cover bg-center rounded-3xl" style="background-image: url({TakeOff});" />
 	<div class="py-16">
-		<h2 class="text-2xl font-ultra text-sb-blue">Hemsidor som hjälper<br />dig sälja mer</h2>
+		<h2 class="text-heading font-ultra text-sb-blue">Hemsidor som hjälper<br />dig sälja mer</h2>
 		<p>
 			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque totam corrupti omnis
 			necessitatibus facilis ducimus quos dolorum modi impedit. Aperiam mollitia, vel vero aliquid

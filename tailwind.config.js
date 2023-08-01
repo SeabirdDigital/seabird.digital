@@ -13,6 +13,14 @@ module.exports = {
 			container: {
 				center: true,
 				padding: '2rem'
+			},
+			fontSize: {
+				heading: [
+					'2.25rem',
+					{
+						lineHeight: '2.75rem'
+					}
+				]
 			}
 		}
 	},
