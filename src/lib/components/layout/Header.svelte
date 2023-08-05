@@ -3,6 +3,7 @@
 	import LogoFull from '$lib/assets/logoFull.svg';
 
 	export let simplified = true;
+	export let noButton = true;
 	let className = '';
 	export { className as class };
 </script>
@@ -14,11 +15,13 @@
 			{#if simplified}
 				<img src={Logo} id="logo" class="h-16" alt="Seabird logo" />
 			{:else}
-				<img src={LogoFull} id="logoFull" class="absolute h-16 -ml-[0.1%]" alt="Seabird logo" />
+				<img src={LogoFull} id="logoFull" class="h-16 -ml-[0.1%]" alt="Seabird logo" />
 			{/if}
 		</div>
 		<div class="flex justify-end">
-			<button class="bg-sb-blue text-white h-fit py-3 px-4 rounded-full"> Let's Talk! </button>
+			{#if !simplified && noButton}
+				<button class="bg-sb-blue text-white h-fit py-3 px-4 rounded-full"> Let's Talk! </button>
+			{/if}
 		</div>
 	</div>
 </div>

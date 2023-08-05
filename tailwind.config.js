@@ -7,7 +7,7 @@ module.exports = {
 				'sb-blue': '#3A405A'
 			},
 			fontFamily: {
-				pt: "'PT Serif', serif",
+				slabo: "'Slabo 27px', sans-serif",
 				ultra: "'Ultra', serif"
 			},
 			container: {
@@ -16,9 +16,15 @@ module.exports = {
 			},
 			fontSize: {
 				heading: [
-					'2.25rem',
+					'2.5rem',
 					{
-						lineHeight: '2.75rem'
+						lineHeight: '1.2'
+					}
+				],
+				base: [
+					'1.25rem',
+					{
+						lineHeight: '1.5rem'
 					}
 				]
 			}

@@ -3,5 +3,16 @@
 @tailwind utilities;
 
 body {
-	@apply font-pt bg-sb-blue/20;
+	@apply font-slabo bg-sb-blue/10 text-base overflow-x-hidden;
+}
+
+h1,
+h2 {
+	@apply text-sb-blue font-black text-heading font-ultra;
+}
+
+.text-heading:has(+ *),
+h1:has(+ *),
+h2:has(+ *) {
+	@apply mb-4;
 }
