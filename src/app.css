@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-	@apply font-slabo bg-sb-blue/10 text-base overflow-x-hidden;
+	@apply font-slabo bg-sb-light-blue text-base overflow-x-hidden;
 }
 
 h1,
 h2 {
-	@apply text-sb-blue font-black text-heading font-ultra;
+	@apply text-sb-blue text-heading font-ultra;
 }
 
 .text-heading:has(+ *),

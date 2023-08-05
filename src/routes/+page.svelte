@@ -1,4 +1,5 @@
 <script>
+	import Logo from '$lib/assets/logo.svg';
 	import Pointer from '$lib/assets/pointer.svg';
 	import StandOut from '$lib/assets/stand-out.webp';
 	import TakeOff from '$lib/assets/takeoff.jpg';
@@ -93,7 +94,7 @@
 					<Header simplified={false} noButton={false} />
 
 					<div class="flex flex-col items-center">
-						<h1 class="heading text-white/90">
+						<h1 class="heading text-sb-light-blue">
 							Helping you <br /> stand out
 						</h1>
 						<p class="paragraph text-white max-w-md">
