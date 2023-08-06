@@ -4,6 +4,7 @@
 	import StandOut from '$lib/assets/stand-out.webp';
 	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Header from '$lib/components/layout/Header.svelte';
+	import transitionOn from '$lib/stores/transitionOn';
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
@@ -75,6 +76,8 @@
 			.addLabel('start')
 			.fromTo('header', { opacity: 0 }, { opacity: 1 }, 0)
 			.addLabel('end');
+
+		transitionOn.set(false);
 	});
 </script>
 
