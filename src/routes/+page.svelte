@@ -3,6 +3,7 @@
 	import Pointer from '$lib/assets/pointer.svg';
 	import StandOut from '$lib/assets/stand-out.webp';
 	import TakeOff from '$lib/assets/takeoff.jpg';
+	import Hero from '$lib/components/home/Hero.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import transitionOn from '$lib/stores/transitionOn';
 	import { gsap } from 'gsap';
@@ -25,18 +26,35 @@
 					trigger: '#page',
 					pin: true,
 					start: 0,
-					end: `+=${500}`,
+					end: `+=${1000}`,
 					scrub: true
 				}
 			})
 			.addLabel('start')
 			.addLabel('end');
 
+		const talkTimeline = gsap.timeline({
+			scrollTrigger: {
+				start: 300,
+				end: `+=500`,
+				scrub: true
+			}
+		});
+		talkTimeline.addLabel('start');
+
+		const lets = document.getElementsByClassName('lets');
+		for (let i = 0; i < lets.length; i++) {
+			const l = lets[i];
+			talkTimeline.to(l, { opacity: 1 }, i / lets.length);
+		}
+
+		talkTimeline.addLabel('end');
+
 		gsap
 			.timeline({
 				scrollTrigger: {
 					start: 0,
-					end: `+=${500 + 200}`,
+					end: `+=${1000 + 200}`,
 					scrub: true
 				}
 			})
@@ -45,7 +63,8 @@
 			.to('#pointer', { height: 0, duration: 0.5 }, 0.1)
 			.fromTo('#hero-mask', { maskSize: 0 }, { maskSize: '120%' }, 0.5)
 			.to('.hero .text', { width: '100%', right: '0vw', duration: 0.975 }, 0)
-			.to('.hero .paragraph', { opacity: 0, height: 0 }, 0)
+			.to('.hero .paragraph', { opacity: 0 }, 0)
+			.to('.hero .paragraph', { marginBottom: 0, height: 0 }, 0.2)
 			.to('.hero .heading', { fontSize: '4rem' }, 0.1)
 			.to('header', { width: '100%', right: '0%', duration: 0.975 }, 0)
 			.to('.hero .image', { left: '100vw', duration: 0.9 }, 0)
@@ -57,7 +76,7 @@
 			.timeline({
 				scrollTrigger: {
 					start: 0,
-					end: '+=2500',
+					end: '+=2000',
 					scrub: true
 				}
 			})
@@ -68,8 +87,8 @@
 		gsap
 			.timeline({
 				scrollTrigger: {
-					start: 500 + heroHeight + 200,
-					end: '+=100',
+					start: 1000 + heroHeight + 200,
+					end: '+=200',
 					scrub: true
 				}
 			})
@@ -84,64 +103,14 @@
 <svelte:window on:resize={() => ScrollTrigger.refresh()} bind:innerWidth={width} />
 
 <header class="z-50 fixed top-10 right-1/2 w-1/2 opacity-0">
-	<Header class="h-16" simplified={false} />
+	<Header class="h-16" simplified={false} noButton={false} />
 </header>
 
 <div id="page">
 	<div id="upper-container" class="overflow-hidden">
 		<div id="upper" class="">
-			<div id="hero-mask" class="hero z-50 bg-sb-blue absolute h-screen w-full">
-				<div
-					class="text absolute right-1/2 w-1/2 h-full flex flex-col justify-between items-center text-center py-10"
-				>
-					<Header simplified={false} noButton={false} />
-
-					<div class="flex flex-col items-center">
-						<h1 class="heading text-sb-light-blue">
-							Helping you <br /> stand out
-						</h1>
-						<p class="paragraph text-white max-w-md">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, eos sit. Quibusdam
-							beatae quam ratione voluptatem omnis.
-						</p>
-					</div>
-					<button on:click={() => scrollTo('headline')}>
-						<img src={Pointer} id="pointer" class="h-16" alt="" />
-					</button>
-				</div>
-				<div class="image absolute left-[50vw] top-6 bottom-6 right-8">
-					<div
-						class="h-full flex bg-[length:50vw] justify-center items-center rounded-[6rem] border-8 border-sb-blue bg-center"
-						style="background-image: url({TakeOff});"
-					/>
-				</div>
-			</div>
-			<div id="hero" class="hero relative h-screen w-full">
-				<div
-					class="text absolute right-1/2 w-1/2 h-full flex flex-col justify-between items-center text-center py-10"
-				>
-					<Header />
-
-					<div class="flex flex-col items-center">
-						<h1 class="heading">
-							Helping you <br /> take-off!
-						</h1>
-						<p class="paragraph max-w-md">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, eos sit. Quibusdam
-							beatae quam ratione voluptatem omnis.
-						</p>
-					</div>
-					<button on:click={() => scrollTo('headline')}>
-						<img src={Pointer} id="pointer" class="h-16" alt="" />
-					</button>
-				</div>
-				<div class="image absolute left-[50vw] top-6 bottom-6 right-8">
-					<div
-						class="h-full flex bg-[length:50vw] justify-center items-center rounded-[6rem] border-8 border-sb-blue bg-center"
-						style="background-image: url({TakeOff});"
-					/>
-				</div>
-			</div>
+			<Hero isMask />
+			<Hero />
 		</div>
 	</div>
 	<div
@@ -150,7 +119,7 @@
 	>
 		<div class="flex gap-4 whitespace-nowrap">
 			{#each Array(Math.ceil(width / 632) * 2) as i}
-				<span>En lite annorlunda digitalbyrå</span><span style="color: #F1A208;">✦</span>
+				<span>En lite annorlunda digitalbyrå</span><span class="text-sb-yellow">✦</span>
 			{/each}
 		</div>
 	</div>
@@ -192,12 +161,3 @@
 		}
 	</style>
 </div>
-
-<style>
-	#hero-mask {
-		mask-image: url(/mask.svg);
-		mask-position: 50% 50%;
-		mask-repeat: no-repeat;
-		mask-size: 0;
-	}
-</style>

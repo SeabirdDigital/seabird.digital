@@ -19,7 +19,7 @@
 			{/if}
 		</div>
 		<div class="flex justify-end">
-			{#if !simplified && noButton}
+			{#if !noButton}
 				<button class="bg-sb-blue text-white h-fit py-3 px-4 rounded-full"> Let's Talk! </button>
 			{/if}
 		</div>

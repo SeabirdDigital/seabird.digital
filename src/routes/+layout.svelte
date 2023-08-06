@@ -16,12 +16,13 @@
 
 <style>
 	#transition {
-		mask-image: url(/mask.svg);
+		mask-image: url(/mask.svg), linear-gradient(#fff 0 0);
 		mask-position: 50% 50%;
-		mask-size: 0;
+		mask-size: 150%, auto;
 		mask-repeat: no-repeat;
+		mask-composite: exclude;
 	}
 	#transition.on {
-		mask-size: 120%;
+		mask-size: 0, auto;
 	}
 </style>
