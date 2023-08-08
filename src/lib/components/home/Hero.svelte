@@ -14,7 +14,7 @@
 
 <div
 	id={isMask ? 'hero-mask' : 'hero'}
-	class="hero h-screen w-full {isMask ? 'z-10 bg-sb-blue absolute' : 'relative'}"
+	class="hero h-[75vh] w-full {isMask ? 'z-10 bg-sb-blue absolute' : 'relative'}"
 >
 	{#if !isMask}
 		{#each Array(500) as _}
@@ -59,6 +59,21 @@
 </div>
 
 <style>
+	@keyframes pointer {
+		from {
+			margin-top: 0rem;
+			margin-bottom: 0rem;
+		}
+		to {
+			margin-top: -1rem;
+			margin-bottom: 1rem;
+		}
+	}
+
+	#pointer {
+		animation: pointer infinite both alternate 1000ms ease;
+	}
+
 	#hero-mask {
 		mask-image: url(/mask.svg);
 		mask-position: 50% 50%;

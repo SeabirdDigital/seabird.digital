@@ -7,11 +7,19 @@
 
 <div
 	id="transition"
-	class="fixed w-screen h-screen bg-sb-blue z-[60] duration-700 {$transitionOn ? 'on' : 'off'}"
+	class="fixed w-screen h-screen bg-sb-blue z-[60] duration-700 {$transitionOn
+		? 'on'
+		: 'off pointer-events-none'}"
 />
 
-<div class="">
+<main class="">
 	<slot />
+</main>
+
+<div class="bg-sb-blue">
+	<div class="container flex justify-center text-center text-white py-6">
+		Copyright 2019 - {new Date().getFullYear()} &copy; Seabird Digital UF. All rights reserved.
+	</div>
 </div>
 
 <style>

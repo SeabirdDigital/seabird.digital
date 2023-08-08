@@ -1,7 +1,4 @@
 <script>
-	import Logo from '$lib/assets/logo.svg';
-	import Pointer from '$lib/assets/pointer.svg';
-	import StandOut from '$lib/assets/stand-out.webp';
 	import TakeOff from '$lib/assets/takeoff.jpg';
 	import Hero from '$lib/components/home/Hero.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
@@ -9,7 +6,7 @@
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
-	import { scrollTo, smoothScroll } from 'svelte-smooth-scroll';
+	import { smoothScroll } from 'svelte-smooth-scroll';
 
 	let width = 0;
 
@@ -20,18 +17,30 @@
 
 		gsap.registerPlugin(ScrollTrigger);
 
-		gsap
-			.timeline({
-				scrollTrigger: {
-					trigger: '#page',
-					pin: true,
-					start: 0,
-					end: `+=${1000}`,
-					scrub: true
+		const page = document.getElementById('page');
+		if (!page) throw new Error('no #page');
+
+		const pageHeight = page?.clientHeight;
+		page.style.width = window.innerWidth + 'px';
+
+		const main = document.getElementsByTagName('main')[0];
+		main.style.height = pageHeight + 1048 + 'px';
+
+		gsap.timeline({
+			scrollTrigger: {
+				start: 0,
+				end: `+=${1000}`,
+				scrub: true,
+				onLeave: () => {
+					page.style.position = 'static';
+					page.style.translate = '0 1000px';
+				},
+				onEnterBack: () => {
+					page.style.position = 'fixed';
+					page.style.translate = '0';
 				}
-			})
-			.addLabel('start')
-			.addLabel('end');
+			}
+		});
 
 		const talkTimeline = gsap.timeline({
 			scrollTrigger: {
@@ -106,7 +115,7 @@
 	<Header class="h-16" simplified={false} noButton={false} />
 </header>
 
-<div id="page">
+<div id="page" class="fixed">
 	<div id="upper-container" class="overflow-hidden">
 		<div id="upper" class="">
 			<Hero isMask />
@@ -132,7 +141,7 @@
 		</span>
 	</div>
 
-	<div class="relative container grid grid-cols-2 gap-12 py-12">
+	<div class="relative container grid grid-cols-2 gap-12 my-24">
 		<div class="bg-cover bg-center rounded-3xl" style="background-image: url({TakeOff});" />
 		<div class="py-16">
 			<h2>Hemsidor som hjälper<br />dig sälja mer</h2>
@@ -143,21 +152,4 @@
 			</p>
 		</div>
 	</div>
-
-	<style lang="postcss">
-		@keyframes pointer {
-			from {
-				margin-top: 0rem;
-				margin-bottom: 0rem;
-			}
-			to {
-				margin-top: -1rem;
-				margin-bottom: 1rem;
-			}
-		}
-
-		#pointer {
-			animation: pointer infinite both alternate 1000ms ease;
-		}
-	</style>
 </div>
